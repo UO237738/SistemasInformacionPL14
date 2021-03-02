@@ -1,8 +1,17 @@
---Datos para carga inicial de la base de datos
-delete from carreras;
-insert into carreras(id,inicio,fin,fecha,descr) values 
-	(100,'2016-10-05','2016-10-25','2016-11-09','finalizada'),
-	(101,'2016-10-05','2016-10-25','2016-11-10','en fase 3'),
-	(102,'2016-11-05','2016-11-09','2016-11-20','en fase 2'),
-	(103,'2016-11-10','2016-11-15','2016-11-21','en fase 1'),
-	(104,'2016-11-11','2016-11-15','2016-11-22','antes inscripcion');
+delete from instalaciones; 
+INSERT INTO instalaciones (id_instalacion, nombre, precio, aforo) VALUES (1,'Pista de tenis', 5, 10); 
+
+delete from actividades; 
+INSERT INTO actividades (id_actividad, id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad, id_inscripcion, id_horario) VALUES (1,1,'Baloncesto', 50, 20, 25,'2019-04-01', '2019-04-30', 1, 1); 
+
+delete from socios;
+INSERT INTO socios (dni, nombre, apellidos) VALUES ('12345678X','Ana', 'Perez Gomez');
+
+delete from noSocios;
+INSERT INTO noSocios (dni, nombre, apellidos) VALUES ('87654321X','Juan', 'Gomez Perez');
+
+delete from inscripciones;
+INSERT INTO inscripciones (id_inscripciones, fechaInicioSocios, fechaFinSocios, fechaFinNoSocios) VALUES ('1','2019-06-01','2019-07-01','2019-08-30');
+
+delete from horario;
+INSERT INTO horario (id_horario,dia,hora_ini,hora_fin) VALUES (1, "Lunes", "13:00", "19:30");
