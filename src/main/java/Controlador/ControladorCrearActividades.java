@@ -2,6 +2,7 @@ package Controlador;
 
 import Vista.VistaCrearActividades;
 import Vista.VistaCrearHorario;
+import Vista.VistaCrearPeriodoInscripcion;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,7 @@ public class ControladorCrearActividades {
 
 private VistaCrearActividades VCA;
 private VistaCrearHorario VCH;
+private VistaCrearPeriodoInscripcion VAPI;
 	//Constructor
 	public ControladorCrearActividades(VistaCrearActividades v) {
 		this.VCA=v;
@@ -28,8 +30,8 @@ private VistaCrearHorario VCH;
 
 	private void initView() {
 		// TODO Auto-generated method stub
-		//ModeloCrearActividades.ObtenerInstalaciones(VCA.cbInstalacion);
-		//ModeloCrearActividades.ObtenerInscripciones(VCA.cbInscripcion);
+		ModeloCrearActividades.cogerInstalaciones(VCA.cbInstalacion);
+		ModeloCrearActividades.cogerActividades(VCA.cbActividad);
 		VCA.contentPane.setVisible(true);
 	}
 
@@ -82,11 +84,18 @@ private VistaCrearHorario VCH;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VCH.getContentPane().setVisible(false);
+				VCH.getContentPane().setVisible(true);
 			}
 		});
 		
-	
+		VCA.bAsignar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VAPI.getContentPane().setVisible(true);
+			}
+		});
 		
 	}
 }

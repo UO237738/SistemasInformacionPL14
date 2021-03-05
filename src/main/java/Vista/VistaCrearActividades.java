@@ -33,24 +33,14 @@ public class VistaCrearActividades extends JFrame {
 	public JButton bAsignar;
 	public JDateChooser dcFechaInicio;
 	public JDateChooser dcFechaFin;
+	private JTextField tfNombre;
 
 
 	
 	/**
 	 * Launch the application.
 	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaCrearActividades frame = new VistaCrearActividades();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	
 
 	/**
 	 * Create the frame.
@@ -68,7 +58,7 @@ public class VistaCrearActividades extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblInstalacin = new JLabel("Instalación:");
-		lblInstalacin.setBounds(10, 10, 54, 19);
+		lblInstalacin.setBounds(302, 36, 54, 19);
 		contentPane.add(lblInstalacin);
 		
 		JLabel lblActividad = new JLabel("Actividad:");
@@ -119,7 +109,7 @@ public class VistaCrearActividades extends JFrame {
 		
 		JButton bAceptar = new JButton("Aceptar");
 		bAceptar.setEnabled(false);
-		bAceptar.setBounds(341, 224, 85, 21);
+		bAceptar.setBounds(438, 225, 85, 21);
 		contentPane.add(bAceptar);
 		
 		JLabel lblSocios = new JLabel("Socios:");
@@ -186,7 +176,7 @@ public class VistaCrearActividades extends JFrame {
 		contentPane.add(cbActividad);
 		
 		JComboBox cbInstalacion = new JComboBox();
-		cbInstalacion.setBounds(74, 9, 152, 21);
+		cbInstalacion.setBounds(371, 35, 152, 21);
 		contentPane.add(cbInstalacion);
 		
 		tfAforo = new JTextField();
@@ -207,6 +197,15 @@ public class VistaCrearActividades extends JFrame {
 		JLabel lblPersonas = new JLabel("personas");
 		lblPersonas.setBounds(175, 62, 46, 13);
 		contentPane.add(lblPersonas);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(10, 16, 46, 13);
+		contentPane.add(lblNombre);
+		
+		tfNombre = new JTextField();
+		tfNombre.setBounds(69, 13, 140, 19);
+		contentPane.add(tfNombre);
+		tfNombre.setColumns(10);
 	}
 
 
@@ -268,19 +267,6 @@ public class VistaCrearActividades extends JFrame {
 	public void setTfAforo(JTextField tfAforo) {
 		this.tfAforo = tfAforo;
 	}
-
-
-
-	public JComboBox<String> getCbInscripcion() {
-		return cbInstalacion;
-	}
-
-
-
-	public void setCbInscripcion(JComboBox<String> cbInscripcion) {
-		this.cbInstalacion = cbInstalacion;
-	}
-
 
 
 	public JComboBox<String> getCbActividad() {
@@ -363,6 +349,30 @@ public class VistaCrearActividades extends JFrame {
 
 	public void setDcFechaFin(JDateChooser dcFechaFin) {
 		this.dcFechaFin = dcFechaFin;
+	}
+
+
+
+	public JComboBox<String> getCbInstalacion() {
+		return cbInstalacion;
+	}
+
+
+
+	public void setCbInstalacion(JComboBox<String> cbInstalacion) {
+		this.cbInstalacion = cbInstalacion;
+	}
+
+
+
+	public JTextField getTextField() {
+		return tfNombre;
+	}
+
+
+
+	public void setTfNombre(JTextField tfNombre) {
+		this.tfNombre = tfNombre;
 	}
 	
 }
