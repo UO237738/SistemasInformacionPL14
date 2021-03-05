@@ -15,3 +15,6 @@ INSERT INTO inscripciones (id_inscripciones, fechaInicioSocios, fechaFinSocios, 
 
 delete from horario;
 INSERT INTO horario (id_horario,dia,hora_ini,hora_fin) VALUES (1, "Lunes", "13:00", "19:30");
+
+delete from reservas;
+INSERT INTO reservas (id_reservas, fechaIni, fechaFin, id_actividad) VALUES (1, "9:00", "10:00", 1);
