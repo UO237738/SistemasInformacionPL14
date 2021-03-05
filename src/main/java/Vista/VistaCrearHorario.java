@@ -246,4 +246,13 @@ public class VistaCrearHorario extends JFrame {
 		btnAceptar.setBounds(426, 282, 85, 21);
 		contentPane.add(btnAceptar);
 	}
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+	
 }
