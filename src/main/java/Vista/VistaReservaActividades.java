@@ -102,7 +102,7 @@ public class VistaReservaActividades extends JFrame {
 		contentPane.add(btnCrea);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(72, 269, 89, 23);
+		btnCancelar.setBounds(50, 269, 89, 23);
 		contentPane.add(btnCancelar);
 	}
 }
