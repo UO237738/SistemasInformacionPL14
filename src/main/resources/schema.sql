@@ -25,3 +25,5 @@ fechaFinNoSocios TEXT NOT NULL);
 drop table horario;
 CREATE TABLE horario (id_horario INTEGER PRIMARY KEY AUTOINCREMENT, dia TEXT NOT NULL, hora_ini TEXT NOT NULL, hora_fin TEXT NOT NULL);
 
+drop table reservas;
+CREATE TABLE reservas (id_reserva INTEGER PRIMARY KEY AUTOINCREMENT, fechaIni TEXT NOT NULL, fechaFin TEXT NOT NULL, FOREING KEY (id_actividad) REFERENCES actividades (id_actividad));
