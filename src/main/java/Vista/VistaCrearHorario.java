@@ -56,6 +56,8 @@ public class VistaCrearHorario extends JFrame {
 	public JLabel lDomingo1;
 	public JLabel lDomingo2;
 	
+	public JButton bAceptar;
+	public JButton bCancelar;
 	
 	
 
@@ -605,6 +607,22 @@ public class VistaCrearHorario extends JFrame {
 
 	public void setlDomingo2(JLabel lDomingo2) {
 		this.lDomingo2 = lDomingo2;
+	}
+
+	public JButton getbAceptar() {
+		return bAceptar;
+	}
+
+	public void setbAceptar(JButton bAceptar) {
+		this.bAceptar = bAceptar;
+	}
+
+	public JButton getbCancelar() {
+		return bCancelar;
+	}
+
+	public void setbCancelar(JButton bCancelar) {
+		this.bCancelar = bCancelar;
 	}
 	
 	

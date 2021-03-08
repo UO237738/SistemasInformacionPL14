@@ -11,7 +11,7 @@ delete from noSocios;
 INSERT INTO noSocios (dni, nombre, apellidos) VALUES ('87654321X','Juan', 'Gomez Perez');
 
 delete from inscripciones;
-INSERT INTO inscripciones (id_inscripciones, fechaInicioSocios, fechaFinSocios, fechaFinNoSocios) VALUES ('1','2019-06-01','2019-07-01','2019-08-30');
+INSERT INTO inscripciones (id_inscripciones, fechaInicioSocios, fechaFinSocios, fechaFinNoSocios) VALUES ('1','201/06/2019','01/07/2019','30/08/2019');
 
 delete from horario;
 INSERT INTO horario (id_horario,dia,hora_ini,hora_fin) VALUES (1, "Lunes", "13:00", "19:30");

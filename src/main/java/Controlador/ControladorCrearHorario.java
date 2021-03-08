@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import Vista.VistaAdmin;
 import Vista.VistaCrearHorario;
 import Modelo.ModeloHorarioDisplayDTO;
 
@@ -15,7 +16,7 @@ public class ControladorCrearHorario {
 
 	private VistaCrearHorario VCH;
 	private ModeloHorarioDisplayDTO MHDD;
-	
+	private VistaAdmin VA;
 	public ControladorCrearHorario(VistaCrearHorario VCH) {
 		this.VCH=VCH;
 		this.addListener();
@@ -32,6 +33,24 @@ public class ControladorCrearHorario {
 
 	private void addListener() {
 		// TODO Auto-generated method stub
+		VCH.bCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					VCH.contentPane.setVisible(false);
+					VA.contentPane.setVisible(true);
+			}
+		});
+		
+		VCH.bAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					JOptionPane.showMessageDialog(null, "Horario creado con éxito!","Correcto",JOptionPane.INFORMATION_MESSAGE);
+					VCH.contentPane.setVisible(false);
+					VA.contentPane.setVisible(true);
+			}
+		});
+		
+		
+		
+		
 		VCH.chbLunes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(VCH.chbLunes.isSelected()) {

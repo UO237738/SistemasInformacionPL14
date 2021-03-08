@@ -16,7 +16,11 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 
 	public JPanel contentPane;
 	public JTextField tfFechaInicioNoSocios;
-	
+	public JDateChooser dcFechaInicioSocios;
+	public JDateChooser dcFechaFinSocios;
+	public JDateChooser dcFechaFinNoSocios;
+	public JButton bAceptar;
+	public JButton bCancelar;
 
 	/**
 	 * Launch the application.
@@ -58,6 +62,7 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 		contentPane.add(lblFechaFinSocios);
 		
 		JDateChooser dcFechaFinSocios = new JDateChooser();
+		dcFechaFinSocios.getCalendarButton().setEnabled(false);
 		dcFechaFinSocios.setBounds(149, 56, 126, 19);
 		contentPane.add(dcFechaFinSocios);
 		
@@ -70,10 +75,13 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 		contentPane.add(lblFechaFinNo);
 		
 		JDateChooser dcFechaFinNoSocios = new JDateChooser();
+		dcFechaFinNoSocios.getCalendarButton().setEnabled(false);
 		dcFechaFinNoSocios.setBounds(149, 132, 126, 19);
 		contentPane.add(dcFechaFinNoSocios);
 		
 		tfFechaInicioNoSocios = new JTextField();
+		tfFechaInicioNoSocios.setEnabled(false);
+		tfFechaInicioNoSocios.setEditable(false);
 		tfFechaInicioNoSocios.setBounds(149, 105, 126, 19);
 		contentPane.add(tfFechaInicioNoSocios);
 		tfFechaInicioNoSocios.setColumns(10);
@@ -83,7 +91,65 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 		contentPane.add(bCancelar);
 		
 		JButton bAceptar = new JButton("Aceptar");
+		bAceptar.setEnabled(false);
 		bAceptar.setBounds(305, 208, 85, 21);
 		contentPane.add(bAceptar);
 	}
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public JTextField getTfFechaInicioNoSocios() {
+		return tfFechaInicioNoSocios;
+	}
+
+	public void setTfFechaInicioNoSocios(JTextField tfFechaInicioNoSocios) {
+		this.tfFechaInicioNoSocios = tfFechaInicioNoSocios;
+	}
+
+	public JDateChooser getDcFechaInicioSocios() {
+		return dcFechaInicioSocios;
+	}
+
+	public void setDcFechaInicioSocios(JDateChooser dcFechaInicioSocios) {
+		this.dcFechaInicioSocios = dcFechaInicioSocios;
+	}
+
+	public JDateChooser getDcFechaFinSocios() {
+		return dcFechaFinSocios;
+	}
+
+	public void setDcFechaFinSocios(JDateChooser dcFechaFinSocios) {
+		this.dcFechaFinSocios = dcFechaFinSocios;
+	}
+
+	public JDateChooser getDcFechaFinNoSocios() {
+		return dcFechaFinNoSocios;
+	}
+
+	public void setDcFechaFinNoSocios(JDateChooser dcFechaFinNoSocios) {
+		this.dcFechaFinNoSocios = dcFechaFinNoSocios;
+	}
+
+	public JButton getbAceptar() {
+		return bAceptar;
+	}
+
+	public void setbAceptar(JButton bAceptar) {
+		this.bAceptar = bAceptar;
+	}
+
+	public JButton getbCancelar() {
+		return bCancelar;
+	}
+
+	public void setbCancelar(JButton bCancelar) {
+		this.bCancelar = bCancelar;
+	}
+	
 }
