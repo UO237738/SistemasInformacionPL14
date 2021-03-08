@@ -13,7 +13,51 @@ import javax.swing.JButton;
 
 public class VistaCrearHorario extends JFrame {
 
-	private JPanel contentPane;
+	public JPanel contentPane;
+	public JCheckBox chbLunes;
+	public JCheckBox chbMartes;
+	public JCheckBox chbMiercoles;
+	public JCheckBox chbJueves;
+	public JCheckBox chbViernes;
+	public JCheckBox chbSabado;
+	public JCheckBox chbDomingo;
+	public JSpinner spLunesHI;
+	public JSpinner spMartesHI;
+	public JSpinner spMiercolesHI;
+	public JSpinner spJuevesHI;
+	public JSpinner spViernesHI;
+	public JSpinner spSabadoHI;
+	public JSpinner spDomingoHI;
+	public JSpinner spLunesHF;
+	public JSpinner spMartesHF;
+	public JSpinner spMiercolesHF;
+	public JSpinner spJuevesHF;
+	public JSpinner spViernesHF;
+	public JSpinner spSabadoHF;
+	public JSpinner spDomingoHF;
+	public JLabel lLunes1;
+	public JLabel lLunes2;
+	
+	public JLabel lMartes1;
+	public JLabel lMartes2;
+	
+	public JLabel lMiercoles1;
+	public JLabel lMiercoles2;
+	
+	public JLabel lJueves1;
+	public JLabel lJueves2;
+	
+	public JLabel lViernes1;
+	public JLabel lViernes2;
+	
+	public JLabel lSabado1;
+	public JLabel lSabado2;
+	
+	public JLabel lDomingo1;
+	public JLabel lDomingo2;
+	
+	
+	
 
 	/**
 	 * Launch the application.
@@ -42,89 +86,103 @@ public class VistaCrearHorario extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JCheckBox chckbxLunes = new JCheckBox("Lunes");
-		chckbxLunes.setBounds(6, 6, 69, 21);
-		contentPane.add(chckbxLunes);
+		JCheckBox chbLunes = new JCheckBox("Lunes");
+		chbLunes.setBounds(6, 6, 69, 21);
+		contentPane.add(chbLunes);
 		
-		JCheckBox chckbxMartes = new JCheckBox("Martes");
-		chckbxMartes.setBounds(6, 42, 95, 21);
-		contentPane.add(chckbxMartes);
+		JCheckBox chbMartes = new JCheckBox("Martes");
+		chbMartes.setBounds(6, 42, 95, 21);
+		contentPane.add(chbMartes);
 		
-		JCheckBox chckbxMircoles = new JCheckBox("Miércoles");
-		chckbxMircoles.setBounds(6, 79, 95, 21);
-		contentPane.add(chckbxMircoles);
+		JCheckBox chbMircoles = new JCheckBox("Miércoles");
+		chbMircoles.setBounds(6, 79, 95, 21);
+		contentPane.add(chbMircoles);
 		
-		JCheckBox chckbxJueves = new JCheckBox("Jueves");
-		chckbxJueves.setBounds(6, 118, 95, 21);
-		contentPane.add(chckbxJueves);
+		JCheckBox chbJueves = new JCheckBox("Jueves");
+		chbJueves.setBounds(6, 118, 95, 21);
+		contentPane.add(chbJueves);
 		
-		JCheckBox chckbxViernes = new JCheckBox("Viernes");
-		chckbxViernes.setBounds(6, 155, 95, 21);
-		contentPane.add(chckbxViernes);
+		JCheckBox chbViernes = new JCheckBox("Viernes");
+		chbViernes.setBounds(6, 155, 95, 21);
+		contentPane.add(chbViernes);
 		
-		JCheckBox chckbxSbado = new JCheckBox("Sábado");
-		chckbxSbado.setBounds(6, 193, 95, 21);
-		contentPane.add(chckbxSbado);
+		JCheckBox chbSabado = new JCheckBox("Sábado");
+		chbSabado.setBounds(6, 193, 95, 21);
+		contentPane.add(chbSabado);
 		
-		JCheckBox chckbxDomingo = new JCheckBox("Domingo");
-		chckbxDomingo.setBounds(6, 236, 95, 21);
-		contentPane.add(chckbxDomingo);
+		JCheckBox chbDomingo = new JCheckBox("Domingo");
+		chbDomingo.setBounds(6, 236, 95, 21);
+		contentPane.add(chbDomingo);
 		
-		JLabel lblHoraInicio = new JLabel("Hora inicio:");
-		lblHoraInicio.setBounds(107, 10, 79, 13);
-		contentPane.add(lblHoraInicio);
+		JLabel lLunes1 = new JLabel("Hora inicio:");
+		lLunes1.setEnabled(false);
+		lLunes1.setBounds(107, 10, 79, 13);
+		contentPane.add(lLunes1);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(200, 7, 30, 20);
-		contentPane.add(spinner);
+		JSpinner spLunesHI = new JSpinner();
+		spLunesHI.setEnabled(false);
+		spLunesHI.setBounds(200, 7, 30, 20);
+		contentPane.add(spLunesHI);
 		
-		JLabel label = new JLabel("Hora inicio:");
-		label.setBounds(107, 46, 79, 13);
-		contentPane.add(label);
+		JLabel lMartes1 = new JLabel("Hora inicio:");
+		lMartes1.setEnabled(false);
+		lMartes1.setBounds(107, 46, 79, 13);
+		contentPane.add(lMartes1);
 		
-		JLabel label_1 = new JLabel("Hora inicio:");
-		label_1.setBounds(107, 83, 79, 13);
-		contentPane.add(label_1);
+		JLabel lMiercoles1 = new JLabel("Hora inicio:");
+		lMiercoles1.setEnabled(false);
+		lMiercoles1.setBounds(107, 83, 79, 13);
+		contentPane.add(lMiercoles1);
 		
-		JLabel label_2 = new JLabel("Hora inicio:");
-		label_2.setBounds(107, 122, 79, 13);
-		contentPane.add(label_2);
+		JLabel lJueves1 = new JLabel("Hora inicio:");
+		lJueves1.setEnabled(false);
+		lJueves1.setBounds(107, 122, 79, 13);
+		contentPane.add(lJueves1);
 		
-		JLabel label_3 = new JLabel("Hora inicio:");
-		label_3.setBounds(107, 159, 79, 13);
-		contentPane.add(label_3);
+		JLabel lViernes1 = new JLabel("Hora inicio:");
+		lViernes1.setEnabled(false);
+		lViernes1.setBounds(107, 159, 79, 13);
+		contentPane.add(lViernes1);
 		
-		JLabel label_4 = new JLabel("Hora inicio:");
-		label_4.setBounds(107, 197, 79, 13);
-		contentPane.add(label_4);
+		JLabel lSabado1 = new JLabel("Hora inicio:");
+		lSabado1.setEnabled(false);
+		lSabado1.setBounds(107, 197, 79, 13);
+		contentPane.add(lSabado1);
 		
-		JLabel label_5 = new JLabel("Hora inicio:");
-		label_5.setBounds(107, 240, 79, 13);
-		contentPane.add(label_5);
+		JLabel lDomingo1 = new JLabel("Hora inicio:");
+		lDomingo1.setEnabled(false);
+		lDomingo1.setBounds(107, 240, 79, 13);
+		contentPane.add(lDomingo1);
 		
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setBounds(200, 43, 30, 20);
-		contentPane.add(spinner_1);
+		JSpinner spMartesHI = new JSpinner();
+		spMartesHI.setEnabled(false);
+		spMartesHI.setBounds(200, 43, 30, 20);
+		contentPane.add(spMartesHI);
 		
-		JSpinner spinner_2 = new JSpinner();
-		spinner_2.setBounds(200, 80, 30, 20);
-		contentPane.add(spinner_2);
+		JSpinner spMiercolesHI = new JSpinner();
+		spMiercolesHI.setEnabled(false);
+		spMiercolesHI.setBounds(200, 80, 30, 20);
+		contentPane.add(spMiercolesHI);
 		
-		JSpinner spinner_3 = new JSpinner();
-		spinner_3.setBounds(200, 119, 30, 20);
-		contentPane.add(spinner_3);
+		JSpinner spJuevesHI = new JSpinner();
+		spJuevesHI.setEnabled(false);
+		spJuevesHI.setBounds(200, 119, 30, 20);
+		contentPane.add(spJuevesHI);
 		
-		JSpinner spinner_4 = new JSpinner();
-		spinner_4.setBounds(200, 156, 30, 20);
-		contentPane.add(spinner_4);
+		JSpinner spViernesHI = new JSpinner();
+		spViernesHI.setEnabled(false);
+		spViernesHI.setBounds(200, 156, 30, 20);
+		contentPane.add(spViernesHI);
 		
-		JSpinner spinner_5 = new JSpinner();
-		spinner_5.setBounds(200, 194, 30, 20);
-		contentPane.add(spinner_5);
+		JSpinner spSabadoHI = new JSpinner();
+		spSabadoHI.setEnabled(false);
+		spSabadoHI.setBounds(200, 194, 30, 20);
+		contentPane.add(spSabadoHI);
 		
-		JSpinner spinner_6 = new JSpinner();
-		spinner_6.setBounds(200, 237, 30, 20);
-		contentPane.add(spinner_6);
+		JSpinner spDomingoHI = new JSpinner();
+		spDomingoHI.setEnabled(false);
+		spDomingoHI.setBounds(200, 237, 30, 20);
+		contentPane.add(spDomingoHI);
 		
 		JLabel lblH = new JLabel("h");
 		lblH.setBounds(240, 10, 22, 13);
@@ -154,61 +212,75 @@ public class VistaCrearHorario extends JFrame {
 		label_11.setBounds(240, 240, 22, 13);
 		contentPane.add(label_11);
 		
-		JLabel lblHoraFin = new JLabel("Hora fin:");
-		lblHoraFin.setBounds(288, 10, 46, 13);
-		contentPane.add(lblHoraFin);
+		JLabel lLunes2 = new JLabel("Hora fin:");
+		lLunes2.setEnabled(false);
+		lLunes2.setBounds(288, 10, 46, 13);
+		contentPane.add(lLunes2);
 		
-		JSpinner spinner_7 = new JSpinner();
-		spinner_7.setBounds(344, 7, 30, 20);
-		contentPane.add(spinner_7);
+		JSpinner spLunesHF = new JSpinner();
+		spLunesHF.setEnabled(false);
+		spLunesHF.setBounds(344, 7, 30, 20);
+		contentPane.add(spLunesHF);
 		
-		JLabel label_12 = new JLabel("Hora fin:");
-		label_12.setBounds(288, 46, 46, 13);
-		contentPane.add(label_12);
+		JLabel lMartes2 = new JLabel("Hora fin:");
+		lMartes2.setEnabled(false);
+		lMartes2.setBounds(288, 46, 46, 13);
+		contentPane.add(lMartes2);
 		
-		JLabel label_13 = new JLabel("Hora fin:");
-		label_13.setBounds(288, 83, 46, 13);
-		contentPane.add(label_13);
+		JLabel lMiercoles2 = new JLabel("Hora fin:");
+		lMiercoles2.setEnabled(false);
+		lMiercoles2.setBounds(288, 83, 46, 13);
+		contentPane.add(lMiercoles2);
 		
-		JLabel label_14 = new JLabel("Hora fin:");
-		label_14.setBounds(288, 122, 46, 13);
-		contentPane.add(label_14);
+		JLabel lJueves2 = new JLabel("Hora fin:");
+		lJueves2.setEnabled(false);
+		lJueves2.setBounds(288, 122, 46, 13);
+		contentPane.add(lJueves2);
 		
-		JLabel label_15 = new JLabel("Hora fin:");
-		label_15.setBounds(288, 159, 46, 13);
-		contentPane.add(label_15);
+		JLabel lViernes2 = new JLabel("Hora fin:");
+		lViernes2.setEnabled(false);
+		lViernes2.setBounds(288, 159, 46, 13);
+		contentPane.add(lViernes2);
 		
-		JLabel label_16 = new JLabel("Hora fin:");
-		label_16.setBounds(288, 197, 46, 13);
-		contentPane.add(label_16);
+		JLabel lSabado2 = new JLabel("Hora fin:");
+		lSabado2.setEnabled(false);
+		lSabado2.setBounds(288, 197, 46, 13);
+		contentPane.add(lSabado2);
 		
-		JLabel label_17 = new JLabel("Hora fin:");
-		label_17.setBounds(288, 240, 46, 13);
-		contentPane.add(label_17);
+		JLabel lDomingo2 = new JLabel("Hora fin:");
+		lDomingo2.setEnabled(false);
+		lDomingo2.setBounds(288, 240, 46, 13);
+		contentPane.add(lDomingo2);
 		
-		JSpinner spinner_8 = new JSpinner();
-		spinner_8.setBounds(344, 43, 30, 20);
-		contentPane.add(spinner_8);
+		JSpinner spMartesHF = new JSpinner();
+		spMartesHF.setEnabled(false);
+		spMartesHF.setBounds(344, 43, 30, 20);
+		contentPane.add(spMartesHF);
 		
-		JSpinner spinner_9 = new JSpinner();
-		spinner_9.setBounds(344, 80, 30, 20);
-		contentPane.add(spinner_9);
+		JSpinner spMiercolesHF = new JSpinner();
+		spMiercolesHF.setEnabled(false);
+		spMiercolesHF.setBounds(344, 80, 30, 20);
+		contentPane.add(spMiercolesHF);
 		
-		JSpinner spinner_10 = new JSpinner();
-		spinner_10.setBounds(344, 119, 30, 20);
-		contentPane.add(spinner_10);
+		JSpinner spJuevesHF = new JSpinner();
+		spJuevesHF.setEnabled(false);
+		spJuevesHF.setBounds(344, 119, 30, 20);
+		contentPane.add(spJuevesHF);
 		
-		JSpinner spinner_11 = new JSpinner();
-		spinner_11.setBounds(344, 156, 30, 20);
-		contentPane.add(spinner_11);
+		JSpinner spViernesHF = new JSpinner();
+		spViernesHF.setEnabled(false);
+		spViernesHF.setBounds(344, 156, 30, 20);
+		contentPane.add(spViernesHF);
 		
-		JSpinner spinner_12 = new JSpinner();
-		spinner_12.setBounds(344, 194, 30, 20);
-		contentPane.add(spinner_12);
+		JSpinner spSabadoHF = new JSpinner();
+		spSabadoHF.setEnabled(false);
+		spSabadoHF.setBounds(344, 194, 30, 20);
+		contentPane.add(spSabadoHF);
 		
-		JSpinner spinner_13 = new JSpinner();
-		spinner_13.setBounds(344, 237, 30, 20);
-		contentPane.add(spinner_13);
+		JSpinner spDomingoHF = new JSpinner();
+		spDomingoHF.setEnabled(false);
+		spDomingoHF.setBounds(344, 237, 30, 20);
+		contentPane.add(spDomingoHF);
 		
 		JLabel label_18 = new JLabel("h");
 		label_18.setBounds(381, 10, 22, 13);
@@ -238,13 +310,13 @@ public class VistaCrearHorario extends JFrame {
 		label_24.setBounds(381, 240, 22, 13);
 		contentPane.add(label_24);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(6, 282, 85, 21);
-		contentPane.add(btnCancelar);
+		JButton bCancelar = new JButton("Cancelar");
+		bCancelar.setBounds(6, 282, 85, 21);
+		contentPane.add(bCancelar);
 		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(426, 282, 85, 21);
-		contentPane.add(btnAceptar);
+		JButton bAceptar = new JButton("Aceptar");
+		bAceptar.setBounds(330, 282, 85, 21);
+		contentPane.add(bAceptar);
 	}
 
 	public JPanel getContentPane() {
@@ -254,5 +326,286 @@ public class VistaCrearHorario extends JFrame {
 	public void setContentPane(JPanel contentPane) {
 		this.contentPane = contentPane;
 	}
+
+	public JCheckBox getChbLunes() {
+		return chbLunes;
+	}
+
+	public void setChbLunes(JCheckBox chbLunes) {
+		this.chbLunes = chbLunes;
+	}
+
+	public JCheckBox getChbMartes() {
+		return chbMartes;
+	}
+
+	public void setChbMartes(JCheckBox chbMartes) {
+		this.chbMartes = chbMartes;
+	}
+
+	public JCheckBox getChbMiercoles() {
+		return chbMiercoles;
+	}
+
+	public void setChbMiercoles(JCheckBox chbMiercoles) {
+		this.chbMiercoles = chbMiercoles;
+	}
+
+	public JCheckBox getChbJueves() {
+		return chbJueves;
+	}
+
+	public void setChbJueves(JCheckBox chbJueves) {
+		this.chbJueves = chbJueves;
+	}
+
+	public JCheckBox getChbViernes() {
+		return chbViernes;
+	}
+
+	public void setChbViernes(JCheckBox chbViernes) {
+		this.chbViernes = chbViernes;
+	}
+
+	public JCheckBox getChbSabado() {
+		return chbSabado;
+	}
+
+	public void setChbSabado(JCheckBox chbSabado) {
+		this.chbSabado = chbSabado;
+	}
+
+	public JCheckBox getChbDomingo() {
+		return chbDomingo;
+	}
+
+	public void setChbDomingo(JCheckBox chbDomingo) {
+		this.chbDomingo = chbDomingo;
+	}
+
+	public JSpinner getSpLunesHI() {
+		return spLunesHI;
+	}
+
+	public void setSpLunesHI(JSpinner spLunesHI) {
+		this.spLunesHI = spLunesHI;
+	}
+
+	public JSpinner getSpMartesHI() {
+		return spMartesHI;
+	}
+
+	public void setSpMartesHI(JSpinner spMartesHI) {
+		this.spMartesHI = spMartesHI;
+	}
+
+	public JSpinner getSpMiercolesHI() {
+		return spMiercolesHI;
+	}
+
+	public void setSpMiercolesHI(JSpinner spMiercolesHI) {
+		this.spMiercolesHI = spMiercolesHI;
+	}
+
+	public JSpinner getSpJuevesHI() {
+		return spJuevesHI;
+	}
+
+	public void setSpJuevesHI(JSpinner spJuevesHI) {
+		this.spJuevesHI = spJuevesHI;
+	}
+
+	public JSpinner getSpViernesHI() {
+		return spViernesHI;
+	}
+
+	public void setSpViernesHI(JSpinner spViernesHI) {
+		this.spViernesHI = spViernesHI;
+	}
+
+	public JSpinner getSpSabadoHI() {
+		return spSabadoHI;
+	}
+
+	public void setSpSabadoHI(JSpinner spSabadoHI) {
+		this.spSabadoHI = spSabadoHI;
+	}
+
+	public JSpinner getSpDomingoHI() {
+		return spDomingoHI;
+	}
+
+	public void setSpDomingoHI(JSpinner spDomingoHI) {
+		this.spDomingoHI = spDomingoHI;
+	}
+
+	public JSpinner getSpLunesHF() {
+		return spLunesHF;
+	}
+
+	public void setSpLunesHF(JSpinner spLunesHF) {
+		this.spLunesHF = spLunesHF;
+	}
+
+	public JSpinner getSpMartesHF() {
+		return spMartesHF;
+	}
+
+	public void setSpMartesHF(JSpinner spMartesHF) {
+		this.spMartesHF = spMartesHF;
+	}
+
+	public JSpinner getSpMiercolesHF() {
+		return spMiercolesHF;
+	}
+
+	public void setSpMiercolesHF(JSpinner spMiercolesHF) {
+		this.spMiercolesHF = spMiercolesHF;
+	}
+
+	public JSpinner getSpJuevesHF() {
+		return spJuevesHF;
+	}
+
+	public void setSpJuevesHF(JSpinner spJuevesHF) {
+		this.spJuevesHF = spJuevesHF;
+	}
+
+	public JSpinner getSpViernesHF() {
+		return spViernesHF;
+	}
+
+	public void setSpViernesHF(JSpinner spViernesHF) {
+		this.spViernesHF = spViernesHF;
+	}
+
+	public JSpinner getSpSabadoHF() {
+		return spSabadoHF;
+	}
+
+	public void setSpSabadoHF(JSpinner spSabadoHF) {
+		this.spSabadoHF = spSabadoHF;
+	}
+
+	public JSpinner getSpDomingoHF() {
+		return spDomingoHF;
+	}
+
+	public void setSpDomingoHF(JSpinner spDomingoHF) {
+		this.spDomingoHF = spDomingoHF;
+	}
+
+	public JLabel getlLunes1() {
+		return lLunes1;
+	}
+
+	public void setlLunes1(JLabel lLunes1) {
+		this.lLunes1 = lLunes1;
+	}
+
+	public JLabel getlLunes2() {
+		return lLunes2;
+	}
+
+	public void setlLunes2(JLabel lLunes2) {
+		this.lLunes2 = lLunes2;
+	}
+
+	public JLabel getlMartes1() {
+		return lMartes1;
+	}
+
+	public void setlMartes1(JLabel lMartes1) {
+		this.lMartes1 = lMartes1;
+	}
+
+	public JLabel getlMartes2() {
+		return lMartes2;
+	}
+
+	public void setlMartes2(JLabel lMartes2) {
+		this.lMartes2 = lMartes2;
+	}
+
+	public JLabel getlMiercoles1() {
+		return lMiercoles1;
+	}
+
+	public void setlMiercoles1(JLabel lMiercoles1) {
+		this.lMiercoles1 = lMiercoles1;
+	}
+
+	public JLabel getlMiercoles2() {
+		return lMiercoles2;
+	}
+
+	public void setlMiercoles2(JLabel lMiercoles2) {
+		this.lMiercoles2 = lMiercoles2;
+	}
+
+	public JLabel getlJueves1() {
+		return lJueves1;
+	}
+
+	public void setlJueves1(JLabel lJueves1) {
+		this.lJueves1 = lJueves1;
+	}
+
+	public JLabel getlJueves2() {
+		return lJueves2;
+	}
+
+	public void setlJueves2(JLabel lJueves2) {
+		this.lJueves2 = lJueves2;
+	}
+
+	public JLabel getlViernes1() {
+		return lViernes1;
+	}
+
+	public void setlViernes1(JLabel lViernes1) {
+		this.lViernes1 = lViernes1;
+	}
+
+	public JLabel getlViernes2() {
+		return lViernes2;
+	}
+
+	public void setlViernes2(JLabel lViernes2) {
+		this.lViernes2 = lViernes2;
+	}
+
+	public JLabel getlSabado1() {
+		return lSabado1;
+	}
+
+	public void setlSabado1(JLabel lSabado1) {
+		this.lSabado1 = lSabado1;
+	}
+
+	public JLabel getlSabado2() {
+		return lSabado2;
+	}
+
+	public void setlSabado2(JLabel lSabado2) {
+		this.lSabado2 = lSabado2;
+	}
+
+	public JLabel getlDomingo1() {
+		return lDomingo1;
+	}
+
+	public void setlDomingo1(JLabel lDomingo1) {
+		this.lDomingo1 = lDomingo1;
+	}
+
+	public JLabel getlDomingo2() {
+		return lDomingo2;
+	}
+
+	public void setlDomingo2(JLabel lDomingo2) {
+		this.lDomingo2 = lDomingo2;
+	}
+	
 	
 }

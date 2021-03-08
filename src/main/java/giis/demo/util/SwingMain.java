@@ -2,11 +2,11 @@ package giis.demo.util;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import giis.demo.tkrun.*;
+import javax.swing.UIManager;
+
+import Vista.VistaInicio;
+
+
 
 /**
  * Punto de entrada principal que incluye botones para la ejecucion de las pantallas 
@@ -16,8 +16,7 @@ import giis.demo.tkrun.*;
  * de realizar acciones de inicializacion
  */
 public class SwingMain {
-
-	private JFrame frame;
+	JFrame frame;
 
 	/**
 	 * Launch the application.
@@ -26,8 +25,9 @@ public class SwingMain {
 		EventQueue.invokeLater(new Runnable() { //NOSONAR codigo autogenerado
 			public void run() {
 				try {
+			        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					SwingMain window = new SwingMain();
-					window.frame.setVisible(true);
+					window.frame.setVisible(false);
 				} catch (Exception e) {
 					e.printStackTrace(); //NOSONAR codigo autogenerado
 				}
@@ -40,48 +40,19 @@ public class SwingMain {
 	 */
 	public SwingMain() {
 		initialize();
+		new VistaInicio();
 	}
-
+	
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Main");
-		frame.setBounds(0, 0, 287, 185);
+		frame.setBounds(0, 0, 465, 202);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JButton btnEjecutarTkrun = new JButton("Ejecutar giis.demo.tkrun");
-		btnEjecutarTkrun.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
-			public void actionPerformed(ActionEvent e) {
-				CarrerasController controller=new CarrerasController(new CarrerasModel(), new CarrerasView());
-				controller.initController();
-			}
-		});
-		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-		frame.getContentPane().add(btnEjecutarTkrun);
-		
-			
-		JButton btnInicializarBaseDeDatos = new JButton("Inicializar Base de Datos en Blanco");
-		btnInicializarBaseDeDatos.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
-			public void actionPerformed(ActionEvent e) {
-				Database db=new Database();
-				db.createDatabase(false);
-			}
-		});
-		frame.getContentPane().add(btnInicializarBaseDeDatos);
-			
-		JButton btnCargarDatosIniciales = new JButton("Cargar Datos Iniciales para Pruebas");
-		btnCargarDatosIniciales.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
-			public void actionPerformed(ActionEvent e) {
-				Database db=new Database();
-				db.createDatabase(false);
-				db.loadDatabase();
-			}
-		});
-		frame.getContentPane().add(btnCargarDatosIniciales);
+		frame.setLocationRelativeTo(null);
 	}
 
-	public JFrame getFrame() { return this.frame; }
-	
 }

@@ -14,8 +14,9 @@ import javax.swing.JButton;
 
 public class VistaCrearPeriodoInscripcion extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
+	public JPanel contentPane;
+	public JTextField tfFechaInicioNoSocios;
+	
 
 	/**
 	 * Launch the application.
@@ -48,17 +49,17 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 		lblFechaInicioSocios.setBounds(10, 21, 105, 13);
 		contentPane.add(lblFechaInicioSocios);
 		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(149, 15, 126, 19);
-		contentPane.add(dateChooser);
+		JDateChooser dcFechaInicioSocios = new JDateChooser();
+		dcFechaInicioSocios.setBounds(149, 15, 126, 19);
+		contentPane.add(dcFechaInicioSocios);
 		
 		JLabel lblFechaFinSocios = new JLabel("Fecha fin socios:");
 		lblFechaFinSocios.setBounds(10, 62, 83, 13);
 		contentPane.add(lblFechaFinSocios);
 		
-		JDateChooser dateChooser_1 = new JDateChooser();
-		dateChooser_1.setBounds(149, 56, 126, 19);
-		contentPane.add(dateChooser_1);
+		JDateChooser dcFechaFinSocios = new JDateChooser();
+		dcFechaFinSocios.setBounds(149, 56, 126, 19);
+		contentPane.add(dcFechaFinSocios);
 		
 		JLabel lblFechaInicioNo = new JLabel("Fecha inicio no socios:");
 		lblFechaInicioNo.setBounds(10, 108, 117, 13);
@@ -68,21 +69,21 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 		lblFechaFinNo.setBounds(10, 138, 117, 13);
 		contentPane.add(lblFechaFinNo);
 		
-		JDateChooser dateChooser_2 = new JDateChooser();
-		dateChooser_2.setBounds(149, 132, 126, 19);
-		contentPane.add(dateChooser_2);
+		JDateChooser dcFechaFinNoSocios = new JDateChooser();
+		dcFechaFinNoSocios.setBounds(149, 132, 126, 19);
+		contentPane.add(dcFechaFinNoSocios);
 		
-		textField = new JTextField();
-		textField.setBounds(149, 105, 126, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		tfFechaInicioNoSocios = new JTextField();
+		tfFechaInicioNoSocios.setBounds(149, 105, 126, 19);
+		contentPane.add(tfFechaInicioNoSocios);
+		tfFechaInicioNoSocios.setColumns(10);
 		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(10, 208, 85, 21);
-		contentPane.add(btnCancelar);
+		JButton bCancelar = new JButton("Cancelar");
+		bCancelar.setBounds(10, 208, 85, 21);
+		contentPane.add(bCancelar);
 		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(305, 208, 85, 21);
-		contentPane.add(btnAceptar);
+		JButton bAceptar = new JButton("Aceptar");
+		bAceptar.setBounds(305, 208, 85, 21);
+		contentPane.add(bAceptar);
 	}
 }

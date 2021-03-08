@@ -33,7 +33,7 @@ public class VistaCrearActividades extends JFrame {
 	public JButton bAsignar;
 	public JDateChooser dcFechaInicio;
 	public JDateChooser dcFechaFin;
-	private JTextField tfNombre;
+	public JTextField tfNombre;
 
 
 	
@@ -86,10 +86,12 @@ public class VistaCrearActividades extends JFrame {
 		contentPane.add(lblNoSocios);
 		
 		JButton bCrearHorario = new JButton("Crear horario");
+		bCrearHorario.setEnabled(false);
 		bCrearHorario.setBounds(69, 83, 96, 17);
 		contentPane.add(bCrearHorario);
 		
 		JButton bAsignar = new JButton("Asignar periodo de inscripción");
+		bAsignar.setEnabled(false);
 		bAsignar.setBounds(10, 194, 171, 21);
 		contentPane.add(bAsignar);
 		
@@ -117,6 +119,7 @@ public class VistaCrearActividades extends JFrame {
 		contentPane.add(lblSocios);
 		
 		tfNoSocios = new JTextField();
+		tfNoSocios.setEnabled(false);
 		tfNoSocios.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -132,6 +135,7 @@ public class VistaCrearActividades extends JFrame {
 		tfNoSocios.setColumns(10);
 		
 		tfSocios = new JTextField();
+		tfSocios.setEnabled(false);
 		tfSocios.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -155,6 +159,7 @@ public class VistaCrearActividades extends JFrame {
 		contentPane.add(label_1);
 		
 		JDateChooser dcFechaInicio = new JDateChooser();
+		dcFechaInicio.getCalendarButton().setEnabled(false);
 		dcFechaInicio.setBounds(140, 102, 69, 19);
 		contentPane.add(dcFechaInicio);
 		
@@ -172,14 +177,17 @@ public class VistaCrearActividades extends JFrame {
 		contentPane.add(lblFechaFin);
 		
 		JComboBox cbActividad = new JComboBox();
+		cbActividad.setEnabled(false);
 		cbActividad.setBounds(66, 35, 160, 21);
 		contentPane.add(cbActividad);
 		
 		JComboBox cbInstalacion = new JComboBox();
+		cbInstalacion.setEnabled(false);
 		cbInstalacion.setBounds(371, 35, 152, 21);
 		contentPane.add(cbInstalacion);
 		
 		tfAforo = new JTextField();
+		tfAforo.setEnabled(false);
 		tfAforo.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -365,7 +373,7 @@ public class VistaCrearActividades extends JFrame {
 
 
 
-	public JTextField getTextField() {
+	public JTextField getTfNombre() {
 		return tfNombre;
 	}
 
