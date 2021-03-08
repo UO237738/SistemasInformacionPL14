@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import giis.demo.util.Database;
+import giis.demo.util.Util;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -23,10 +24,29 @@ public class ModeloReservaAdministracioninstalación {
 		return formatear.format(hoy);
 	}
 	
+	public static int ObtenerIdInstalacion(String nombreInstalacion) {
+		String consulta= "SELECT id_instalacion FROM instalaciones WHERE nombre=?";
+		List<Object[]>filas=basedatos.executeQueryArray(consulta, nombreInstalacion);
+		return (int) filas.get(0)[0];
+
+	}
+	
 	public static int tiempoMaximoReserva(String instalacion) {
 		String consulta="SELECT tiempo_maximo FROM instlaciones WHERE nombre=?";
 		List<Object[]>filas=basedatos.executeQueryArray(consulta, instalacion);
 		return (int) filas.get(0)[0];
+	}
+	
+	public static String obtenerNombreSocio(String dniSocio) {
+		String consulta= "SELECT nombre FROM socios WHERE dni=?";
+		List<Object[]>filas=basedatos.executeQueryArray(consulta, dniSocio);
+		return (String) filas.get(0)[0];
+	}
+
+	public static String obtenerApellidosSocio(String dniSocio) {
+		String consulta= "SELECT apellidos FROM socios WHERE dni=?";
+		List<Object[]>filas=basedatos.executeQueryArray(consulta, dniSocio);
+		return (String) filas.get(0)[0];
 	}
 	
 	public static int ConflictoReserva(int idinstalacion, String horaini, String horafin, String fechaini, String fechafin) {
@@ -41,7 +61,7 @@ public class ModeloReservaAdministracioninstalación {
 	
 	
 	
-	public static void CrearReserva(int idinstalacion, int idsocio, String horaini, String horafin, String fechaini, String fechafin) {
+	public static void CrearReserva(int idinstalacion, String horaini, String horafin, String fechaini) {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
@@ -54,11 +74,10 @@ public class ModeloReservaAdministracioninstalación {
 			preparedStatement = connection.prepareStatement(nuevaReserva);
 			
 			preparedStatement.setInt(1, idinstalacion);
-			preparedStatement.setInt(2, idsocio);
+			preparedStatement.setString(2, fechaini);
 			preparedStatement.setString(3, fechaini);
-			preparedStatement.setString(4, fechafin);
-			preparedStatement.setString(5, horaini);
-			preparedStatement.setString(6, horafin);
+			preparedStatement.setString(4, horaini);
+			preparedStatement.setString(5, horafin);
 
 			preparedStatement.executeUpdate();
 
@@ -72,7 +91,7 @@ public class ModeloReservaAdministracioninstalación {
 	
 	
 	
-	public static void CrearResguardo(String instalacion, String dni, String Nombre, String fecha, String horaini, String horafin){
+	public static void CrearResguardo(String instalacion, String dni, String Nombre, String Apellidos, String fecha, String horaini, String horafin){
 		try {
 			String archivo = "src/test/"+Nombre+".txt";
 			File nuevoresguardo = new File(archivo);
@@ -99,6 +118,31 @@ public class ModeloReservaAdministracioninstalación {
 			System.out.print(e.getMessage());
 		}
 		
+	}
+	
+	
+	public static boolean plazoMaximoReserva(String nombreInstalacion,String fecha) {
+		String consulta = "SELECT plazo_maximo_reserva FROM instalaciones WHERE nombre=?";
+		List<Object[]>filas=basedatos.executeQueryArray(consulta, nombreInstalacion);
+		
+		int dias= (int) filas.get(0)[0];
+		Date fechaaActual=Util.isoStringToDate(getFechaActual());
+		Date fechaElegida=Util.isoStringToDate(fecha);
+		Date nuevaFecha = new Date();
+
+		Calendar cal = Calendar.getInstance(); 
+		cal.setTime(fechaaActual); 
+		cal.add(Calendar.DATE, dias);
+		nuevaFecha = cal.getTime();
+
+		System.out.println(nuevaFecha);
+
+		if(fechaElegida.after(nuevaFecha)) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	
 	

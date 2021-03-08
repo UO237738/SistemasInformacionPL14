@@ -5,8 +5,11 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+import javax.swing.JOptionPane;
+
 import Modelo.ModeloReservaAdministracioninstalación;
 import Vista.VistaReservaInstalacion;
+import giis.demo.util.Util;
 
 public class ControladorReservasAdministracionInstalacion {
 
@@ -22,6 +25,12 @@ public class ControladorReservasAdministracionInstalacion {
 
 	private void initview() {
 		VRI.contentPane.setVisible(true);
+	}
+	
+	public static String getFechaActual() {
+		Date ahora = new Date(0);
+		SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+		return formateador.format(ahora);
 	}
 	
 
@@ -46,7 +55,7 @@ public class ControladorReservasAdministracionInstalacion {
 		});
 			
 			
-			if ((!VRI.datePickerFechaInicio.getJFormattedTextField().getText().isEmpty())&&(VRA.CBInstalaciones.getSelectedIndex()>0)&&(!VRA.TFieldDni.getText().isEmpty())) {
+			if ((VRI.CBInstalaciones.getSelectedIndex()>0)&&(!VRI.TFDni.getText().isEmpty())) {
 				VRI.JBReservar.setEnabled(true);
 				VRI.JBResguardo.setEnabled(true);
 			}
@@ -55,31 +64,64 @@ public class ControladorReservasAdministracionInstalacion {
 				VRI.JBResguardo.setEnabled(false);
 			}
 			
-	}
+	
 
 	
 		
 	
 		
 		
-		VRI.CBDesde.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-				
+		VRI.JBReservar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Date fechaActual= (Date) Util.isoStringToDate(getFechaActual());
+				Date fechaInicioS= (Date) Util.isoStringToDate(VRI.JCFechaInico.getToolTipText());
+
+				if(fechaInicioS.equals(fechaActual)||(fechaInicioS.after(fechaActual))) {
+					if(ModeloReservaAdministracioninstalación.plazoMaximoReserva((String)VRI.CBInstalaciones.getSelectedItem(),VRI.JCFechaInico.getToolTipText())) {
+						int conflicto=ModeloReservaAdministracioninstalación.ConflictoReserva(ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem()),VRI.JCFechaInico.getToolTipText(),VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(),(String)VRI.CBHasta.getSelectedItem());
+						if(conflicto>=1) {
+							JOptionPane.showMessageDialog(null, "La instalacion esta ocupada para esa fecha", "Error",JOptionPane.ERROR_MESSAGE);
+						}
+						else {
+							int idInstalacion=ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem());
+							String nombreSocio=ModeloReservaAdministracioninstalación.obtenerNombreSocio(VRI.TFDni.getText());
+							String apellidosSocio=ModeloReservaAdministracioninstalación.obtenerApellidosSocio(VRI.TFDni.getText());
+								
+							ModeloReservaAdministracioninstalación.CrearReserva(idInstalacion,VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(),(String)VRI.CBHasta.getSelectedItem());
+							ModeloReservaAdministracioninstalación.CrearResguardo(VRI.TFDni.getText(),(String)VRI.CBInstalaciones.getSelectedItem(),VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(), (String)VRI.CBHasta.getSelectedItem(), nombreSocio, apellidosSocio);
+								
+						}
+					}
+					else {
+						JOptionPane.showMessageDialog(null,"Solo se pude reservar con una antelaciónd e 30 dias","Error",JOptionPane.ERROR_MESSAGE);
+					}
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Seleccione una fecha psoterior a la actual","Error",JOptionPane.ERROR_MESSAGE);
+				}
 			}
+					
+		});
+		
+		
+		
 			
-		}
 		
-		
-	}
-		
+	
 		
 		
 		
 		
 	}
 	
-	
+		public void CreaReserva() {
+			int idInstalacion=ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem());
+			String nombreSocio=ModeloReservaAdministracioninstalación.obtenerNombreSocio(VRI.TFDni.getText());
+			String apellidosSocio=ModeloReservaAdministracioninstalación.obtenerApellidosSocio(VRI.TFDni.getText());
+			ModeloReservaAdministracioninstalación.CrearReserva(idInstalacion,VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(),(String)VRI.CBHasta.getSelectedItem());
+			ModeloReservaAdministracioninstalación.CrearResguardo((String)VRI.CBInstalaciones.getSelectedItem(), VRI.TFDni.getText(),  VRI.JCFechaInico.getToolTipText(), (String)VRI.CBDesde.getSelectedItem(), (String)VRI.CBHasta.getSelectedItem(), nombreSocio, apellidosSocio);
+
+		}	
 	
 	
 	

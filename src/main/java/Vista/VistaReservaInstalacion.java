@@ -2,6 +2,7 @@ package Vista;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -151,7 +152,13 @@ public class VistaReservaInstalacion extends JFrame {
 		((RootPaneContainer) contentPane).getContentPane().add(CBHasta);
 	}
 	
-	
+	public String getFechaInicio() {
+		int d = this.JCFechaInico.getCalendar().get(Calendar.DAY_OF_MONTH);
+		int m = this.JCFechaInico.getCalendar().get(Calendar.MONTH);
+		int a = this.JCFechaInico.getCalendar().get(Calendar.YEAR);
+		String FechaIni = d + "-" + m + "-" + d;
+		return FechaIni;
+	}
 
 	
 }
