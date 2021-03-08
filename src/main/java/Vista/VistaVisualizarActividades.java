@@ -21,11 +21,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class VistaVisualizarActividades extends JFrame {
 	
-	private JPanel contentPane;
+	public JPanel contentPane;
 	public JDateChooser JDFechaIni;
 	public JDateChooser JDFechaFin;
-	private JTable JTActividades;
-	private JButton JBBuscar;
+	public JTable JTActividades;
+	public JButton JBBuscar;
 	
 	
 	

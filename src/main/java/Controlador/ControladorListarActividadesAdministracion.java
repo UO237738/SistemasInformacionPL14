@@ -19,12 +19,13 @@ public class ControladorListarActividadesAdministracion {
 	public ControladorListarActividadesAdministracion(ModeloListarActividadesAdministracion m, VistaVisualizarActividades v) {
 		this.listar = m;
 		this.vista = v;
+		this.initview();
 	}
 	
-	public ControladorListarActividadesAdministracion(ModeloListarActividadesAdministracion m, VistaVisualizarActividades v, JFrame JF) {
-		this.listar = m;
-		this.vista = v;
-		this.inFrame = JF;
+	
+	
+	public void initview() {
+		vista.contentPane.setVisible(true);
 	}
 	
 
