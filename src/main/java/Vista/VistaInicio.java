@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import giis.demo.util.SwingMain;
 
 public class VistaInicio extends JFrame {
 
@@ -18,6 +19,7 @@ public class VistaInicio extends JFrame {
 	public JButton bCancelar;
 	public JButton bInicializarBbdd;
 	public JButton bCargarBbdd;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -68,7 +70,7 @@ public class VistaInicio extends JFrame {
 		contentPane.getContentPane().add(bCancelar);
 		
 		JButton bInicializarBbdd = new JButton("Inicializar bbdd");
-		bInicializarBbdd.setBounds(258, 41, 85, 21);
+		bInicializarBbdd.setBounds(258, 41, 171, 21);
 		contentPane.getContentPane().add(bInicializarBbdd);
 		
 		JButton bCargarBbdd = new JButton("Cargar bbdd");

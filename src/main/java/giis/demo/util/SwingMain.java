@@ -1,10 +1,19 @@
 package giis.demo.util;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
+import Controlador.ControladorInicio;
 import Vista.VistaInicio;
+import giis.demo.tkrun.CarrerasController;
+import giis.demo.tkrun.CarrerasModel;
+import giis.demo.tkrun.CarrerasView;
 
 
 
@@ -16,7 +25,9 @@ import Vista.VistaInicio;
  * de realizar acciones de inicializacion
  */
 public class SwingMain {
-	JFrame frame;
+
+	private JFrame frame;
+	public VistaInicio VI;
 
 	/**
 	 * Launch the application.
@@ -25,9 +36,8 @@ public class SwingMain {
 		EventQueue.invokeLater(new Runnable() { //NOSONAR codigo autogenerado
 			public void run() {
 				try {
-			        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					SwingMain window = new SwingMain();
-					window.frame.setVisible(false);
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace(); //NOSONAR codigo autogenerado
 				}
@@ -42,17 +52,60 @@ public class SwingMain {
 		initialize();
 		new VistaInicio();
 	}
-	
-	
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Main");
-		frame.setBounds(0, 0, 465, 202);
+		frame.setBounds(0, 0, 287, 185);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+		
+		JButton btnEjecutarTkrun = new JButton("Ejecutar giis.demo.tkrun");
+		btnEjecutarTkrun.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
+			public void actionPerformed(ActionEvent e) {
+				CarrerasController controller=new CarrerasController(new CarrerasModel(), new CarrerasView());
+				controller.initController();
+			}
+		});
+		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+		frame.getContentPane().add(btnEjecutarTkrun);
+		
+			
+		JButton btnInicializarBaseDeDatos = new JButton("Inicializar Base de Datos en Blanco");
+		btnInicializarBaseDeDatos.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
+			public void actionPerformed(ActionEvent e) {
+				Database db=new Database();
+				db.createDatabase(false);
+			}
+		});
+		frame.getContentPane().add(btnInicializarBaseDeDatos);
+			
+		JButton btnCargarDatosIniciales = new JButton("Cargar Datos Iniciales para Pruebas");
+		btnCargarDatosIniciales.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
+			public void actionPerformed(ActionEvent e) {
+				Database db=new Database();
+				db.createDatabase(false);
+				db.loadDatabase();
+			}
+		});
+		frame.getContentPane().add(btnCargarDatosIniciales);
+	
+		JButton bApp = new JButton("Ir a app");
+		bApp.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
+			public void actionPerformed(ActionEvent e) {
+				VI= new VistaInicio();
+				VI.setVisible(true);
+		
+			}
+		});
+		frame.getContentPane().add(bApp);
+	
+	
+	
 	}
 
+	public JFrame getFrame() { return this.frame; }
+	
 }
