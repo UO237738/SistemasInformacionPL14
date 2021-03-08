@@ -16,7 +16,7 @@ import com.toedter.calendar.JDateChooser;
 
 public class VistaReservaActividades extends JFrame {
 
-	private JPanel contentPane;
+	public JPanel contentPane;
 	public JTextField textFieldDNI;
 	public JLabel lblActividades;
 	public JDateChooser dateChooser;

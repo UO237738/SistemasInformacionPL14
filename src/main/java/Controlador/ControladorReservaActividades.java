@@ -9,17 +9,17 @@ import javax.management.modelmbean.ModelMBeanOperationInfo;
 import javax.swing.event.AncestorListener;
 
 import Modelo.ModeloReservaActividades;
-import Vista.VistaReservaActividades2;
+import Vista.VistaReservaActividades;
 
 public class ControladorReservaActividades {
-	private VistaReservaActividades2 vistaReservaActividades;
+	private VistaReservaActividades vistaReservaActividades;
 	private ModeloReservaActividades modeloReservaActividades;
 
 	/**
 	 * Constructor de la clase controlador de ReservaActividades
 	 * @param v, VistaReservaActividades
 	 */
-	public ControladorReservaActividades(VistaReservaActividades2 v, ModeloReservaActividades m) {
+	public ControladorReservaActividades(VistaReservaActividades v, ModeloReservaActividades m) {
 		this.vistaReservaActividades = v;
 		this.modeloReservaActividades = m;
 		this.addListenerControladorReservaActividades();
