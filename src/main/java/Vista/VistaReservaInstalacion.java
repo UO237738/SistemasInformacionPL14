@@ -19,7 +19,7 @@ import javax.swing.DefaultComboBoxModel;
 
 public class VistaReservaInstalacion extends JFrame {
 
-	private JPanel contentPane;
+	public JPanel contentPane;
 
 	public JComboBox<String> CBInstalaciones;
 	public JTextField TFNombre;
@@ -28,7 +28,17 @@ public class VistaReservaInstalacion extends JFrame {
 	public JComboBox<String> CBDesde;
 	public JComboBox<String> CBHasta;
 	public JCalendar JCFechaInico;
-	
+	public JLabel JLDesde;
+	public JLabel JLHasta;
+	public JLabel JLFecha;
+	public JLabel JLHora;
+	public JLabel JLInstalacion;
+	public JButton JBReservar;
+	public JButton JBResguardo;
+	public JLabel JLDatosSocio;
+	public JLabel JLNombre;
+	public JLabel JLApellidos;
+	public JLabel JLDni;
 
 	
 
@@ -59,45 +69,45 @@ public class VistaReservaInstalacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel JLInstalacion = new JLabel("Que instalacion quiere reservar:");
+		JLInstalacion = new JLabel("Que instalacion quiere reservar:");
 		JLInstalacion.setBounds(25, 24, 163, 14);
 		contentPane.add(JLInstalacion);
 		
-		JButton JBReservar = new JButton("Reservar");
+		JBReservar = new JButton("Reservar");
 		JBReservar.setBounds(80, 354, 89, 23);
 		contentPane.add(JBReservar);
 		JBReservar.setEnabled(false);
 		
-		JButton JBResgurado = new JButton("Crear Resguardo");
-		JBResgurado.setBounds(396, 354, 115, 23);
-		contentPane.add(JBResgurado);
+		JBResguardo = new JButton("Crear Resguardo");
+		JBResguardo.setBounds(396, 354, 115, 23);
+		contentPane.add(JBResguardo);
 		
 		
 		CBInstalaciones = new JComboBox<String>();
 		CBInstalaciones.setBounds(285, 21, 196, 20);
 		((RootPaneContainer) contentPane).getContentPane().add(CBInstalaciones);
 		
-		JLabel JLFecha = new JLabel("Fecha:");
+		JLFecha = new JLabel("Fecha:");
 		JLFecha.setBounds(25, 61, 39, 14);
 		contentPane.add(JLFecha);
 		
-		JLabel JLHora = new JLabel("Hora:");
+		JLHora = new JLabel("Hora:");
 		JLHora.setBounds(285, 61, 33, 14);
 		contentPane.add(JLHora);
 		
-		JLabel JLDatosSocio = new JLabel("Datos del Socio que quiere hacer la reserva:");
+		JLDatosSocio = new JLabel("Datos del Socio que quiere hacer la reserva:");
 		JLDatosSocio.setBounds(29, 227, 263, 14);
 		contentPane.add(JLDatosSocio);
 		
-		JLabel JLNombre = new JLabel("Nombre:");
+		JLNombre = new JLabel("Nombre:");
 		JLNombre.setBounds(46, 255, 46, 14);
 		contentPane.add(JLNombre);
 		
-		JLabel JLApellidos = new JLabel("Apellidos:");
+		JLApellidos = new JLabel("Apellidos:");
 		JLApellidos.setBounds(272, 255, 46, 14);
 		contentPane.add(JLApellidos);
 		
-		JLabel JLDni = new JLabel("DNI:");
+		JLDni = new JLabel("DNI:");
 		JLDni.setBounds(46, 301, 46, 14);
 		contentPane.add(JLDni);
 		
@@ -116,7 +126,7 @@ public class VistaReservaInstalacion extends JFrame {
 		contentPane.add(TFApellidos);
 		TFApellidos.setColumns(10);
 		
-		JCalendar JCFechaInico = new JCalendar();
+		JCFechaInico = new JCalendar();
 		JCFechaInico.setBounds(68, 63, 184, 153);
 		contentPane.add(JCFechaInico);
 		
@@ -126,11 +136,11 @@ public class VistaReservaInstalacion extends JFrame {
 		CBDesde.setBounds(106, 142, 59, 20);
 		((RootPaneContainer) contentPane).getContentPane().add(CBDesde);
 		
-		JLabel JLDesde = new JLabel("Desde");
+		JLDesde = new JLabel("Desde");
 		JLDesde.setBounds(295, 86, 46, 14);
 		contentPane.add(JLDesde);
 		
-		JLabel JLHasta = new JLabel("Hasta");
+		JLHasta = new JLabel("Hasta");
 		JLHasta.setBounds(295, 138, 46, 14);
 		contentPane.add(JLHasta);
 		
@@ -140,4 +150,8 @@ public class VistaReservaInstalacion extends JFrame {
 		CBHasta.setBounds(106, 173, 59, 20);
 		((RootPaneContainer) contentPane).getContentPane().add(CBHasta);
 	}
+	
+	
+
+	
 }

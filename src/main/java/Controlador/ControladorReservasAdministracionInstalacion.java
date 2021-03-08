@@ -17,21 +17,48 @@ public class ControladorReservasAdministracionInstalacion {
 		this.VRI=v;
 		this.MRAI=m;
 		this.addListenerCRA();
+		this.initview();
 	}
 
+	private void initview() {
+		VRI.contentPane.setVisible(true);
+	}
+	
+
 	private void addListenerCRA() {
-		// TODO Auto-generated method stub
 		
 		VRI.CBInstalaciones.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				if(VRI.CBInstalaciones.getSelectedIndex()>0) {
-					int tiempo = (VRI.CBHasta.getSelectedIndex()-VRI.CBDesde.getSelectedIndex());
-				
+					VRI.CBDesde.setEnabled(true);
+					VRI.CBHasta.setEnabled(true);
+					VRI.JLDesde.setEnabled(true);
+					VRI.JLHasta.setEnabled(true);
+				}
+				else
+				{
+					VRI.CBDesde.setEnabled(false);
+					VRI.CBHasta.setEnabled(false);
+					VRI.JLDesde.setEnabled(false);
+					VRI.JLHasta.setEnabled(false);
+				}
 			}
-
-			
-			
 		});
+			
+			
+			if ((!VRI.datePickerFechaInicio.getJFormattedTextField().getText().isEmpty())&&(VRA.CBInstalaciones.getSelectedIndex()>0)&&(!VRA.TFieldDni.getText().isEmpty())) {
+				VRI.JBReservar.setEnabled(true);
+				VRI.JBResguardo.setEnabled(true);
+			}
+			else {
+				VRI.JBReservar.setEnabled(false);
+				VRI.JBResguardo.setEnabled(false);
+			}
+			
+	}
+
+	
+		
 	
 		
 		
