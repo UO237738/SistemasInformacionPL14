@@ -67,7 +67,7 @@ public class ModeloCrearActividades {
 			preparedStatement= dbConnection.prepareStatement(sql);
 			result=preparedStatement.executeQuery();
 
-		cbInstalacion.addItem("Selecione una instalacion");
+			cbInstalacion.addItem("Selecione una instalacion");
 			while(result.next()) {
 				cbInstalacion.addItem(result.getString("nombre"));
 			}
@@ -103,6 +103,31 @@ public class ModeloCrearActividades {
 			catch (SQLException e) {
 				System.out.print(e.getMessage());
 			}
+	}
+
+	public static void cogerPeriodos(JComboBox<String> cbPeriodoInscripcion) {
+		// TODO Auto-generated method stub
+		Connection dbConnection= null;
+		PreparedStatement preparedStatement= null;
+		ResultSet result= null;
+
+		String sql= "SELECT id_inscripcion FROM inscripciones";
+		
+		try {
+			dbConnection= db.getConnection();
+			preparedStatement= dbConnection.prepareStatement(sql);
+			result=preparedStatement.executeQuery();
+
+			cbPeriodoInscripcion.addItem("Selecione un periodo inscripción");
+			while(result.next()) {
+				cbPeriodoInscripcion.addItem(result.getString("id_inscripcion"));
+			}
+					
+				dbConnection.close();
+		}
+		catch (SQLException e) {
+			System.out.print(e.getMessage());
+		}
 	}
 
 }

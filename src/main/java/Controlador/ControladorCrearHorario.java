@@ -17,17 +17,21 @@ public class ControladorCrearHorario {
 	private VistaCrearHorario VCH;
 	private ModeloHorarioDisplayDTO MHDD;
 	private VistaAdmin VA;
-	public ControladorCrearHorario(VistaCrearHorario VCH) {
-		this.VCH=VCH;
-		this.addListener();
+	ControladorCrearHorario CCH;
+	
+	
+	public ControladorCrearHorario() {
+		VCH = new VistaCrearHorario();
 		this.initView();
+		this.addListener();
+		
 	}
 
 
 	
 	private void initView() {
 		// TODO Auto-generated method stub
-		VCH.contentPane.setVisible(true);
+		VCH.getFrame().setVisible(true);
 	}
 
 
@@ -35,16 +39,16 @@ public class ControladorCrearHorario {
 		// TODO Auto-generated method stub
 		VCH.bCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					VCH.contentPane.setVisible(false);
-					VA.contentPane.setVisible(true);
+					VCH.getFrame().setVisible(false);
+					VA.getFrame().setVisible(true);
 			}
 		});
 		
 		VCH.bAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 					JOptionPane.showMessageDialog(null, "Horario creado con éxito!","Correcto",JOptionPane.INFORMATION_MESSAGE);
-					VCH.contentPane.setVisible(false);
-					VA.contentPane.setVisible(true);
+					VCH.getFrame().setVisible(false);
+					VA.getFrame().setVisible(true);
 			}
 		});
 		

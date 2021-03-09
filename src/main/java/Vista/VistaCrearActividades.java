@@ -1,386 +1,316 @@
 package Vista;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.KeyAdapter;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JSpinner;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import com.toedter.components.JSpinField;
-import com.toedter.calendar.JDateChooser;
-import javax.swing.JComboBox;
 import java.awt.event.KeyEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class VistaCrearActividades extends JFrame {
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-	public JPanel contentPane;
+import com.toedter.calendar.JDateChooser;
+
+public class VistaCrearActividades {
+
+	private JFrame frame;
 	public JTextField tfPeriodoInscrip;
 	public JTextField tfNoSocios;
 	public JTextField tfSocios;
 	public JTextField tfAforo;
 	public JComboBox<String> cbInstalacion;
 	public JComboBox<String> cbActividad;
+	public JComboBox<String> cbPeriodoInscripcion;
 	public JButton bCrearHorario;
 	public JButton bCancelar;
 	public JButton bAceptar;
-	public JButton bAsignar;
 	public JDateChooser dcFechaInicio;
 	public JDateChooser dcFechaFin;
 	public JTextField tfNombre;
+	public JLabel lPeriodoDeInscripcion;
 
-
-	
 	/**
 	 * Launch the application.
 	 */
-	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VistaCrearActividades window = new VistaCrearActividades();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
 	public VistaCrearActividades() {
-		
-		
-		
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 579, 363);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
 		JLabel lblInstalacin = new JLabel("Instalación:");
 		lblInstalacin.setBounds(302, 36, 54, 19);
-		contentPane.add(lblInstalacin);
+		frame.getContentPane().add(lblInstalacin);
 		
 		JLabel lblActividad = new JLabel("Actividad:");
 		lblActividad.setBounds(10, 39, 46, 13);
-		contentPane.add(lblActividad);
+		frame.getContentPane().add(lblActividad);
 		
 		JLabel lblAforo = new JLabel("Aforo:");
 		lblAforo.setBounds(10, 62, 46, 13);
-		contentPane.add(lblAforo);
+		frame.getContentPane().add(lblAforo);
 		
 		JLabel lblHorario = new JLabel("Horario:");
 		lblHorario.setBounds(10, 85, 46, 13);
-		contentPane.add(lblHorario);
+		frame.getContentPane().add(lblHorario);
 		
 		JLabel lblPeriodo = new JLabel("Periodo:");
 		lblPeriodo.setBounds(10, 108, 46, 13);
-		contentPane.add(lblPeriodo);
+		frame.getContentPane().add(lblPeriodo);
 		
 		JLabel lblCuotas = new JLabel("Cuotas:");
 		lblCuotas.setBounds(10, 131, 46, 13);
-		contentPane.add(lblCuotas);
+		frame.getContentPane().add(lblCuotas);
 		
 		JLabel lblNoSocios = new JLabel("No socios:");
 		lblNoSocios.setBounds(34, 171, 59, 13);
-		contentPane.add(lblNoSocios);
+		frame.getContentPane().add(lblNoSocios);
 		
-		JButton bCrearHorario = new JButton("Crear horario");
+		bCrearHorario = new JButton("Crear horario");
 		bCrearHorario.setEnabled(false);
 		bCrearHorario.setBounds(69, 83, 96, 17);
-		contentPane.add(bCrearHorario);
+		frame.getContentPane().add(bCrearHorario);
 		
-		JButton bAsignar = new JButton("Asignar periodo de inscripción");
-		bAsignar.setEnabled(false);
-		bAsignar.setBounds(10, 194, 171, 21);
-		contentPane.add(bAsignar);
-		
-		JLabel lblPeriodoDeInscripcin = new JLabel("Periodo de inscripción:");
-		lblPeriodoDeInscripcin.setBounds(191, 198, 111, 13);
-		contentPane.add(lblPeriodoDeInscripcin);
+		lPeriodoDeInscripcion = new JLabel("Periodo de inscripción:");
+		lPeriodoDeInscripcion.setBounds(191, 198, 111, 13);
+		frame.getContentPane().add(lPeriodoDeInscripcion);
 		
 		tfPeriodoInscrip = new JTextField();
 		tfPeriodoInscrip.setEditable(false);
 		tfPeriodoInscrip.setBounds(309, 195, 96, 19);
-		contentPane.add(tfPeriodoInscrip);
+		frame.getContentPane().add(tfPeriodoInscrip);
 		tfPeriodoInscrip.setColumns(10);
 		
-		JButton bCancelar = new JButton("Cancelar");
+		bCancelar = new JButton("Cancelar");
 		bCancelar.setBounds(10, 225, 85, 21);
-		contentPane.add(bCancelar);
+		frame.getContentPane().add(bCancelar);
 		
-		JButton bAceptar = new JButton("Aceptar");
+		bAceptar = new JButton("Aceptar");
 		bAceptar.setEnabled(false);
 		bAceptar.setBounds(438, 225, 85, 21);
-		contentPane.add(bAceptar);
+		frame.getContentPane().add(bAceptar);
 		
 		JLabel lblSocios = new JLabel("Socios:");
 		lblSocios.setBounds(34, 154, 46, 13);
-		contentPane.add(lblSocios);
+		frame.getContentPane().add(lblSocios);
 		
 		tfNoSocios = new JTextField();
-		tfNoSocios.setEnabled(false);
-		tfNoSocios.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c=e.getKeyChar();
-				 if(((c < '0') || (c > '9')) && (c != '\b' ))
-				      {
-				         e.consume();  // ignorar el evento de teclado
-				      }
-			}
-		});
+		
 		tfNoSocios.setBounds(94, 169, 46, 16);
-		contentPane.add(tfNoSocios);
+		frame.getContentPane().add(tfNoSocios);
 		tfNoSocios.setColumns(10);
 		
 		tfSocios = new JTextField();
-		tfSocios.setEnabled(false);
-		tfSocios.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c=e.getKeyChar();
-				 if(((c < '0') || (c > '9')) && (c != '\b' ))
-				      {
-				         e.consume();  // ignorar el evento de teclado
-				      }
-			}
-		});
+		
 		tfSocios.setColumns(10);
 		tfSocios.setBounds(94, 151, 46, 16);
-		contentPane.add(tfSocios);
+		frame.getContentPane().add(tfSocios);
 		
 		JLabel label = new JLabel("€");
 		label.setBounds(150, 154, 46, 13);
-		contentPane.add(label);
+		frame.getContentPane().add(label);
 		
 		JLabel label_1 = new JLabel("€");
 		label_1.setBounds(150, 171, 46, 13);
-		contentPane.add(label_1);
+		frame.getContentPane().add(label_1);
 		
-		JDateChooser dcFechaInicio = new JDateChooser();
+		dcFechaInicio = new JDateChooser();
 		dcFechaInicio.getCalendarButton().setEnabled(false);
 		dcFechaInicio.setBounds(140, 102, 69, 19);
-		contentPane.add(dcFechaInicio);
+		frame.getContentPane().add(dcFechaInicio);
 		
-		JDateChooser dcFechaFin = new JDateChooser();
+		dcFechaFin = new JDateChooser();
 		dcFechaFin.getCalendarButton().setEnabled(false);
 		dcFechaFin.setBounds(287, 102, 69, 19);
-		contentPane.add(dcFechaFin);
+		frame.getContentPane().add(dcFechaFin);
 		
 		JLabel lblFechaInicio = new JLabel("Fecha inicio");
 		lblFechaInicio.setBounds(66, 108, 64, 13);
-		contentPane.add(lblFechaInicio);
+		frame.getContentPane().add(lblFechaInicio);
 		
 		JLabel lblFechaFin = new JLabel("Fecha fin");
 		lblFechaFin.setBounds(238, 108, 64, 13);
-		contentPane.add(lblFechaFin);
+		frame.getContentPane().add(lblFechaFin);
 		
-		JComboBox cbActividad = new JComboBox();
-		cbActividad.setEnabled(false);
+		cbActividad = new JComboBox();
+		cbActividad.setEditable(true);
 		cbActividad.setBounds(66, 35, 160, 21);
-		contentPane.add(cbActividad);
+		frame.getContentPane().add(cbActividad);
 		
-		JComboBox cbInstalacion = new JComboBox();
-		cbInstalacion.setEnabled(false);
+		cbInstalacion = new JComboBox();
+		cbInstalacion.setEditable(true);
 		cbInstalacion.setBounds(371, 35, 152, 21);
-		contentPane.add(cbInstalacion);
+		frame.getContentPane().add(cbInstalacion);
 		
 		tfAforo = new JTextField();
-		tfAforo.setEnabled(false);
-		tfAforo.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				char c=e.getKeyChar();
-				 if(((c < '0') || (c > '9')) && (c != '\b' ))
-				      {
-				         e.consume();  // ignorar el evento de teclado
-				      }
-			}
-		});
 		tfAforo.setBounds(69, 59, 96, 19);
-		contentPane.add(tfAforo);
+		frame.getContentPane().add(tfAforo);
 		tfAforo.setColumns(10);
 		
 		JLabel lblPersonas = new JLabel("personas");
 		lblPersonas.setBounds(175, 62, 46, 13);
-		contentPane.add(lblPersonas);
+		frame.getContentPane().add(lblPersonas);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setBounds(10, 16, 46, 13);
-		contentPane.add(lblNombre);
+		frame.getContentPane().add(lblNombre);
 		
 		tfNombre = new JTextField();
-		tfNombre.setBounds(69, 13, 140, 19);
-		contentPane.add(tfNombre);
+		tfNombre.setBounds(69, 13, 96, 19);
+		frame.getContentPane().add(tfNombre);
 		tfNombre.setColumns(10);
+		
+		cbPeriodoInscripcion = new JComboBox();
+		cbPeriodoInscripcion.setEditable(true);
+		cbPeriodoInscripcion.setBounds(10, 194, 155, 21);
+		frame.getContentPane().add(cbPeriodoInscripcion);
 	}
 
-
-
-	public JPanel getContentPane() {
-		return contentPane;
+	public JFrame getFrame() {
+		return frame;
 	}
 
-
-
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
-
-
 
 	public JTextField getTfPeriodoInscrip() {
 		return tfPeriodoInscrip;
 	}
 
-
-
 	public void setTfPeriodoInscrip(JTextField tfPeriodoInscrip) {
 		this.tfPeriodoInscrip = tfPeriodoInscrip;
 	}
-
-
 
 	public JTextField getTfNoSocios() {
 		return tfNoSocios;
 	}
 
-
-
 	public void setTfNoSocios(JTextField tfNoSocios) {
 		this.tfNoSocios = tfNoSocios;
 	}
-
-
 
 	public JTextField getTfSocios() {
 		return tfSocios;
 	}
 
-
-
 	public void setTfSocios(JTextField tfSocios) {
 		this.tfSocios = tfSocios;
 	}
-
-
 
 	public JTextField getTfAforo() {
 		return tfAforo;
 	}
 
-
-
 	public void setTfAforo(JTextField tfAforo) {
 		this.tfAforo = tfAforo;
 	}
-
-
-	public JComboBox<String> getCbActividad() {
-		return cbActividad;
-	}
-
-
-
-	public void setCbActividad(JComboBox<String> cbActividad) {
-		this.cbActividad = cbActividad;
-	}
-
-
-
-	public JButton getbCrearHorario() {
-		return bCrearHorario;
-	}
-
-
-
-	public void setbCrearHorario(JButton bCrearHorario) {
-		this.bCrearHorario = bCrearHorario;
-	}
-
-
-
-	public JButton getbCancelar() {
-		return bCancelar;
-	}
-
-
-
-	public void setbCancelar(JButton bCancelar) {
-		this.bCancelar = bCancelar;
-	}
-
-
-
-	public JButton getbAceptar() {
-		return bAceptar;
-	}
-
-
-
-	public void setbAceptar(JButton bAceptar) {
-		this.bAceptar = bAceptar;
-	}
-
-
-
-	public JButton getbAsignar() {
-		return bAsignar;
-	}
-
-
-
-	public void setbAsignar(JButton bAsignar) {
-		this.bAsignar = bAsignar;
-	}
-
-
-
-	public JDateChooser getDcFechaInicio() {
-		return dcFechaInicio;
-	}
-
-
-
-	public void setDcFechaInicio(JDateChooser dcFechaInicio) {
-		this.dcFechaInicio = dcFechaInicio;
-	}
-
-
-
-	public JDateChooser getDcFechaFin() {
-		return dcFechaFin;
-	}
-
-
-
-	public void setDcFechaFin(JDateChooser dcFechaFin) {
-		this.dcFechaFin = dcFechaFin;
-	}
-
-
 
 	public JComboBox<String> getCbInstalacion() {
 		return cbInstalacion;
 	}
 
-
-
 	public void setCbInstalacion(JComboBox<String> cbInstalacion) {
 		this.cbInstalacion = cbInstalacion;
 	}
 
+	public JComboBox<String> getCbActividad() {
+		return cbActividad;
+	}
 
+	public void setCbActividad(JComboBox<String> cbActividad) {
+		this.cbActividad = cbActividad;
+	}
+
+	public JButton getbCrearHorario() {
+		return bCrearHorario;
+	}
+
+	public void setbCrearHorario(JButton bCrearHorario) {
+		this.bCrearHorario = bCrearHorario;
+	}
+
+	public JButton getbCancelar() {
+		return bCancelar;
+	}
+
+	public void setbCancelar(JButton bCancelar) {
+		this.bCancelar = bCancelar;
+	}
+
+	public JButton getbAceptar() {
+		return bAceptar;
+	}
+
+	public void setbAceptar(JButton bAceptar) {
+		this.bAceptar = bAceptar;
+	}
+
+	
+
+	public JDateChooser getDcFechaInicio() {
+		return dcFechaInicio;
+	}
+
+	public void setDcFechaInicio(JDateChooser dcFechaInicio) {
+		this.dcFechaInicio = dcFechaInicio;
+	}
+
+	public JDateChooser getDcFechaFin() {
+		return dcFechaFin;
+	}
+
+	public void setDcFechaFin(JDateChooser dcFechaFin) {
+		this.dcFechaFin = dcFechaFin;
+	}
 
 	public JTextField getTfNombre() {
 		return tfNombre;
 	}
 
-
-
 	public void setTfNombre(JTextField tfNombre) {
 		this.tfNombre = tfNombre;
+	}
+
+	public JLabel getlPeriodoDeInscripcion() {
+		return lPeriodoDeInscripcion;
+	}
+
+	public void setlPeriodoDeInscripcion(JLabel lPeriodoDeInscripcion) {
+		this.lPeriodoDeInscripcion = lPeriodoDeInscripcion;
+	}
+
+	public JComboBox<String> getCbPeriodoInscripcion() {
+		return cbPeriodoInscripcion;
+	}
+
+	public void setCbPeriodoInscripcion(JComboBox<String> cbPeriodoInscripcion) {
+		this.cbPeriodoInscripcion = cbPeriodoInscripcion;
 	}
 	
 }

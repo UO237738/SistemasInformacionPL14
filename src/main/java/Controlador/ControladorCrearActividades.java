@@ -20,13 +20,20 @@ import Modelo.ModeloCrearActividades;
 
 public class ControladorCrearActividades {
 
-private VistaAdmin VA;
+
 private VistaCrearActividades VCA;
-private VistaCrearHorario VCH;
-private VistaCrearPeriodoInscripcion VAPI;
+
+private ControladorCrearPeriodoInscripcion CCPI;
+private ModeloCrearActividades MCA;
+private ControladorCrearHorario CCA;
+private ControladorAdmin CA;
+private ControladorCrearHorario CCH;
+
 	//Constructor
-	public ControladorCrearActividades(VistaCrearActividades v) {
-		this.VCA=v;
+	public ControladorCrearActividades(ControladorAdmin CA) {
+		this.CA=CA;
+		VCA = new VistaCrearActividades();
+		MCA = new ModeloCrearActividades();
 		this.addListenerVCA();
 		this.initView();
 	}
@@ -35,7 +42,8 @@ private VistaCrearPeriodoInscripcion VAPI;
 		// TODO Auto-generated method stub
 		ModeloCrearActividades.cogerInstalaciones(VCA.cbInstalacion);
 		ModeloCrearActividades.cogerActividades(VCA.cbActividad);
-		VCA.contentPane.setVisible(true);
+		ModeloCrearActividades.cogerPeriodos(VCA.cbPeriodoInscripcion);
+		VCA.getFrame().setVisible(true);
 	}
 
 	private void addListenerVCA() {
@@ -45,9 +53,32 @@ private VistaCrearPeriodoInscripcion VAPI;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				if (VCA.tfNombre != null) {
-					VCA.cbActividad.setEnabled(true);
+				if (VCA.tfNombre == null) {
+					VCA.cbInstalacion.setEditable(false);
 				}
+				else { VCA.cbInstalacion.setEditable(true);}
+			}
+		});
+		
+		VCA.tfNoSocios.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c=e.getKeyChar();
+				 if(((c < '0') || (c > '9')) && (c != '\b' ))
+				      {
+				         e.consume();  // ignorar el evento de teclado
+				      }
+			}
+		});
+		
+		VCA.tfSocios.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c=e.getKeyChar();
+				 if(((c < '0') || (c > '9')) && (c != '\b' ))
+				      {
+				         e.consume();  // ignorar el evento de teclado
+				      }
 			}
 		});
 		
@@ -57,7 +88,7 @@ private VistaCrearPeriodoInscripcion VAPI;
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if (VCA.cbActividad != null) {
-					VCA.cbInstalacion.setEnabled(true);
+					VCA.tfAforo.setEnabled(true);
 				}
 			}
 		});
@@ -68,10 +99,22 @@ private VistaCrearPeriodoInscripcion VAPI;
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if (VCA.cbInstalacion != null) {
-					VCA.tfAforo.setEnabled(true);
+					VCA.cbActividad.setEnabled(true);
 				}
 			}
 		});
+		
+		VCA.cbPeriodoInscripcion.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if (VCA.cbInstalacion != null) {
+					VCA.cbActividad.setEnabled(true);
+				}
+			}
+		});
+		
 		
 		VCA.tfAforo.addActionListener(new ActionListener() {
 
@@ -81,6 +124,17 @@ private VistaCrearPeriodoInscripcion VAPI;
 				if (VCA.tfAforo != null) {
 					VCA.bCrearHorario.setEnabled(true);
 					VCA.dcFechaInicio.setEnabled(true);
+				}
+				
+			}
+		});
+		
+		VCA.tfAforo.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c=e.getKeyChar();
+				if(((c < '0') || (c > '9')) && (c != '\b' )){
+					e.consume();  // ignorar el evento de teclado
+					
 				}
 			}
 		});
@@ -92,7 +146,7 @@ private VistaCrearPeriodoInscripcion VAPI;
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Actividad creada con Exito!","Correcto",JOptionPane.INFORMATION_MESSAGE);
-				VCA.contentPane.setVisible(false);
+				VCA.getFrame().setVisible(false);
 				
 			}
 		});
@@ -102,8 +156,8 @@ private VistaCrearPeriodoInscripcion VAPI;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VCA.contentPane.setVisible(false);
-				VA.contentPane.setVisible(true);
+				VCA.getFrame().dispose();
+				CA.getVA().getFrame().setVisible(true);
 			}
 		});
 		
@@ -123,9 +177,9 @@ private VistaCrearPeriodoInscripcion VAPI;
 			public void propertyChange(PropertyChangeEvent evt) {
 				java.util.Date date2=VCA.getDcFechaFin().getDate();
 				java.util.Date date1= VCA.getDcFechaInicio().getDate();
-				if(date2.before(date1)) {
-					JOptionPane.showMessageDialog( null, VCA.dcFechaFin , "Selecciona una fecha válida", JOptionPane.QUESTION_MESSAGE);
-				}
+				//if(date2.before(date1)) {
+				//	JOptionPane.showMessageDialog( null, VCA.dcFechaFin , "Selecciona una fecha válida", JOptionPane.QUESTION_MESSAGE);
+				//}
 				if (VCA.dcFechaFin != null) {
 					VCA.tfSocios.setEnabled(true);
 				}
@@ -150,7 +204,7 @@ private VistaCrearPeriodoInscripcion VAPI;
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if (VCA.tfNoSocios != null) {
-					VCA.bAsignar.setEnabled(true);
+					VCA.cbPeriodoInscripcion.setEnabled(true);
 				}
 			}
 		});
@@ -172,19 +226,15 @@ private VistaCrearPeriodoInscripcion VAPI;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VCH.getContentPane().setVisible(true);
+				CCH = new ControladorCrearHorario();
 			}
 		});
 		
-		VCA.bAsignar.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				VAPI.getContentPane().setVisible(true);
-			}
-		});
+		
 		
 	}
+
+	
+	
 	
 }
