@@ -17,13 +17,11 @@ public class ControladorCrearHorario {
 	private VistaCrearHorario VCH;
 	private ModeloHorarioDisplayDTO MHDD;
 	private VistaAdmin VA;
-	public ControladorCrearHorario(VistaCrearHorario VCH) {
-		this.VCH=VCH;
+	public ControladorCrearHorario() {
+		VCH = new VistaCrearHorario();
 		this.addListener();
 		this.initView();
 	}
-
-
 	
 	private void initView() {
 		// TODO Auto-generated method stub
