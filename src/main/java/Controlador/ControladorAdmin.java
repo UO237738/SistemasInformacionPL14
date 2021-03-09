@@ -60,18 +60,18 @@ public class ControladorAdmin {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				VA.getFrame().setVisible(false);
-				CLAA = new ControladorListarActividadesAdministracion();
+				CRAI = new ControladorReservasAdministracionInstalacion();
 			}		
 		});
 		
 		VA.bListarActOfertadas.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				VA.getFrame().setVisible(false);
-				CRAI = new ControladorReservasAdministracionInstalacion();
-			}		
+				CLAA = new ControladorListarActividadesAdministracion();
+			}	
+				
 		});
 		
 		VA.bCancelar.addActionListener(new ActionListener() {

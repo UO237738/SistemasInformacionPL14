@@ -1,5 +1,5 @@
 delete from instalaciones; 
-INSERT INTO instalaciones (id_instalacion, nombre, precio, aforo) VALUES (1,'Pista de tenis', 5, 10); 
+INSERT INTO instalaciones (id_instalacion, nombre, precio, aforo, plazo_maximo_reserva) VALUES (1,'Pista de tenis', 5, 10, 30); 
 
 delete from actividades; 
 INSERT INTO actividades (id_actividad, id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad, id_inscripcion, id_horario) VALUES (1,1,'Baloncesto', 50, 20, 25,'2019-04-01', '2019-04-30', 1, 1); 

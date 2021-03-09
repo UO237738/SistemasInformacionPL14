@@ -11,7 +11,8 @@ CREATE TABLE instalaciones (
 id_instalacion INTEGER PRIMARY KEY AUTOINCREMENT,
 nombre TEXT NOT NULL,
 precio TEXT NOT NULL,
-aforo INTEGER NOT NULL);
+aforo INTEGER NOT NULL, 
+plazo_maximo_reserva INTEGER NOT NULL);
 
 
 CREATE TABLE actividades (

@@ -27,7 +27,7 @@ public class VistaReservaadministracionAplicacion {
 	public JComboBox<String> CBHasta;
 	public JDateChooser JCFechaInico;
 	public JButton JBReservar;
-	public JButton JBResguardo;
+	
 	
 	
 	public JLabel JLDesde;
@@ -80,7 +80,7 @@ public class VistaReservaadministracionAplicacion {
 		
 		CBInstalaciones = new JComboBox<String>();
 		CBInstalaciones.setEnabled(true);
-		CBInstalaciones.setModel(new DefaultComboBoxModel<String>(new String[] {"Pista de Tenis", "Pista de Tenis 1", "Pista de Tenis 2", "Pista de Futbol", "Pista de Futbol 1", "Pista de Baloncesto", "Pista de Baloncesto 1", "Pista de Baloncesto 2"}));
+		CBInstalaciones.setModel(new DefaultComboBoxModel<String>(new String[] {"Pista de tenis", "Pista de Tenis 1", "Pista de Tenis 2", "Pista de Futbol", "Pista de Futbol 1", "Pista de Baloncesto", "Pista de Baloncesto 1", "Pista de Baloncesto 2"}));
 		CBInstalaciones.setBounds(264, 28, 120, 20);
 		frame.getContentPane().add(CBInstalaciones);
 		
@@ -112,12 +112,9 @@ public class VistaReservaadministracionAplicacion {
 		frame.getContentPane().add(CBHasta);
 		
 		JBReservar = new JButton("Reservar");
-		JBReservar.setBounds(58, 273, 89, 23);
+		JBReservar.setBounds(198, 274, 89, 23);
 		frame.getContentPane().add(JBReservar);
 		
-		JBResguardo = new JButton("Resguardo");
-		JBResguardo.setBounds(330, 273, 89, 23);
-		frame.getContentPane().add(JBResguardo);
 		
 		JCFechaInico = new JDateChooser();
 		JCFechaInico.setBounds(79, 86, 95, 20);
@@ -174,14 +171,6 @@ public class VistaReservaadministracionAplicacion {
 
 	public void setJBReservar(JButton jBReservar) {
 		JBReservar = jBReservar;
-	}
-
-	public JButton getJBResguardo() {
-		return JBResguardo;
-	}
-
-	public void setJBResguardo(JButton jBResguardo) {
-		JBResguardo = jBResguardo;
 	}
 
 	public JLabel getJLDesde() {
