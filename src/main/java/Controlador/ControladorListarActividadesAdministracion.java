@@ -1,5 +1,9 @@
 package Controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -14,18 +18,35 @@ public class ControladorListarActividadesAdministracion {
 	
 	private ModeloListarActividadesAdministracion listar;
 	private VistaVisualizarActividades vista;
-	private JFrame inFrame;
+
 	
 	public ControladorListarActividadesAdministracion(ModeloListarActividadesAdministracion m, VistaVisualizarActividades v) {
 		this.listar = m;
 		this.vista = v;
 		this.initview();
+		this.addListernerCRA();
 	}
-	
-	
 	
 	public void initview() {
 		vista.contentPane.setVisible(true);
+	}
+	
+	public static String getFechaActual() {
+		Date ahora = new Date();
+		SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+		return formateador.format(ahora);
+	}
+	
+	
+	private void addListernerCRA() {
+		vista.JBBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(vista.JDFechaIni.getToolTipText().isEmpty() && vista.JDFechaFin.getToolTipText().isEmpty()) {
+					getListaActividades();
+				}
+			}	
+		});
+		
 	}
 	
 
