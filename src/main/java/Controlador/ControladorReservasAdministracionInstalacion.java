@@ -16,9 +16,8 @@ public class ControladorReservasAdministracionInstalacion {
 	private VistaReservaadministracionAplicacion VRI;
 	private ModeloReservaAdministracioninstalación MRAI;
 	
-	public ControladorReservasAdministracionInstalacion(VistaReservaadministracionAplicacion v, ModeloReservaAdministracioninstalación m) {
-		this.VRI=v;
-		this.MRAI=m;
+	public ControladorReservasAdministracionInstalacion() {
+		VRI = new VistaReservaadministracionAplicacion();
 		this.addListenerCRA();
 		this.initview();
 	}

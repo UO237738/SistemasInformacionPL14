@@ -13,6 +13,7 @@ public class ControladorAdmin {
 	ControladorCrearPeriodoInscripcion CCPI;
 	ControladorCrearActividades CCA;
 	ControladorListarActividadesAdministracion CLAA;
+	ControladorReservasAdministracionInstalacion CRAI;
 	
 	
 	public ControladorAdmin() {
@@ -69,7 +70,7 @@ public class ControladorAdmin {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				VA.getFrame().setVisible(false);
-				
+				CRAI = new ControladorReservasAdministracionInstalacion();
 			}		
 		});
 		
