@@ -39,10 +39,9 @@ public class ControladorListarActividadesAdministracion {
 	private void addListernerCRA() {
 		vista.JBBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(vista.JDFechaIni.getToolTipText().isEmpty() && vista.JDFechaFin.getToolTipText().isEmpty()) {
-					getListaActividades();
+				getListaActividades();
 				}
-			}	
+				
 		});
 		
 	}
