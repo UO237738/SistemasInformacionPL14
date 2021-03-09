@@ -55,9 +55,15 @@ public class ControladorReservaActividades {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				vistaReservaActividades.dispose();
-				
 			}
 		});
 		
+		vistaReservaActividades.btnCrear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+			
+		});
 	}
 }
