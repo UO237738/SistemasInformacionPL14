@@ -46,28 +46,25 @@ public class ModeloReservaActividades {
 		return (int) rows.get(0)[0];
 	}
 	
-	public static void setNuevaReserva(int idI,int idS, String f1, String h1,String h2) {
+	public static void setNuevaReserva(String nombreAct, String idSocio, String h1,String h2) {
 		Connection dbConnection=null;
 		PreparedStatement preparedStatement=null;
 
 		String insertReserva= "INSERT INTO reservas"
-				+"(id_instalacion,id_actividad,id_socio,fecha_inicioReserva,fecha_finReserva,hora_inicioReserva,hora_finReserva) VALUES "
+				+"(nombre_actividad,id_socio, hora_inicioReserva, hora_finReserva) VALUES "
 				+"(?,null,?,?,?,?,?)";
 		try {
 			dbConnection = db.getConnection();
 			preparedStatement = dbConnection.prepareStatement(insertReserva);
 
-			preparedStatement.setInt(1, idI);
-			preparedStatement.setInt(2, idS);
-			preparedStatement.setString(3, f1);
-			preparedStatement.setString(4, f1);
+			preparedStatement.setString(1, nombreAct);
+			preparedStatement.setString(2, idSocio);
 			preparedStatement.setString(5, h1);
 			preparedStatement.setString(6, h2);
 
 			preparedStatement.executeUpdate();
 
 			dbConnection.close();
-
 		}
 		catch (SQLException e) {
 			System.out.print(e.getMessage());
