@@ -17,15 +17,15 @@ public class ControladorCrearPeriodoInscripcion {
 	VistaCrearPeriodoInscripcion VCPI;
 	VistaAdmin VA;
 	
-	public ControladorCrearPeriodoInscripcion(VistaCrearPeriodoInscripcion VCPI) {
-		this.VCPI=VCPI;
+	public ControladorCrearPeriodoInscripcion() {
+		VCPI = new VistaCrearPeriodoInscripcion();
 		this.addListener();
 		this.initView();
 	}
 
 	private void initView() {
 		// TODO Auto-generated method stub
-		VCPI.contentPane.setVisible(true);
+		VCPI.getFrame().setVisible(true);
 	}
 
 	private void addListener() {
@@ -36,8 +36,8 @@ public class ControladorCrearPeriodoInscripcion {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				JOptionPane.showMessageDialog(null, "Periodo inscripción creado!","Correcto",JOptionPane.INFORMATION_MESSAGE);
-				VCPI.contentPane.setVisible(false);
-				VA.contentPane.setVisible(true);
+				VCPI.getFrame().setVisible(false);
+				VA.getFrame().setVisible(true);
 			}
 		});
 		
@@ -46,8 +46,8 @@ public class ControladorCrearPeriodoInscripcion {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VCPI.contentPane.setVisible(false);
-				VA.contentPane.setVisible(true);
+				VCPI.getFrame().setVisible(false);
+				VA.getFrame().setVisible(true);
 			}
 		});
 		

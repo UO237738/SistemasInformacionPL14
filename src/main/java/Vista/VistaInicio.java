@@ -1,24 +1,26 @@
 package Vista;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
 import javax.swing.JButton;
-import giis.demo.util.SwingMain;
 
 public class VistaInicio extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	public JFrame contentPane;
 	public JButton bAdministracion;
 	public JButton bSocios;
 	public JButton bNoSocios;
 	public JButton bAceptar;
 	public JButton bCancelar;
-	public JButton bInicializarBbdd;
-	public JButton bCargarBbdd;
+	
+
 	
 	/**
 	 * Launch the application.
@@ -53,29 +55,21 @@ public class VistaInicio extends JFrame {
 		contentPane.getContentPane().setLayout(null);
 		
 		
-		JButton bAdministracin = new JButton("Administración");
-		bAdministracin.setBounds(10, 36, 157, 31);
-		contentPane.getContentPane().add(bAdministracin);
+		bAdministracion = new JButton("Administración");
+		bAdministracion.setBounds(10, 36, 157, 31);
+		contentPane.getContentPane().add(bAdministracion);
 		
-		JButton bSocios = new JButton("Socios");
+		bSocios = new JButton("Socios");
 		bSocios.setBounds(10, 91, 157, 31);
 		contentPane.getContentPane().add(bSocios);
 		
-		JButton bNoSocios = new JButton("No socios");
+		bNoSocios = new JButton("No socios");
 		bNoSocios.setBounds(10, 149, 157, 31);
 		contentPane.getContentPane().add(bNoSocios);
 		
-		JButton bCancelar = new JButton("Cancelar");
+		bCancelar = new JButton("Cancelar");
 		bCancelar.setBounds(10, 239, 85, 21);
 		contentPane.getContentPane().add(bCancelar);
-		
-		JButton bInicializarBbdd = new JButton("Inicializar bbdd");
-		bInicializarBbdd.setBounds(258, 41, 171, 21);
-		contentPane.getContentPane().add(bInicializarBbdd);
-		
-		JButton bCargarBbdd = new JButton("Cargar bbdd");
-		bCargarBbdd.setBounds(243, 68, 180, 31);
-		contentPane.getContentPane().add(bCargarBbdd);
 	}
 
 	public JFrame getContentPane() {
@@ -125,21 +119,6 @@ public class VistaInicio extends JFrame {
 	public void setbCancelar(JButton bCancelar) {
 		this.bCancelar = bCancelar;
 	}
-
-	public JButton getbInicializarBbdd() {
-		return bInicializarBbdd;
-	}
-
-	public void setbInicializarBbdd(JButton bInicializarBbdd) {
-		this.bInicializarBbdd = bInicializarBbdd;
-	}
-
-	public JButton getbCargarBbdd() {
-		return bCargarBbdd;
-	}
-
-	public void setbCargarBbdd(JButton bCargarBbdd) {
-		this.bCargarBbdd = bCargarBbdd;
-	}
-	
 }
+	
+

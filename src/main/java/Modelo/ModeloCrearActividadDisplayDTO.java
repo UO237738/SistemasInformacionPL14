@@ -12,6 +12,7 @@ public class ModeloCrearActividadDisplayDTO {
 	private String fechaFinActividad;
 	private int id_inscripcion;
 	private int id_horario;
+	
 	public int getId_actividad() {
 		return id_actividad;
 	}

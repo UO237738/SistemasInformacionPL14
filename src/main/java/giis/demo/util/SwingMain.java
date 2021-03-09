@@ -9,7 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
+import Controlador.ControladorAdmin;
 import Controlador.ControladorInicio;
+import Vista.VistaAdmin;
 import Vista.VistaInicio;
 import giis.demo.tkrun.CarrerasController;
 import giis.demo.tkrun.CarrerasModel;
@@ -27,7 +29,8 @@ import giis.demo.tkrun.CarrerasView;
 public class SwingMain {
 
 	private JFrame frame;
-	public VistaInicio VI;
+	
+	ControladorInicio CI;
 
 	/**
 	 * Launch the application.
@@ -50,7 +53,6 @@ public class SwingMain {
 	 */
 	public SwingMain() {
 		initialize();
-		new VistaInicio();
 	}
 
 	/**
@@ -77,7 +79,7 @@ public class SwingMain {
 		btnInicializarBaseDeDatos.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
 			public void actionPerformed(ActionEvent e) {
 				Database db=new Database();
-				db.createDatabase(false);
+				db.createDatabase(true);
 			}
 		});
 		frame.getContentPane().add(btnInicializarBaseDeDatos);
@@ -95,9 +97,10 @@ public class SwingMain {
 		JButton bApp = new JButton("Ir a app");
 		bApp.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
 			public void actionPerformed(ActionEvent e) {
-				VI= new VistaInicio();
-				VI.setVisible(true);
 		
+				CI = new ControladorInicio();
+				
+				
 			}
 		});
 		frame.getContentPane().add(bApp);

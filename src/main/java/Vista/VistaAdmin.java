@@ -1,23 +1,22 @@
 package Vista;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-public class VistaAdmin extends JFrame {
+public class VistaAdmin {
 
-	public JPanel contentPane;
+	public JFrame frame;
 	public JButton bPlanificarActividad;
 	public JButton bListaActividades;
 	public JButton bVerReservas;
 	public JButton bHacerReserva;
 	public JButton bCrearPeriodoInscripcion;
-	public JButton bAceptar;
 	public JButton bCancelar;
+
+
+
 	/**
 	 * Launch the application.
 	 */
@@ -25,8 +24,8 @@ public class VistaAdmin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VistaAdmin frame = new VistaAdmin();
-					frame.setVisible(true);
+					VistaAdmin window = new VistaAdmin();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,47 +34,52 @@ public class VistaAdmin extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
 	public VistaAdmin() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		setContentPane(new JPanel());
-		getContentPane().setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(getContentPane());
-		getContentPane().setLayout(null);
-		
-		JButton bPlanificarActividad = new JButton("PlanificarActividad");
-		bPlanificarActividad.setBounds(10, 10, 173, 21);
-		getContentPane().add(bPlanificarActividad);
-		
-		JButton bListaActividades = new JButton("Lista de actividades");
-		bListaActividades.setBounds(10, 43, 173, 21);
-		getContentPane().add(bListaActividades);
-		
-		JButton bVerReservas = new JButton("Ver reservas");
-		bVerReservas.setBounds(10, 74, 173, 21);
-		getContentPane().add(bVerReservas);
-		
-		JButton bHacerReserva = new JButton("Hacer reserva");
-		bHacerReserva.setBounds(10, 105, 173, 21);
-		getContentPane().add(bHacerReserva);
-		
-		JButton bCrearPeriodoDe = new JButton("Crear periodo de inscripción");
-		bCrearPeriodoDe.setBounds(10, 136, 173, 21);
-		getContentPane().add(bCrearPeriodoDe);
-		
-		JButton bCancelar = new JButton("Cancelar");
-		bCancelar.setBounds(10, 226, 85, 21);
-		contentPane.add(bCancelar);
+		initialize();
 	}
 
-	public JPanel getContentPane() {
-		return contentPane;
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		bPlanificarActividad = new JButton("Planificar actividad");
+		bPlanificarActividad.setBounds(10, 10, 178, 21);
+		frame.getContentPane().add(bPlanificarActividad);
+		
+		bListaActividades = new JButton("Lista de actividades");
+		bListaActividades.setBounds(10, 40, 178, 21);
+		frame.getContentPane().add(bListaActividades);
+		
+		bVerReservas = new JButton("Ver reservas");
+		bVerReservas.setBounds(10, 71, 178, 21);
+		frame.getContentPane().add(bVerReservas);
+		
+		bHacerReserva = new JButton("Hacer reserva");
+		bHacerReserva.setBounds(10, 102, 178, 21);
+		frame.getContentPane().add(bHacerReserva);
+		
+		bCrearPeriodoInscripcion = new JButton("Crear periodo de inscripción");
+		bCrearPeriodoInscripcion.setBounds(10, 133, 178, 21);
+		frame.getContentPane().add(bCrearPeriodoInscripcion);
+		
+		bCancelar = new JButton("Cancelar");
+		bCancelar.setBounds(10, 187, 85, 21);
+		frame.getContentPane().add(bCancelar);
 	}
 
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 
 	public JButton getbPlanificarActividad() {
@@ -110,20 +114,19 @@ public class VistaAdmin extends JFrame {
 		this.bHacerReserva = bHacerReserva;
 	}
 
+	public JButton getbCrearPeriodoDeInscripcion() {
+		return bCrearPeriodoInscripcion;
+	}
+
+	public void setbCrearPeriodoDeInscripcion(JButton bCrearPeriodoDeInscripcion) {
+		this.bCrearPeriodoInscripcion = bCrearPeriodoDeInscripcion;
+	}
 	public JButton getbCrearPeriodoInscripcion() {
 		return bCrearPeriodoInscripcion;
 	}
 
 	public void setbCrearPeriodoInscripcion(JButton bCrearPeriodoInscripcion) {
 		this.bCrearPeriodoInscripcion = bCrearPeriodoInscripcion;
-	}
-
-	public JButton getbAceptar() {
-		return bAceptar;
-	}
-
-	public void setbAceptar(JButton bAceptar) {
-		this.bAceptar = bAceptar;
 	}
 
 	public JButton getbCancelar() {
@@ -133,6 +136,7 @@ public class VistaAdmin extends JFrame {
 	public void setbCancelar(JButton bCancelar) {
 		this.bCancelar = bCancelar;
 	}
+	
 	
 	
 
