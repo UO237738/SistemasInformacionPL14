@@ -6,21 +6,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.swing.JFrame;
 import javax.swing.table.TableModel;
 
 import Modelo.ModeloListarActividadesAdministracion;
-import Vista.VistaVisualizarActividades;
+import Vista.VistaListarActividadesAdministracion;
 import giis.demo.util.SwingUtil;
 import giis.demo.util.Util;
 
 public class ControladorListarActividadesAdministracion {
 	
 	private ModeloListarActividadesAdministracion listar;
-	private VistaVisualizarActividades vista;
+	private VistaListarActividadesAdministracion vista;
 
 	
-	public ControladorListarActividadesAdministracion(ModeloListarActividadesAdministracion m, VistaVisualizarActividades v) {
+	public ControladorListarActividadesAdministracion(ModeloListarActividadesAdministracion m, VistaListarActividadesAdministracion v) {
 		this.listar = m;
 		this.vista = v;
 		this.initview();
@@ -28,7 +27,7 @@ public class ControladorListarActividadesAdministracion {
 	}
 	
 	public void initview() {
-		vista.contentPane.setVisible(true);
+		vista.frame.setVisible(true);
 	}
 	
 	public static String getFechaActual() {
@@ -53,16 +52,16 @@ public class ControladorListarActividadesAdministracion {
 	
 	
 	private void getListaActividades(){
-		List<Object[]> actividades = listar.getListaActividades(Util.isoStringToDate(vista.getFechaIni()), Util.isoStringToDate(vista.getFechaFin()));
+		List<Object[]> actividades = listar.getListaActividades(Util.isoStringToDate(vista.getJDFechaIni()), Util.isoStringToDate(vista.getJDFechaFin()));
 		TableModel tmodel = SwingUtil.getTableModelFromPojos(actividades, new String[] {"id_actividad", "nombre", "fechaIniActividad", "aforo", "cuota socio", "cuota no socio"});
-		vista.getTablaActividades().setModel(tmodel);
+		vista.getJTActividades().setModel(tmodel);
 		
-		vista.getTablaActividades().getColumnModel().getColumn(0).setHeaderValue("ID actividad");
-		vista.getTablaActividades().getColumnModel().getColumn(1).setHeaderValue("Nombre");
-		vista.getTablaActividades().getColumnModel().getColumn(2).setHeaderValue("Fecha");
-		vista.getTablaActividades().getColumnModel().getColumn(3).setHeaderValue("Aforo");
-		vista.getTablaActividades().getColumnModel().getColumn(4).setHeaderValue("Cuota Socio");
-		vista.getTablaActividades().getColumnModel().getColumn(5).setHeaderValue("cuota No Socio");
+		vista.getJTActividades().getColumnModel().getColumn(0).setHeaderValue("ID actividad");
+		vista.getJTActividades().getColumnModel().getColumn(1).setHeaderValue("Nombre");
+		vista.getJTActividades().getColumnModel().getColumn(2).setHeaderValue("Fecha");
+		vista.getJTActividades().getColumnModel().getColumn(3).setHeaderValue("Aforo");
+		vista.getJTActividades().getColumnModel().getColumn(4).setHeaderValue("Cuota Socio");
+		vista.getJTActividades().getColumnModel().getColumn(5).setHeaderValue("cuota No Socio");
 	}
 	
 	

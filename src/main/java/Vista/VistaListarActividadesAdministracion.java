@@ -8,13 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-
 import com.toedter.calendar.JDateChooser;
 
 public class VistaListarActividadesAdministracion {
 
-	private JFrame frame;
+	public JFrame frame;
 	public JPanel contentPane;
 	public JDateChooser JDFechaIni;
 	public JDateChooser JDFechaFin;
