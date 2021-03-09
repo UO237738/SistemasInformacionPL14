@@ -19,15 +19,14 @@ public class ControladorListarActividadesAdministracion {
 	private VistaListarActividadesAdministracion vista;
 
 	
-	public ControladorListarActividadesAdministracion(ModeloListarActividadesAdministracion m, VistaListarActividadesAdministracion v) {
-		this.listar = m;
-		this.vista = v;
+	public ControladorListarActividadesAdministracion() {
+		vista = new VistaListarActividadesAdministracion();
 		this.initview();
 		this.addListernerCRA();
 	}
 	
 	public void initview() {
-		vista.frame.setVisible(true);
+		vista.getFrame().setVisible(true);
 	}
 	
 	public static String getFechaActual() {
