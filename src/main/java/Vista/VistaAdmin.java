@@ -13,7 +13,10 @@ public class VistaAdmin {
 	public JButton bVerReservas;
 	public JButton bHacerReserva;
 	public JButton bCrearPeriodoInscripcion;
+	public JButton bResInstalacion;
+	public JButton bListarActOfertadas;
 	public JButton bCancelar;
+	
 
 
 
@@ -45,33 +48,41 @@ public class VistaAdmin {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 450, 364);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		bPlanificarActividad = new JButton("Planificar actividad");
-		bPlanificarActividad.setBounds(10, 10, 178, 21);
+		bPlanificarActividad.setBounds(10, 10, 194, 21);
 		frame.getContentPane().add(bPlanificarActividad);
 		
 		bListaActividades = new JButton("Lista de actividades");
-		bListaActividades.setBounds(10, 40, 178, 21);
+		bListaActividades.setBounds(10, 40, 194, 21);
 		frame.getContentPane().add(bListaActividades);
 		
 		bVerReservas = new JButton("Ver reservas");
-		bVerReservas.setBounds(10, 71, 178, 21);
+		bVerReservas.setBounds(10, 71, 194, 21);
 		frame.getContentPane().add(bVerReservas);
 		
 		bHacerReserva = new JButton("Hacer reserva");
-		bHacerReserva.setBounds(10, 102, 178, 21);
+		bHacerReserva.setBounds(10, 102, 194, 21);
 		frame.getContentPane().add(bHacerReserva);
 		
 		bCrearPeriodoInscripcion = new JButton("Crear periodo de inscripción");
-		bCrearPeriodoInscripcion.setBounds(10, 133, 178, 21);
+		bCrearPeriodoInscripcion.setBounds(10, 133, 194, 21);
 		frame.getContentPane().add(bCrearPeriodoInscripcion);
 		
 		bCancelar = new JButton("Cancelar");
-		bCancelar.setBounds(10, 187, 85, 21);
+		bCancelar.setBounds(10, 274, 85, 21);
 		frame.getContentPane().add(bCancelar);
+		
+		bListarActOfertadas = new JButton("Listar Actividades en un Periodo");
+		bListarActOfertadas.setBounds(10, 165, 194, 21);
+		frame.getContentPane().add(bListarActOfertadas);
+		
+		bResInstalacion = new JButton("Reserva Instalacion Socios");
+		bResInstalacion.setBounds(10, 197, 194, 21);
+		frame.getContentPane().add(bResInstalacion);
 	}
 
 	public JFrame getFrame() {
@@ -136,8 +147,4 @@ public class VistaAdmin {
 	public void setbCancelar(JButton bCancelar) {
 		this.bCancelar = bCancelar;
 	}
-	
-	
-	
-
 }
