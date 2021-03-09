@@ -55,7 +55,7 @@ public class ModeloReservaAdministracioninstalación {
 				+ "((?<=hora_inicioReserva AND hora_inicoReerva>?) OR (?>hora_finReserva AND hora_finReserva<=?)) then 'reservado' end"
 				+ "form RESERVAS";
 			
-		List<Object[]>filas=basedatos.executeQueryArray(consulta,idinstalacion,horaini,horafin,fechaini,fechafin);
+		List<Object[]>filas=basedatos.executeQueryArray(consulta,idinstalacion,fechaini,fechafin,horaini,horafin);
 		return (int) filas.get(0)[0];
 	}
 	

@@ -35,6 +35,7 @@ public class ControladorReservasAdministracionInstalacion {
 	
 
 	private void addListenerCRA() {
+
 		
 		VRI.CBInstalaciones.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -101,15 +102,7 @@ public class ControladorReservasAdministracionInstalacion {
 				}
 			}
 					
-		});
-		
-		
-		
-			
-		
-	
-		
-		
+		});	
 		
 		
 	}

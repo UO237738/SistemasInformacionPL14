@@ -28,6 +28,8 @@ public class VistaReservaInstalacion extends JFrame {
 	public JTextField TFApellidos;
 	public JComboBox<String> CBDesde;
 	public JComboBox<String> CBHasta;
+	
+
 	public JCalendar JCFechaInico;
 	public JLabel JLDesde;
 	public JLabel JLHasta;
@@ -152,6 +154,64 @@ public class VistaReservaInstalacion extends JFrame {
 		((RootPaneContainer) contentPane).getContentPane().add(CBHasta);
 	}
 	
+
+	
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public JComboBox<String> getCBInstalaciones() {
+		return CBInstalaciones;
+	}
+
+	public void setCBInstalaciones(JComboBox<String> cBInstalaciones) {
+		CBInstalaciones = cBInstalaciones;
+	}
+
+	public JTextField getTFNombre() {
+		return TFNombre;
+	}
+
+	public void setTFNombre(JTextField tFNombre) {
+		TFNombre = tFNombre;
+	}
+
+	public JTextField getTFDni() {
+		return TFDni;
+	}
+
+	public void setTFDni(JTextField tFDni) {
+		TFDni = tFDni;
+	}
+
+	public JTextField getTFApellidos() {
+		return TFApellidos;
+	}
+
+	public void setTFApellidos(JTextField tFApellidos) {
+		TFApellidos = tFApellidos;
+	}
+
+	public JComboBox<String> getCBDesde() {
+		return CBDesde;
+	}
+
+	public void setCBDesde(JComboBox<String> cBDesde) {
+		CBDesde = cBDesde;
+	}
+
+	public JComboBox<String> getCBHasta() {
+		return CBHasta;
+	}
+
+	public void setCBHasta(JComboBox<String> cBHasta) {
+		CBHasta = cBHasta;
+	}
+
 	public String getFechaInicio() {
 		int d = this.JCFechaInico.getCalendar().get(Calendar.DAY_OF_MONTH);
 		int m = this.JCFechaInico.getCalendar().get(Calendar.MONTH);
@@ -160,5 +220,96 @@ public class VistaReservaInstalacion extends JFrame {
 		return FechaIni;
 	}
 
+	public void setJCFechaInico(JCalendar jCFechaInico) {
+		JCFechaInico = jCFechaInico;
+	}
+
+	public JLabel getJLDesde() {
+		return JLDesde;
+	}
+
+	public void setJLDesde(JLabel jLDesde) {
+		JLDesde = jLDesde;
+	}
+
+	public JLabel getJLHasta() {
+		return JLHasta;
+	}
+
+	public void setJLHasta(JLabel jLHasta) {
+		JLHasta = jLHasta;
+	}
+
+	public JLabel getJLFecha() {
+		return JLFecha;
+	}
+
+	public void setJLFecha(JLabel jLFecha) {
+		JLFecha = jLFecha;
+	}
+
+	public JLabel getJLHora() {
+		return JLHora;
+	}
+
+	public void setJLHora(JLabel jLHora) {
+		JLHora = jLHora;
+	}
+
+	public JLabel getJLInstalacion() {
+		return JLInstalacion;
+	}
+
+	public void setJLInstalacion(JLabel jLInstalacion) {
+		JLInstalacion = jLInstalacion;
+	}
+
+	public JButton getJBReservar() {
+		return JBReservar;
+	}
+
+	public void setJBReservar(JButton jBReservar) {
+		JBReservar = jBReservar;
+	}
+
+	public JButton getJBResguardo() {
+		return JBResguardo;
+	}
+
+	public void setJBResguardo(JButton jBResguardo) {
+		JBResguardo = jBResguardo;
+	}
+
+	public JLabel getJLDatosSocio() {
+		return JLDatosSocio;
+	}
+
+	public void setJLDatosSocio(JLabel jLDatosSocio) {
+		JLDatosSocio = jLDatosSocio;
+	}
+
+	public JLabel getJLNombre() {
+		return JLNombre;
+	}
+
+	public void setJLNombre(JLabel jLNombre) {
+		JLNombre = jLNombre;
+	}
+
+	public JLabel getJLApellidos() {
+		return JLApellidos;
+	}
+
+	public void setJLApellidos(JLabel jLApellidos) {
+		JLApellidos = jLApellidos;
+	}
+
+	public JLabel getJLDni() {
+		return JLDni;
+	}
+
+	public void setJLDni(JLabel jLDni) {
+		JLDni = jLDni;
+	}
 	
 }
