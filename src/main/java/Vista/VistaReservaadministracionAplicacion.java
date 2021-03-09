@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JDayChooser;
+
 import javax.swing.DefaultComboBoxModel;
 
 public class VistaReservaadministracionAplicacion {
@@ -22,7 +25,7 @@ public class VistaReservaadministracionAplicacion {
 	public JTextField TFApellidos;
 	public JComboBox<String> CBDesde;
 	public JComboBox<String> CBHasta;
-	public JCalendar JCFechaInico;
+	public JDateChooser JCFechaInico;
 	public JButton JBReservar;
 	public JButton JBResguardo;
 	
@@ -82,16 +85,12 @@ public class VistaReservaadministracionAplicacion {
 		frame.getContentPane().add(CBInstalaciones);
 		
 		JLFecha = new JLabel("Fecha: ");
-		JLFecha.setBounds(23, 75, 46, 14);
+		JLFecha.setBounds(23, 86, 46, 14);
 		frame.getContentPane().add(JLFecha);
 		
 		JLHora = new JLabel("Hora:");
 		JLHora.setBounds(293, 75, 46, 14);
 		frame.getContentPane().add(JLHora);
-		
-		JCFechaInico = new JCalendar();
-		JCFechaInico.setBounds(74, 72, 184, 153);
-		frame.getContentPane().add(JCFechaInico);
 		
 		JLDesde = new JLabel("Desde:");
 		JLDesde.setBounds(303, 107, 46, 14);
@@ -119,6 +118,10 @@ public class VistaReservaadministracionAplicacion {
 		JBResguardo = new JButton("Resguardo");
 		JBResguardo.setBounds(330, 273, 89, 23);
 		frame.getContentPane().add(JBResguardo);
+		
+		JCFechaInico = new JDateChooser();
+		JCFechaInico.setBounds(79, 86, 95, 20);
+		frame.getContentPane().add(JCFechaInico);
 	}
 
 	public JFrame getFrame() {
@@ -161,7 +164,7 @@ public class VistaReservaadministracionAplicacion {
 		return FechaIni;
 	}
 
-	public void setJCFechaInico(JCalendar jCFechaInico) {
+	public void setJCFechaInico(JDateChooser jCFechaInico) {
 		JCFechaInico = jCFechaInico;
 	}
 
