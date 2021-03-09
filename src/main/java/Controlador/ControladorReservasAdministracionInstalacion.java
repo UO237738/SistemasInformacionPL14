@@ -38,8 +38,8 @@ public class ControladorReservasAdministracionInstalacion {
 		
 		VRI.JBReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ModeloReservaAdministracioninstalación.plazoMaximoReserva((String)VRI.CBInstalaciones.getSelectedItem(),VRI.JCFechaInico.getToolTipText())) {
-					int conflicto=ModeloReservaAdministracioninstalación.ConflictoReserva(ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem()),VRI.JCFechaInico.getToolTipText(),VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(),(String)VRI.CBHasta.getSelectedItem());
+				
+					int conflicto=ModeloReservaAdministracioninstalación.ConflictoReserva(ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem()),VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(),(String)VRI.CBHasta.getSelectedItem());
 					if(conflicto>=1) {
 						JOptionPane.showMessageDialog(null, "La instalacion esta ocupada para esa fecha", "Error",JOptionPane.ERROR_MESSAGE);
 					}
@@ -52,10 +52,7 @@ public class ControladorReservasAdministracionInstalacion {
 						ModeloReservaAdministracioninstalación.CrearResguardo(VRI.TFDni.getText(),(String)VRI.CBInstalaciones.getSelectedItem(),VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(), (String)VRI.CBHasta.getSelectedItem(), nombreSocio, apellidosSocio);
 								
 					}
-				}
-				else {
-					JOptionPane.showMessageDialog(null,"Solo se pude reservar con una antelaciónd e 30 dias","Error",JOptionPane.ERROR_MESSAGE);
-				}
+				
 			}				
 		});	
 		

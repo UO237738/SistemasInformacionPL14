@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,8 +15,14 @@ import javax.swing.border.EmptyBorder;
 
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JYearChooser;
+
+import Modelo.ModeloReservaAdministracioninstalación;
+import giis.demo.util.Util;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import com.toedter.calendar.JDateChooser;
 import javax.swing.table.DefaultTableModel;
 
@@ -29,6 +36,7 @@ public class VistaVisualizarActividades extends JFrame {
 	
 	
 	
+		
 	
 	/**
 	 * Launch the application.

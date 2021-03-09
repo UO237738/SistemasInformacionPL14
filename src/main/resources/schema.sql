@@ -64,4 +64,5 @@ id_reserva INTEGER PRIMARY KEY AUTOINCREMENT,
 fechaIni TEXT NOT NULL, 
 fechaFin TEXT NOT NULL,
 id_actividad INTEGER, 
-FOREIGN KEY (id_actividad) REFERENCES actividades (id_actividad));
+FOREIGN KEY (id_actividad) REFERENCES actividades (id_actividad),
+FOREIGN KEY (id_instalacion) REFERENCES instalaciones (id_instalacion));

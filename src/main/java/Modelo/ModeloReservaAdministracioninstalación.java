@@ -49,13 +49,13 @@ public class ModeloReservaAdministracioninstalación {
 		return (String) filas.get(0)[0];
 	}
 	
-	public static int ConflictoReserva(int idinstalacion, String horaini, String horafin, String fechaini, String fechafin) {
+	public static int ConflictoReserva(int idinstalacion, String horaini, String horafin, String fechaini) {
 		String consulta="SELECT"
-				+"Count ( CASE when ?=id_instalcion AND ?=fechaIni AND ?=fechaFin"
-				+ "((?<=hora_ini AND hora_ini>?) OR (?>hora_fin AND hora_fin<=?)) then 'reservado' end"
-				+ "form RESERVAS";
-			
-		List<Object[]>filas=basedatos.executeQueryArray(consulta,idinstalacion,fechaini,fechafin,horaini,horafin);
+				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fechaIni AND ?=fechaFin AND"
+				+" ((?<=hora_ini AND hora_ini<?) OR (?<hora_fin AND hora_fin<=?)) then 'reservado' end)"
+				+" from reservas";
+		
+		List<Object[]>filas=basedatos.executeQueryArray(consulta,idinstalacion,fechaini,horaini,horafin);
 		return (int) filas.get(0)[0];
 	}
 	
@@ -65,7 +65,7 @@ public class ModeloReservaAdministracioninstalación {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String nuevaReserva = "Insert into Reservas"
+		String nuevaReserva = "Insert into reservas"
 				+"id_instlacion, id_actividad, fechaIni, fechaFin, hora_ini, hora_fin"
 				+"VALUES"
 				+"?,null,?,?,?,?,?";
@@ -120,7 +120,6 @@ public class ModeloReservaAdministracioninstalación {
 		
 	}
 	
-	
 	public static boolean plazoMaximoReserva(String nombreInstalacion,String fecha) {
 		String consulta = "SELECT plazo_maximo_reserva FROM instalaciones WHERE nombre=?";
 		List<Object[]>filas=basedatos.executeQueryArray(consulta, nombreInstalacion);
@@ -144,6 +143,11 @@ public class ModeloReservaAdministracioninstalación {
 			return true;
 		}
 	}
+
+	
+	
+	
+	
 	
 	
 	
