@@ -8,15 +8,15 @@ import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 import Modelo.ModeloReservaAdministracioninstalación;
-import Vista.VistaReservaInstalacion;
+import Vista.VistaReservaadministracionAplicacion;
 import giis.demo.util.Util;
 
 public class ControladorReservasAdministracionInstalacion {
 
-	private VistaReservaInstalacion VRI;
+	private VistaReservaadministracionAplicacion VRI;
 	private ModeloReservaAdministracioninstalación MRAI;
 	
-	public ControladorReservasAdministracionInstalacion(VistaReservaInstalacion v, ModeloReservaAdministracioninstalación m) {
+	public ControladorReservasAdministracionInstalacion(VistaReservaadministracionAplicacion v, ModeloReservaAdministracioninstalación m) {
 		this.VRI=v;
 		this.MRAI=m;
 		this.addListenerCRA();
@@ -24,7 +24,7 @@ public class ControladorReservasAdministracionInstalacion {
 	}
 
 	private void initview() {
-		VRI.contentPane.setVisible(true);
+		VRI.frame.setVisible(true);
 	}
 	
 	public static String getFechaActual() {

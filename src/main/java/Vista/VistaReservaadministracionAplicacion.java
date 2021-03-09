@@ -12,9 +12,9 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JCalendar;
 import javax.swing.DefaultComboBoxModel;
 
-public class VistaReservaAplicacion1 {
+public class VistaReservaadministracionAplicacion {
 
-	private JFrame frame;
+	public JFrame frame;
 	
 	public JComboBox<String> CBInstalaciones;
 	public JTextField TFNombre;
@@ -37,6 +37,8 @@ public class VistaReservaAplicacion1 {
 	public JLabel JLApellidos;
 	public JLabel JLDni;
 
+	
+
 	/**
 	 * Launch the application.
 	 */
@@ -44,7 +46,7 @@ public class VistaReservaAplicacion1 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VistaReservaAplicacion1 window = new VistaReservaAplicacion1();
+					VistaReservaadministracionAplicacion window = new VistaReservaadministracionAplicacion();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +58,7 @@ public class VistaReservaAplicacion1 {
 	/**
 	 * Create the application.
 	 */
-	public VistaReservaAplicacion1() {
+	public VistaReservaadministracionAplicacion() {
 		initialize();
 	}
 
