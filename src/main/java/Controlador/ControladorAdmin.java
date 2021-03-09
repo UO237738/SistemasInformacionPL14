@@ -3,38 +3,43 @@ package Controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JOptionPane;
-
 import Vista.VistaAdmin;
-import Vista.VistaCrearActividades;
-import Vista.VistaCrearPeriodoInscripcion;
 import Vista.VistaInicio;
 
 public class ControladorAdmin {
 
 	private VistaInicio VI;
 	private VistaAdmin VA;
-	private VistaCrearActividades VCA;
-	private VistaCrearPeriodoInscripcion VCPI;
-	public ControladorAdmin(VistaAdmin VA) {
-		VA = VA;
-		this.addListenerVA();
+	ControladorCrearPeriodoInscripcion CCPI;
+	ControladorCrearActividades CCA;
+	
+	
+	
+	public ControladorAdmin() {
+		VA = new VistaAdmin();
 		this.initView();
+		this.addListenerVA();
+	
 	}
 	
 	private void initView() {
 		// TODO Auto-generated method stub
-		VA.contentPane.setVisible(true);
+		VA.getFrame().setVisible(true);
 	}
-	private void addListenerVA() {
+	
+	private ControladorAdmin getCA() {
+		return this;
+	}
+	
+	public void addListenerVA() {
 		// TODO Auto-generated method stub
 		VA.bPlanificarActividad.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VA.contentPane.setVisible(false);
-				VCA.contentPane.setVisible(true);
+				VA.getFrame().dispose();
+				CCA = new ControladorCrearActividades(getCA());
 			}
 		});
 		
@@ -43,8 +48,8 @@ public class ControladorAdmin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VA.contentPane.setVisible(false);
-				VCPI.contentPane.setVisible(true);
+				VA.getFrame().setVisible(false);
+				CCPI = new ControladorCrearPeriodoInscripcion();
 			}
 		});
 		VA.bCancelar.addActionListener(new ActionListener() {
@@ -53,11 +58,21 @@ public class ControladorAdmin {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
-				VA.contentPane.setVisible(false);
+				VA.getFrame().setVisible(false);
 				VI.contentPane.setVisible(true);
 			}
 		});
+		
 	}
+
+	public VistaAdmin getVA() {
+		return VA;
+	}
+
+	public void setVA(VistaAdmin vA) {
+		VA = vA;
+	}
+	
 	
 	
 	

@@ -1,27 +1,23 @@
 package Vista;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import com.toedter.calendar.JDayChooser;
-import com.toedter.calendar.JDateChooser;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-public class VistaCrearPeriodoInscripcion extends JFrame {
+import com.toedter.calendar.JDateChooser;
 
-	public JPanel contentPane;
+public class VistaCrearPeriodoInscripcion {
+
+	private JFrame frame;
 	public JTextField tfFechaInicioNoSocios;
 	public JDateChooser dcFechaInicioSocios;
 	public JDateChooser dcFechaFinSocios;
 	public JDateChooser dcFechaFinNoSocios;
 	public JButton bAceptar;
 	public JButton bCancelar;
-
 	/**
 	 * Launch the application.
 	 */
@@ -29,8 +25,8 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VistaCrearPeriodoInscripcion frame = new VistaCrearPeriodoInscripcion();
-					frame.setVisible(true);
+					VistaCrearPeriodoInscripcion window = new VistaCrearPeriodoInscripcion();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -39,69 +35,75 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
 	public VistaCrearPeriodoInscripcion() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
 		JLabel lblFechaInicioSocios = new JLabel("Fecha inicio socios:");
 		lblFechaInicioSocios.setBounds(10, 21, 105, 13);
-		contentPane.add(lblFechaInicioSocios);
+		frame.getContentPane().add(lblFechaInicioSocios);
 		
-		JDateChooser dcFechaInicioSocios = new JDateChooser();
+		dcFechaInicioSocios = new JDateChooser();
 		dcFechaInicioSocios.setBounds(149, 15, 126, 19);
-		contentPane.add(dcFechaInicioSocios);
+		frame.getContentPane().add(dcFechaInicioSocios);
 		
 		JLabel lblFechaFinSocios = new JLabel("Fecha fin socios:");
 		lblFechaFinSocios.setBounds(10, 62, 83, 13);
-		contentPane.add(lblFechaFinSocios);
+		frame.getContentPane().add(lblFechaFinSocios);
 		
-		JDateChooser dcFechaFinSocios = new JDateChooser();
+		dcFechaFinSocios = new JDateChooser();
 		dcFechaFinSocios.getCalendarButton().setEnabled(false);
 		dcFechaFinSocios.setBounds(149, 56, 126, 19);
-		contentPane.add(dcFechaFinSocios);
+		frame.getContentPane().add(dcFechaFinSocios);
 		
 		JLabel lblFechaInicioNo = new JLabel("Fecha inicio no socios:");
 		lblFechaInicioNo.setBounds(10, 108, 117, 13);
-		contentPane.add(lblFechaInicioNo);
+		frame.getContentPane().add(lblFechaInicioNo);
 		
 		JLabel lblFechaFinNo = new JLabel("Fecha fin no socios:");
 		lblFechaFinNo.setBounds(10, 138, 117, 13);
-		contentPane.add(lblFechaFinNo);
+		frame.getContentPane().add(lblFechaFinNo);
 		
-		JDateChooser dcFechaFinNoSocios = new JDateChooser();
+		dcFechaFinNoSocios = new JDateChooser();
 		dcFechaFinNoSocios.getCalendarButton().setEnabled(false);
 		dcFechaFinNoSocios.setBounds(149, 132, 126, 19);
-		contentPane.add(dcFechaFinNoSocios);
+		frame.getContentPane().add(dcFechaFinNoSocios);
 		
 		tfFechaInicioNoSocios = new JTextField();
 		tfFechaInicioNoSocios.setEnabled(false);
 		tfFechaInicioNoSocios.setEditable(false);
 		tfFechaInicioNoSocios.setBounds(149, 105, 126, 19);
-		contentPane.add(tfFechaInicioNoSocios);
+		frame.getContentPane().add(tfFechaInicioNoSocios);
 		tfFechaInicioNoSocios.setColumns(10);
 		
-		JButton bCancelar = new JButton("Cancelar");
+		bCancelar = new JButton("Cancelar");
 		bCancelar.setBounds(10, 208, 85, 21);
-		contentPane.add(bCancelar);
+		frame.getContentPane().add(bCancelar);
 		
-		JButton bAceptar = new JButton("Aceptar");
+		bAceptar = new JButton("Aceptar");
 		bAceptar.setEnabled(false);
-		bAceptar.setBounds(305, 208, 85, 21);
-		contentPane.add(bAceptar);
+		bAceptar.setBounds(0, 0, 436, 263);
+		frame.getContentPane().add(bAceptar);
+
 	}
 
-	public JPanel getContentPane() {
-		return contentPane;
+	public JFrame getFrame() {
+		return frame;
 	}
 
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 
 	public JTextField getTfFechaInicioNoSocios() {
@@ -152,4 +154,5 @@ public class VistaCrearPeriodoInscripcion extends JFrame {
 		this.bCancelar = bCancelar;
 	}
 	
+
 }
