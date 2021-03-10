@@ -39,6 +39,8 @@ public class VistaReservaadministracionAplicacion {
 	public JLabel JLNombre;
 	public JLabel JLApellidos;
 	public JLabel JLDni;
+	
+	
 
 	
 
@@ -99,7 +101,7 @@ public class VistaReservaadministracionAplicacion {
 		CBDesde = new JComboBox<String>();
 		CBDesde.setEnabled(true);
 		CBDesde.setModel(new DefaultComboBoxModel<String>(new String[] {"8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"}));
-		CBDesde.setBounds(386, 104, 53, 20);
+		CBDesde.setBounds(375, 104, 76, 20);
 		frame.getContentPane().add(CBDesde);
 		
 		JLHasta = new JLabel("Hasta:");
@@ -108,7 +110,7 @@ public class VistaReservaadministracionAplicacion {
 		
 		CBHasta= new JComboBox<String>();
 		CBHasta.setModel(new DefaultComboBoxModel<String>(new String[] {"9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"}));
-		CBHasta.setBounds(386, 173, 53, 20);
+		CBHasta.setBounds(375, 173, 76, 20);
 		frame.getContentPane().add(CBHasta);
 		
 		JBReservar = new JButton("Reservar");
@@ -117,8 +119,36 @@ public class VistaReservaadministracionAplicacion {
 		
 		
 		JCFechaInico = new JDateChooser();
-		JCFechaInico.setBounds(79, 86, 95, 20);
+		JCFechaInico.setBounds(97, 86, 95, 20);
 		frame.getContentPane().add(JCFechaInico);
+		
+		JLDni = new JLabel("DNI:");
+		JLDni.setBounds(23, 129, 46, 14);
+		frame.getContentPane().add(JLDni);
+		
+		TFDni = new JTextField();
+		TFDni.setBounds(97, 126, 95, 20);
+		frame.getContentPane().add(TFDni);
+		TFDni.setColumns(10);
+		
+		JLNombre = new JLabel("Nombre:");
+		JLNombre.setBounds(23, 176, 64, 14);
+		frame.getContentPane().add(JLNombre);
+		
+		TFNombre = new JTextField();
+		TFNombre.setBounds(97, 173, 95, 20);
+		frame.getContentPane().add(TFNombre);
+		TFNombre.setColumns(10);
+		
+		JLApellidos = new JLabel("Apellidos:");
+		JLApellidos.setBounds(23, 230, 64, 14);
+		frame.getContentPane().add(JLApellidos);
+		
+		TFApellidos = new JTextField();
+		TFApellidos.setText("");
+		TFApellidos.setBounds(97, 227, 147, 20);
+		frame.getContentPane().add(TFApellidos);
+		TFApellidos.setColumns(10);
 	}
 
 	public JFrame getFrame() {

@@ -28,34 +28,16 @@ public class ModeloReservaAdministracioninstalación {
 		String consulta= "SELECT id_instalacion FROM instalaciones WHERE nombre=?";
 		List<Object[]>filas=basedatos.executeQueryArray(consulta, nombreInstalacion);
 		return (int) filas.get(0)[0];
+	}
+	
 
-	}
-	
-	public static int tiempoMaximoReserva(String instalacion) {
-		String consulta="SELECT Tiempo_maximo FROM instalaciones WHERE nombre=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, instalacion);
-		return (int) filas.get(0)[0];
-	}
-	
-	public static String obtenerNombreSocio(String dniSocio) {
-		String consulta= "SELECT nombre FROM socios WHERE dni=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, dniSocio);
-		return (String) filas.get(0)[0];
-	}
-
-	public static String obtenerApellidosSocio(String dniSocio) {
-		String consulta= "SELECT apellidos FROM socios WHERE dni=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, dniSocio);
-		return (String) filas.get(0)[0];
-	}
-	
 	public static int ConflictoReserva(int idinstalacion, String horaini, String horafin, String fechaini) {
 		String consulta="SELECT"
 				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fechaIni AND ?=fechaFin AND"
 				+" ((?<=hora_ini AND hora_ini<?) OR (?<hora_fin AND hora_fin<=?)) then 'reservado' end)"
 				+" from reservas";
 		
-		List<Object[]>filas=basedatos.executeQueryArray(consulta,idinstalacion,fechaini,horaini,horafin);
+		List<Object[]>filas=basedatos.executeQueryArray(consulta,idinstalacion,fechaini,horaini,horafin,horaini,horafin);
 		return (int) filas.get(0)[0];
 	}
 	
@@ -66,9 +48,9 @@ public class ModeloReservaAdministracioninstalación {
 		PreparedStatement preparedStatement=null;
 		
 		String nuevaReserva = "Insert into reservas"
-				+"id_instlacion, id_actividad, fechaIni, fechaFin, hora_ini, hora_fin"
-				+"VALUES"
-				+"?,null,?,?,?,?,?";
+				+" id_instalacion, id_actividad, fechaIni, fechaFin, hora_ini, hora_fin"
+				+" VALUES"
+				+" ?,null,?,?,?,?,?";
 		try {
 			connection = basedatos.getConnection();
 			preparedStatement = connection.prepareStatement(nuevaReserva);
@@ -120,29 +102,7 @@ public class ModeloReservaAdministracioninstalación {
 		
 	}
 	
-	public static boolean plazoMaximoReserva(String nombreInstalacion,String fecha) {
-		String consulta = "SELECT plazo_maximo_reserva FROM instalaciones WHERE nombre=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, nombreInstalacion);
-		
-		int dias= (int) filas.get(0)[0];
-		Date fechaaActual=Util.isoStringToDate(getFechaActual());
-		Date fechaElegida=Util.isoStringToDate(fecha);
-		Date nuevaFecha = new Date();
-
-		Calendar cal = Calendar.getInstance(); 
-		cal.setTime(fechaaActual); 
-		cal.add(Calendar.DATE, dias);
-		nuevaFecha = cal.getTime();
-
-		System.out.println(nuevaFecha);
-
-		if(fechaElegida.after(nuevaFecha)) {
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
+	
 
 	
 	
