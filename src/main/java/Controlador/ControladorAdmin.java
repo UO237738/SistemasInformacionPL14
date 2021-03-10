@@ -38,7 +38,7 @@ public class ControladorAdmin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VA.getFrame().dispose();
+				VA.getFrame().setVisible(false);
 				CCA = new ControladorCrearActividades(getCA());
 			}
 		});

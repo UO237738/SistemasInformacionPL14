@@ -93,7 +93,7 @@ public class VistaCrearPeriodoInscripcion {
 		
 		bAceptar = new JButton("Aceptar");
 		bAceptar.setEnabled(false);
-		bAceptar.setBounds(0, 0, 436, 263);
+		bAceptar.setBounds(200, 208, 85, 21);
 		frame.getContentPane().add(bAceptar);
 
 	}

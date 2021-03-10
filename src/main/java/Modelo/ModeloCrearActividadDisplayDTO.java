@@ -2,7 +2,7 @@ package Modelo;
 
 public class ModeloCrearActividadDisplayDTO {
 	
-	private int id_actividad;
+	
 	private int id_instalacion;
 	private String nombre;
 	private int aforo;
@@ -13,12 +13,8 @@ public class ModeloCrearActividadDisplayDTO {
 	private int id_inscripcion;
 	private int id_horario;
 	
-	public int getId_actividad() {
-		return id_actividad;
-	}
-	public void setId_actividad(int id_actividad) {
-		this.id_actividad = id_actividad;
-	}
+
+	
 	public int getId_instalacion() {
 		return id_instalacion;
 	}
@@ -77,10 +73,10 @@ public class ModeloCrearActividadDisplayDTO {
 	public ModeloCrearActividadDisplayDTO() {}
 	
 	
-	public ModeloCrearActividadDisplayDTO(int idAct, int idInst, String nombre, int aforo,
+	public ModeloCrearActividadDisplayDTO(int idInst, String nombre, int aforo,
 			int cuotaS, int cuotaNS, String fechaInicioActividad, String fechaFinActividad,
 			int idInsc, int idHorario) {
-		this.id_actividad = idAct;
+	
 		this.id_instalacion = idInst;
 		this.nombre = nombre;
 		this.aforo = aforo;
