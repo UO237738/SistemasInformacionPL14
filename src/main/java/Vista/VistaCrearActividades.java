@@ -74,6 +74,7 @@ public class VistaCrearActividades {
 		frame.getContentPane().add(lblInstalacin);
 		
 		JLabel lblActividad = new JLabel("Actividad:");
+		lblActividad.setEnabled(false);
 		lblActividad.setBounds(10, 39, 46, 13);
 		frame.getContentPane().add(lblActividad);
 		
@@ -164,10 +165,9 @@ public class VistaCrearActividades {
 		lblFechaFin.setBounds(238, 108, 64, 13);
 		frame.getContentPane().add(lblFechaFin);
 		
-		cbActividad = new JComboBox();
-		cbActividad.setEditable(true);
-		cbActividad.setBounds(66, 35, 160, 21);
-		frame.getContentPane().add(cbActividad);
+		//cbActividad = new JComboBox();
+		//cbActividad.setBounds(66, 35, 160, 21);
+		//frame.getContentPane().add(cbActividad);
 		
 		cbInstalacion = new JComboBox();
 		cbInstalacion.setEditable(true);

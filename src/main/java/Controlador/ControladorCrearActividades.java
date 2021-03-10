@@ -14,7 +14,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.sql.Date;
+
+import java.util.Date;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
@@ -45,7 +46,7 @@ private int id_horario;
 	private void initView() {
 		// TODO Auto-generated method stub
 		ModeloCrearActividades.cogerInstalaciones(VCA.cbInstalacion);
-		ModeloCrearActividades.cogerActividades(VCA.cbActividad);
+		//ModeloCrearActividades.cogerActividades(VCA.cbActividad);
 		ModeloCrearActividades.cogerPeriodos(VCA.cbPeriodoInscripcion);
 		VCA.getFrame().setVisible(true);
 	}
@@ -90,16 +91,16 @@ private int id_horario;
 			}
 		});
 		
-		VCA.cbActividad.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				if (VCA.cbActividad != null) {
-					VCA.tfAforo.setEnabled(true);
-				}
-			}
-		});
+//		VCA.cbActividad.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				// TODO Auto-generated method stub
+//				if (VCA.cbActividad != null) {
+//					VCA.tfAforo.setEnabled(true);
+//				}
+//			}
+//		});
 		
 		VCA.cbInstalacion.addActionListener(new ActionListener() {
 
@@ -107,7 +108,7 @@ private int id_horario;
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if (VCA.cbInstalacion != null) {
-					VCA.cbActividad.setEnabled(true);
+					//VCA.cbActividad.setEnabled(true);
 				}
 			}
 		});
@@ -154,9 +155,21 @@ private int id_horario;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				JOptionPane.showMessageDialog(null, "Actividad creada con Exito!","Correcto",JOptionPane.INFORMATION_MESSAGE);
-				VCA.getFrame().setVisible(false);
-				crearActividad();
+				java.util.Date date2=VCA.getDcFechaFin().getDate();
+				java.util.Date date1= VCA.getDcFechaInicio().getDate();
+				java.util.Date date= new Date();
+				
+				if (date1.before(date)) {
+					JOptionPane.showMessageDialog( null, VCA.dcFechaInicio , "Selecciona una fecha válida para inicio socios", JOptionPane.QUESTION_MESSAGE);
+				}
+				else if (date2.before(date1)) {
+					JOptionPane.showMessageDialog( null, VCA.dcFechaFin , "Selecciona una fecha válida para fin socios", JOptionPane.QUESTION_MESSAGE);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Actividad creada con Exito!","Correcto",JOptionPane.INFORMATION_MESSAGE);
+					VCA.getFrame().setVisible(false);
+					crearActividad();
+				}
 			}
 
 		});
@@ -166,8 +179,10 @@ private int id_horario;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				
 				VCA.getFrame().setVisible(false);
 				CA.getVA().getFrame().setVisible(true);
+				
 			}
 		});
 		
@@ -185,11 +200,7 @@ private int id_horario;
 			
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
-				//Toolkit date2=VCA.getDcFechaFin().getToolkit();
-				//Toolkit date1= VCA.getDcFechaInicio().getToolkit();
-				//if(date2.equals(date1)) {
-					//JOptionPane.showMessageDialog( null, VCA.dcFechaFin , "Selecciona una fecha válida", JOptionPane.QUESTION_MESSAGE);
-				//}
+				
 				if (VCA.dcFechaFin != null) {
 					VCA.tfSocios.setEnabled(true);
 				}

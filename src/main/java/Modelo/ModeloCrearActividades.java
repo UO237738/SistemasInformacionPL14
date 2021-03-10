@@ -80,30 +80,30 @@ public class ModeloCrearActividades {
 		
 	}
 
-	public static void cogerActividades(JComboBox<String> cbActividad) {
-		// TODO Auto-generated method stub
-			Connection dbConnection= null;
-			PreparedStatement preparedStatement= null;
-			ResultSet result= null;
-
-			String sql= "SELECT nombre FROM actividades ORDER BY nombre ASC";
-
-			try {
-				dbConnection= db.getConnection();
-				preparedStatement= dbConnection.prepareStatement(sql);
-				result=preparedStatement.executeQuery();
-
-				cbActividad.addItem("Selecione una actividad");
-				while(result.next()) {
-					cbActividad.addItem(result.getString("nombre"));
-				}
-						
-					dbConnection.close();
-			}
-			catch (SQLException e) {
-				System.out.print(e.getMessage());
-			}
-	}
+//	public static void cogerActividades(JComboBox<String> cbActividad) {
+//		// TODO Auto-generated method stub
+//			Connection dbConnection= null;
+//			PreparedStatement preparedStatement= null;
+//			ResultSet result= null;
+//
+//			String sql= "SELECT nombre FROM actividades ORDER BY nombre ASC";
+//
+//			try {
+//				dbConnection= db.getConnection();
+//				preparedStatement= dbConnection.prepareStatement(sql);
+//				result=preparedStatement.executeQuery();
+//
+//				cbActividad.addItem("Selecione una actividad");
+//				while(result.next()) {
+//					cbActividad.addItem(result.getString("nombre"));
+//				}
+//						
+//					dbConnection.close();
+//			}
+//			catch (SQLException e) {
+//				System.out.print(e.getMessage());
+//			}
+//	}
 
 	public static void cogerPeriodos(JComboBox<String> cbPeriodoInscripcion) {
 		// TODO Auto-generated method stub

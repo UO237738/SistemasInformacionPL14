@@ -79,6 +79,19 @@ public class ControladorCrearHorario {
 					VCH.chbViernes.setEnabled(false);
 					VCH.chbSabado.setEnabled(false);
 					VCH.chbDomingo.setEnabled(false);
+				}
+				else {
+					VCH.lLunes1.setEnabled(false);
+					VCH.lLunes2.setEnabled(false);
+					VCH.spLunesHI.setEnabled(false);
+					VCH.spLunesHF.setEnabled(false);
+					VCH.chbMartes.setEnabled(true);
+					VCH.chbMiercoles.setEnabled(true);
+					VCH.chbJueves.setEnabled(true);
+					VCH.chbViernes.setEnabled(true);
+					VCH.chbSabado.setEnabled(true);
+					VCH.chbDomingo.setEnabled(true);
+				
 					
 				}
 			}
@@ -98,6 +111,18 @@ public class ControladorCrearHorario {
 					VCH.chbSabado.setEnabled(false);
 					VCH.chbDomingo.setEnabled(false);
 				}
+				else {
+					VCH.lMartes1.setEnabled(false);
+					VCH.lMartes2.setEnabled(false);
+					VCH.spMartesHI.setEnabled(false);
+					VCH.spMartesHF.setEnabled(false);
+					VCH.chbLunes.setEnabled(true);
+					VCH.chbMiercoles.setEnabled(true);
+					VCH.chbJueves.setEnabled(true);
+					VCH.chbViernes.setEnabled(true);
+					VCH.chbSabado.setEnabled(true);
+					VCH.chbDomingo.setEnabled(true);
+				}
 			}
 		});
 		
@@ -114,6 +139,18 @@ public class ControladorCrearHorario {
 					VCH.chbViernes.setEnabled(false);
 					VCH.chbSabado.setEnabled(false);
 					VCH.chbDomingo.setEnabled(false);
+				}
+				else {
+					VCH.lMiercoles1.setEnabled(false);
+					VCH.lMiercoles2.setEnabled(false);
+					VCH.spMiercolesHI.setEnabled(false);
+					VCH.spMiercolesHF.setEnabled(false);
+					VCH.chbMartes.setEnabled(true);
+					VCH.chbLunes.setEnabled(true);
+					VCH.chbJueves.setEnabled(true);
+					VCH.chbViernes.setEnabled(true);
+					VCH.chbSabado.setEnabled(true);
+					VCH.chbDomingo.setEnabled(true);
 				}
 			}
 		});
@@ -132,6 +169,18 @@ public class ControladorCrearHorario {
 					VCH.chbSabado.setEnabled(false);
 					VCH.chbDomingo.setEnabled(false);
 				}
+				else {
+					VCH.lJueves1.setEnabled(false);
+					VCH.lJueves2.setEnabled(false);
+					VCH.spJuevesHI.setEnabled(false);
+					VCH.spJuevesHF.setEnabled(false);
+					VCH.chbMartes.setEnabled(true);
+					VCH.chbMiercoles.setEnabled(true);
+					VCH.chbLunes.setEnabled(true);
+					VCH.chbViernes.setEnabled(true);
+					VCH.chbSabado.setEnabled(true);
+					VCH.chbDomingo.setEnabled(true);
+				}
 			}
 		});
 		
@@ -148,6 +197,18 @@ public class ControladorCrearHorario {
 					VCH.chbLunes.setEnabled(false);
 					VCH.chbSabado.setEnabled(false);
 					VCH.chbDomingo.setEnabled(false);
+				}
+				else {
+					VCH.lViernes1.setEnabled(false);
+					VCH.lViernes2.setEnabled(false);
+					VCH.spViernesHI.setEnabled(false);
+					VCH.spViernesHF.setEnabled(false);
+					VCH.chbMartes.setEnabled(true);
+					VCH.chbMiercoles.setEnabled(true);
+					VCH.chbJueves.setEnabled(true);
+					VCH.chbLunes.setEnabled(true);
+					VCH.chbSabado.setEnabled(true);
+					VCH.chbDomingo.setEnabled(true);
 				}
 			}
 		});
@@ -167,6 +228,18 @@ public class ControladorCrearHorario {
 					VCH.chbLunes.setEnabled(false);
 					VCH.chbDomingo.setEnabled(false);
 				}
+				else {
+					VCH.lSabado1.setEnabled(false);
+					VCH.lSabado2.setEnabled(false);
+					VCH.spSabadoHI.setEnabled(false);
+					VCH.spSabadoHF.setEnabled(false);
+					VCH.chbMartes.setEnabled(true);
+					VCH.chbMiercoles.setEnabled(true);
+					VCH.chbJueves.setEnabled(true);
+					VCH.chbViernes.setEnabled(true);
+					VCH.chbLunes.setEnabled(true);
+					VCH.chbDomingo.setEnabled(true);
+				}
 			}
 		});
 		
@@ -183,6 +256,18 @@ public class ControladorCrearHorario {
 					VCH.chbViernes.setEnabled(false);
 					VCH.chbSabado.setEnabled(false);
 					VCH.chbLunes.setEnabled(false);
+				}
+				else {
+					VCH.lDomingo1.setEnabled(false);
+					VCH.lDomingo2.setEnabled(false);
+					VCH.spDomingoHI.setEnabled(false);
+					VCH.spDomingoHF.setEnabled(false);
+					VCH.chbMartes.setEnabled(true);
+					VCH.chbMiercoles.setEnabled(true);
+					VCH.chbJueves.setEnabled(true);
+					VCH.chbViernes.setEnabled(true);
+					VCH.chbSabado.setEnabled(true);
+					VCH.chbLunes.setEnabled(true);
 				}
 			}
 		});
