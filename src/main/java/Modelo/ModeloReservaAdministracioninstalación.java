@@ -75,7 +75,7 @@ public class ModeloReservaAdministracioninstalación {
 	
 	public static void CrearResguardo(String instalacion, String dni, String Nombre, String Apellidos, String fecha, String horaini, String horafin){
 		try {
-			String archivo = "src/test/"+Nombre+".txt";
+			String archivo = "src/test/resources"+Nombre+".txt";
 			File nuevoresguardo = new File(archivo);
 			
 			if(nuevoresguardo.exists()) {

@@ -38,18 +38,12 @@ public class ControladorReservasAdministracionInstalacion {
 		
 		VRI.JBReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				int conflicto=ModeloReservaAdministracioninstalación.ConflictoReserva(ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem()),VRI.JCFechaInico.getToolTipText(),VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem());
-				if(conflicto>=1) {
-					JOptionPane.showMessageDialog(null, "La instalacion esta ocupada para esa fecha", "Error",JOptionPane.ERROR_MESSAGE);
-				}
-				else {
 					int idInstalacion=ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem());
 					String nombreSocio=VRI.TFDni.getText();
 					String apellidosSocio=VRI.TFDni.getText();
 					ModeloReservaAdministracioninstalación.CrearReserva(idInstalacion,VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(),(String)VRI.CBHasta.getSelectedItem());
-					ModeloReservaAdministracioninstalación.CrearResguardo(VRI.TFDni.getText(),(String)VRI.CBInstalaciones.getSelectedItem(),VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(), (String)VRI.CBHasta.getSelectedItem(), nombreSocio, apellidosSocio);
-				}
+					ModeloReservaAdministracioninstalación.CrearResguardo((String)VRI.CBInstalaciones.getSelectedItem(), (String)VRI.CBDesde.getSelectedItem(), (String)VRI.CBHasta.getSelectedItem(),VRI.JCFechaInico.getToolTipText(), nombreSocio, apellidosSocio,VRI.TFDni.getText());
+				
 			}
 		});
 		
