@@ -38,12 +38,7 @@ public class ControladorReservasAdministracionInstalacion {
 		
 		VRI.JBReservar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					int idInstalacion=ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem());
-					String nombreSocio=VRI.TFDni.getText();
-					String apellidosSocio=VRI.TFDni.getText();
-					ModeloReservaAdministracioninstalación.CrearReserva(idInstalacion,VRI.JCFechaInico.getToolTipText(),(String)VRI.CBDesde.getSelectedItem(),(String)VRI.CBHasta.getSelectedItem());
-					ModeloReservaAdministracioninstalación.CrearResguardo((String)VRI.CBInstalaciones.getSelectedItem(), (String)VRI.CBDesde.getSelectedItem(), (String)VRI.CBHasta.getSelectedItem(),VRI.JCFechaInico.getToolTipText(), nombreSocio, apellidosSocio,VRI.TFDni.getText());
-				
+					CrearReserva();
 			}
 		});
 		
@@ -55,7 +50,7 @@ public class ControladorReservasAdministracionInstalacion {
 		
 
 	
-	public void CreaReserva() {
+	public void CrearReserva() {
 		int idInstalacion=ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRI.CBInstalaciones.getSelectedItem());
 		String nombreSocio=VRI.TFNombre.getText();
 		String apellidosSocio=VRI.TFApellidos.getText();

@@ -48,9 +48,9 @@ public class ModeloReservaAdministracioninstalación {
 		PreparedStatement preparedStatement=null;
 		
 		String nuevaReserva = "Insert into reservas"
-				+" id_instalacion, id_actividad, fechaIni, fechaFin, hora_ini, hora_fin"
+				+" id_instalacion, fechaIni, fechaFin, hora_ini, hora_fin"
 				+" VALUES"
-				+" ?,null,?,?,?,?,?";
+				+" ?,?,?,?,?";
 		try {
 			connection = basedatos.getConnection();
 			preparedStatement = connection.prepareStatement(nuevaReserva);

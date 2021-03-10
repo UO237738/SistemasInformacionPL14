@@ -11,8 +11,7 @@ CREATE TABLE instalaciones (
 id_instalacion INTEGER PRIMARY KEY AUTOINCREMENT,
 nombre TEXT NOT NULL,
 precio TEXT NOT NULL,
-aforo INTEGER NOT NULL, 
-plazo_maximo_reserva INTEGER NOT NULL);
+aforo INTEGER NOT NULL);
 
 
 CREATE TABLE actividades (
@@ -64,5 +63,8 @@ id_reserva INTEGER PRIMARY KEY AUTOINCREMENT,
 fechaIni TEXT NOT NULL, 
 fechaFin TEXT NOT NULL,
 id_actividad INTEGER, 
+id_instalacion INTEGER,
+hora_ini TEXT NOT NULL,
+hora_fin TEXT NOT NULL,
 FOREIGN KEY (id_actividad) REFERENCES actividades (id_actividad),
 FOREIGN KEY (id_instalacion) REFERENCES instalaciones (id_instalacion));

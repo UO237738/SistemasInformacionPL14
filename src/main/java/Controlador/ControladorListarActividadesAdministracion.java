@@ -39,9 +39,7 @@ public class ControladorListarActividadesAdministracion {
 	private void addListernerCRA() {
 		vista.JBBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vista.getJBBuscar().addActionListener(h -> SwingUtil.exceptionWrapper(() -> getListaActividades()));
-				
-				
+				getListaActividades();
 				}
 				
 		});
@@ -60,6 +58,7 @@ public class ControladorListarActividadesAdministracion {
 		vista.getJTActividades().getColumnModel().getColumn(4).setHeaderValue("Aforo");
 		vista.getJTActividades().getColumnModel().getColumn(5).setHeaderValue("Cuota Socio");
 		vista.getJTActividades().getColumnModel().getColumn(6).setHeaderValue("cuota No Socio");
+		vista.getJTActividades().setEnabled(true);
 		vista.getJTActividades().setVisible(true);
 		
 	}

@@ -87,6 +87,7 @@ public class VistaListarActividadesAdministracion {
 		JBBuscar = new JButton("Buscar");
 		JBBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JTActividades.setVisible(true);
 			}
 		});
 		JBBuscar.setBounds(172, 82, 89, 23);
@@ -99,7 +100,6 @@ public class VistaListarActividadesAdministracion {
 		JTActividades = new JTable();
 		JTActividades.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JTActividades.setDefaultEditor(Object.class, null);
-		JScrollPane tablePanel = new JScrollPane(JTActividades);
 		panel.add(JTActividades);
 	}
 	
