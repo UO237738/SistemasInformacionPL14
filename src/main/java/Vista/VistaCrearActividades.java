@@ -73,10 +73,10 @@ public class VistaCrearActividades {
 		lblInstalacin.setBounds(302, 36, 54, 19);
 		frame.getContentPane().add(lblInstalacin);
 		
-		JLabel lblActividad = new JLabel("Actividad:");
-		lblActividad.setEnabled(false);
-		lblActividad.setBounds(10, 39, 46, 13);
-		frame.getContentPane().add(lblActividad);
+//		JLabel lblActividad = new JLabel("Actividad:");
+//		lblActividad.setEnabled(false);
+//		lblActividad.setBounds(10, 39, 46, 13);
+//		frame.getContentPane().add(lblActividad);
 		
 		JLabel lblAforo = new JLabel("Aforo:");
 		lblAforo.setBounds(10, 62, 46, 13);
