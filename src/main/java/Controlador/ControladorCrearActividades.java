@@ -5,22 +5,17 @@ import Vista.VistaCrearActividades;
 import Vista.VistaCrearHorario;
 import Vista.VistaCrearPeriodoInscripcion;
 
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-
-import java.util.Date;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
 
-import Modelo.ModeloCrearActividadDisplayDTO;
 import Modelo.ModeloCrearActividades;
 
 public class ControladorCrearActividades {
@@ -33,7 +28,7 @@ private ModeloCrearActividades MCA;
 private ControladorCrearHorario CCA;
 private ControladorAdmin CA;
 private ControladorCrearHorario CCH;
-private int id_horario;
+
 	//Constructor
 	public ControladorCrearActividades(ControladorAdmin CA) {
 		this.CA=CA;
@@ -46,13 +41,9 @@ private int id_horario;
 	private void initView() {
 		// TODO Auto-generated method stub
 		ModeloCrearActividades.cogerInstalaciones(VCA.cbInstalacion);
-		//ModeloCrearActividades.cogerActividades(VCA.cbActividad);
+		ModeloCrearActividades.cogerActividades(VCA.cbActividad);
 		ModeloCrearActividades.cogerPeriodos(VCA.cbPeriodoInscripcion);
 		VCA.getFrame().setVisible(true);
-	}
-	
-	private ControladorCrearActividades getCCA() {
-		return this;
 	}
 
 	private void addListenerVCA() {
@@ -91,16 +82,16 @@ private int id_horario;
 			}
 		});
 		
-//		VCA.cbActividad.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				// TODO Auto-generated method stub
-//				if (VCA.cbActividad != null) {
-//					VCA.tfAforo.setEnabled(true);
-//				}
-//			}
-//		});
+		VCA.cbActividad.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if (VCA.cbActividad != null) {
+					VCA.tfAforo.setEnabled(true);
+				}
+			}
+		});
 		
 		VCA.cbInstalacion.addActionListener(new ActionListener() {
 
@@ -108,20 +99,19 @@ private int id_horario;
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if (VCA.cbInstalacion != null) {
-					//VCA.cbActividad.setEnabled(true);
+					VCA.cbActividad.setEnabled(true);
 				}
 			}
 		});
 		
-		VCA.cbPeriodoInscripcion.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent e) {
-				String text = (String) VCA.cbPeriodoInscripcion.getSelectedItem();
-				VCA.tfPeriodoInscrip.setText(text);
-				VCA.bAceptar.setEnabled(false);
-				if ((text.length()>0) && (text.length()<5)) {
-					VCA.bAceptar.setEnabled(true);
+		VCA.cbPeriodoInscripcion.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if (VCA.cbInstalacion != null) {
+					VCA.cbActividad.setEnabled(true);
 				}
-				else { VCA.bAceptar.setEnabled(false); }
 			}
 		});
 		
@@ -155,23 +145,10 @@ private int id_horario;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				java.util.Date date2=VCA.getDcFechaFin().getDate();
-				java.util.Date date1= VCA.getDcFechaInicio().getDate();
-				java.util.Date date= new Date();
+				JOptionPane.showMessageDialog(null, "Actividad creada con Exito!","Correcto",JOptionPane.INFORMATION_MESSAGE);
+				VCA.getFrame().setVisible(false);
 				
-				if (date1.before(date)) {
-					JOptionPane.showMessageDialog( null, VCA.dcFechaInicio , "Selecciona una fecha válida para inicio socios", JOptionPane.QUESTION_MESSAGE);
-				}
-				else if (date2.before(date1)) {
-					JOptionPane.showMessageDialog( null, VCA.dcFechaFin , "Selecciona una fecha válida para fin socios", JOptionPane.QUESTION_MESSAGE);
-				}
-				else {
-					JOptionPane.showMessageDialog(null, "Actividad creada con Exito!","Correcto",JOptionPane.INFORMATION_MESSAGE);
-					VCA.getFrame().setVisible(false);
-					crearActividad();
-				}
 			}
-
 		});
 		
 		VCA.bCancelar.addActionListener(new ActionListener() {
@@ -179,10 +156,8 @@ private int id_horario;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
-				VCA.getFrame().setVisible(false);
+				VCA.getFrame().dispose();
 				CA.getVA().getFrame().setVisible(true);
-				
 			}
 		});
 		
@@ -200,7 +175,11 @@ private int id_horario;
 			
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
-				
+				java.util.Date date2=VCA.getDcFechaFin().getDate();
+				java.util.Date date1= VCA.getDcFechaInicio().getDate();
+				//if(date2.before(date1)) {
+				//	JOptionPane.showMessageDialog( null, VCA.dcFechaFin , "Selecciona una fecha válida", JOptionPane.QUESTION_MESSAGE);
+				//}
 				if (VCA.dcFechaFin != null) {
 					VCA.tfSocios.setEnabled(true);
 				}
@@ -230,16 +209,16 @@ private int id_horario;
 			}
 		});
 		
-//		VCA.tfPeriodoInscrip.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				// TODO Auto-generated method stub
-//				if ((VCA.tfPeriodoInscrip.getText().length()<0) || (VCA.tfPeriodoInscrip.getText().length()>5)) {
-//					VCA.bAceptar.setEnabled(true);
-//				}
-//			}
-//		});
+		VCA.tfPeriodoInscrip.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if (VCA.tfPeriodoInscrip != null) {
+					VCA.bAceptar.setEnabled(true);
+				}
+			}
+		});
 		
 		
 		VCA.bCrearHorario.addActionListener(new ActionListener() {
@@ -247,67 +226,15 @@ private int id_horario;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				CCH = new ControladorCrearHorario(getCCA());
-				
+				CCH = new ControladorCrearHorario();
 			}
 		});
 		
 		
+		
 	}
 
-	private void crearActividad() {
-		// TODO Auto-generated method stub
-		
-		//String nombre_instalacion= VCA.getCbInstalacion().getText
-		//int id_instalacion= VCA.getCbInstalacion().getText()
-		String nombre = VCA.tfNombre.getText();
-		
-		int idInst= (int) VCA.cbInstalacion.getSelectedIndex(); 
-		
-		String af = VCA.tfAforo.getText();
-		int aforo = Integer.parseInt(af);
-		
-		String cs = VCA.tfSocios.getText();
-		int cuotaSocio = Integer.parseInt(cs);
-		
-		String cns = VCA.tfNoSocios.getText();
-		int cuotaNoSocio = Integer.parseInt(cns);
-		
-		
-		String FI= new SimpleDateFormat("dd/MM/yyyy").format(VCA.getDcFechaInicio().getDate());
-		String FF= new SimpleDateFormat("dd/MM/yyyy").format(VCA.getDcFechaFin().getDate());
-		
-		int idInsc= Integer.parseInt((String) VCA.cbPeriodoInscripcion.getSelectedItem());
-		
-		
-		
-		
-		ModeloCrearActividadDisplayDTO actividad = new ModeloCrearActividadDisplayDTO(idInst,nombre, aforo, cuotaSocio,
-				cuotaNoSocio,FI,FF,idInsc,id_horario);
-		MCA.setNuevaActividad(actividad);
-		/*int idInsc=
-				
-		int idHor=		
-		
-		
-		
-		
-		, VCA.TFieldCierreInscripcionS.getText(), VCA.TFieldCierreInscripcionNS.getText(), VCA.TFieldFechaInicio.getText(),VCA.TFieldFechaCierre.getText(), VCA.TFieldHoraInicio.getText(),VCA.TFieldHoraFin.getText());
-		
-		String text = (String) VCA.cbPeriodoInscripcion.getSelectedItem();
-		VCA.tfPeriodoInscrip.setText(text);
 	
-	*/
-	
-	}
-
-	public int getId_horario() {
-		return id_horario;
-	}
-
-	public void setId_horario(int id_horario) {
-		this.id_horario = id_horario;
-	}
 	
 	
 }

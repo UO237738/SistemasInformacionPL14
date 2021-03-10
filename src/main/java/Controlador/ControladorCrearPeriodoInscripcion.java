@@ -9,8 +9,6 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import Modelo.ModeloCrearPeriodoInscripcion;
-import Modelo.ModeloCrearPeriodoInscripcionDisplayDTO;
 import Vista.VistaAdmin;
 import Vista.VistaCrearPeriodoInscripcion;
 
@@ -18,13 +16,11 @@ public class ControladorCrearPeriodoInscripcion {
 
 	VistaCrearPeriodoInscripcion VCPI;
 	VistaAdmin VA;
-	ModeloCrearPeriodoInscripcion MCPI;
 	
 	public ControladorCrearPeriodoInscripcion() {
 		VCPI = new VistaCrearPeriodoInscripcion();
-		this.initView();
 		this.addListener();
-		
+		this.initView();
 	}
 
 	private void initView() {
@@ -39,28 +35,10 @@ public class ControladorCrearPeriodoInscripcion {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				java.util.Date date3=VCPI.getDcFechaFinNoSocios().getDate();
-				java.util.Date date2=VCPI.getDcFechaFinSocios().getDate();
-				java.util.Date date1= VCPI.getDcFechaInicioSocios().getDate();
-				java.util.Date date= new Date();
-				if(date1.before(date)) {
-					JOptionPane.showMessageDialog( null, VCPI.dcFechaFinSocios , "Selecciona una fecha válida para inicio socios", JOptionPane.QUESTION_MESSAGE);
-				}
-				else if(date2.before(date1)) {
-					JOptionPane.showMessageDialog( null, VCPI.dcFechaFinSocios , "Selecciona una fecha válida para fin socios", JOptionPane.QUESTION_MESSAGE);
-				}
-				else if(date3.before(date2)) {
-					JOptionPane.showMessageDialog( null, VCPI.dcFechaFinNoSocios , "Selecciona una fecha válida para fin no socios", JOptionPane.QUESTION_MESSAGE);
-				}
-				else {
-					JOptionPane.showMessageDialog(null, "Periodo inscripción creado!","Correcto",JOptionPane.INFORMATION_MESSAGE);
-					VCPI.getFrame().setVisible(false);
-					
-					crearInscripcion();
-				}
-			
+				JOptionPane.showMessageDialog(null, "Periodo inscripción creado!","Correcto",JOptionPane.INFORMATION_MESSAGE);
+				VCPI.getFrame().setVisible(false);
+				VA.getFrame().setVisible(true);
 			}
-
 		});
 		
 		VCPI.bCancelar.addActionListener(new ActionListener() {
@@ -87,11 +65,16 @@ public class ControladorCrearPeriodoInscripcion {
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
 				// TODO Auto-generated method stub
+				java.util.Date date2=VCPI.getDcFechaFinSocios().getDate();
+				java.util.Date date1= VCPI.getDcFechaInicioSocios().getDate();
+				if(date2.before(date1)) {
+					JOptionPane.showMessageDialog( null, VCPI.dcFechaFinSocios , "Selecciona una fecha válida", JOptionPane.QUESTION_MESSAGE);
+				}
 				if (VCPI.dcFechaFinSocios != null) {
 						VCPI.getDcFechaFinNoSocios().getCalendarButton().setEnabled(true);
 						VCPI.tfFechaInicioNoSocios.setEnabled(true);
 						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-						Date fecha = VCPI.getDcFechaFinSocios().getDate();
+						Date fecha = new Date();
 						String F = sdf.format(fecha);
 						VCPI.tfFechaInicioNoSocios.setText(F);
 				}
@@ -109,20 +92,6 @@ public class ControladorCrearPeriodoInscripcion {
 			}
 		});
 		
-	}
-	
-	public void crearInscripcion() {
-		
-		
-		String FI= new SimpleDateFormat("dd/MM/yyyy").format(VCPI.getDcFechaInicioSocios().getDate());
-		String FF=new SimpleDateFormat("dd/MM/yyyy").format(VCPI.getDcFechaFinSocios().getDate());
-		String FFN=new SimpleDateFormat("dd/MM/yyyy").format(VCPI.getDcFechaFinNoSocios().getDate());
-		ModeloCrearPeriodoInscripcionDisplayDTO periodo = new ModeloCrearPeriodoInscripcionDisplayDTO(FI,FF,FFN);
-		
-		System.out.println(FI);
-		System.out.println(FF);
-		System.out.println(FFN);
-		MCPI.setPeriodo(periodo);
 	}
 	
 }
