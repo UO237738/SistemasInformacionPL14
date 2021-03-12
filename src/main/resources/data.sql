@@ -9,6 +9,7 @@ INSERT INTO instalaciones (id_instalacion, nombre, precio, aforo) VALUES (6,'Pis
 delete from actividades; 
 INSERT INTO actividades (id_actividad, id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad, id_inscripcion, id_horario) VALUES (1,1,'Baloncesto', 50, 20, 25,'01/04/2019', '25/04/2021', 1, 1); 
 
+
 delete from socios;
 INSERT INTO socios (dni, nombre, apellidos) VALUES ('12345678X','Ana', 'Perez Gomez');
 
@@ -22,4 +23,4 @@ delete from horario;
 INSERT INTO horario (id_horario,dia,hora_ini,hora_fin) VALUES (1, "Lunes", "13:00", "19:00");
 
 delete from reservas;
-INSERT INTO reservas (id_reserva, fechaIni, fechaFin, id_actividad) VALUES (1, "9:00", "10:00", 1);
+INSERT INTO reservas (id_reserva, fechaIni, fechaFin, id_actividad, id_instalacion, hora_ini, hora_fin) VALUES (1, "01/04/2021", "01/04/2021", 1, 1, "9:00", "10:00");

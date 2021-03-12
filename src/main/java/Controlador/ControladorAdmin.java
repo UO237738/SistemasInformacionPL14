@@ -12,7 +12,8 @@ public class ControladorAdmin {
 	private VistaAdmin VA;
 	ControladorCrearPeriodoInscripcion CCPI;
 	ControladorCrearActividades CCA;
-	
+	ControladorListarActividadesAdministracion CLAA;
+	ControladorReservasAdministracionInstalacion CRAI;
 	
 	
 	public ControladorAdmin() {
@@ -52,6 +53,27 @@ public class ControladorAdmin {
 				CCPI = new ControladorCrearPeriodoInscripcion();
 			}
 		});
+		
+		VA.bResInstalacion.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VA.getFrame().setVisible(false);
+				CRAI = new ControladorReservasAdministracionInstalacion();
+			}		
+		});
+		
+		VA.bListarActOfertadas.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VA.getFrame().setVisible(false);
+				CLAA = new ControladorListarActividadesAdministracion();
+			}	
+				
+		});
+		
 		VA.bCancelar.addActionListener(new ActionListener() {
 
 			@Override
