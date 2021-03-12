@@ -12,6 +12,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class VistaCrearActividades {
 
@@ -67,9 +73,10 @@ public class VistaCrearActividades {
 		lblInstalacin.setBounds(302, 36, 54, 19);
 		frame.getContentPane().add(lblInstalacin);
 		
-		JLabel lblActividad = new JLabel("Actividad:");
-		lblActividad.setBounds(10, 39, 46, 13);
-		frame.getContentPane().add(lblActividad);
+//		JLabel lblActividad = new JLabel("Actividad:");
+//		lblActividad.setEnabled(false);
+//		lblActividad.setBounds(10, 39, 46, 13);
+//		frame.getContentPane().add(lblActividad);
 		
 		JLabel lblAforo = new JLabel("Aforo:");
 		lblAforo.setBounds(10, 62, 46, 13);
@@ -101,7 +108,6 @@ public class VistaCrearActividades {
 		frame.getContentPane().add(lPeriodoDeInscripcion);
 		
 		tfPeriodoInscrip = new JTextField();
-		tfPeriodoInscrip.setEditable(false);
 		tfPeriodoInscrip.setBounds(309, 195, 96, 19);
 		frame.getContentPane().add(tfPeriodoInscrip);
 		tfPeriodoInscrip.setColumns(10);
@@ -111,6 +117,10 @@ public class VistaCrearActividades {
 		frame.getContentPane().add(bCancelar);
 		
 		bAceptar = new JButton("Aceptar");
+		bAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		bAceptar.setEnabled(false);
 		bAceptar.setBounds(438, 225, 85, 21);
 		frame.getContentPane().add(bAceptar);
@@ -140,12 +150,10 @@ public class VistaCrearActividades {
 		frame.getContentPane().add(label_1);
 		
 		dcFechaInicio = new JDateChooser();
-		dcFechaInicio.getCalendarButton().setEnabled(false);
 		dcFechaInicio.setBounds(140, 102, 69, 19);
 		frame.getContentPane().add(dcFechaInicio);
 		
 		dcFechaFin = new JDateChooser();
-		dcFechaFin.getCalendarButton().setEnabled(false);
 		dcFechaFin.setBounds(287, 102, 69, 19);
 		frame.getContentPane().add(dcFechaFin);
 		
@@ -157,10 +165,9 @@ public class VistaCrearActividades {
 		lblFechaFin.setBounds(238, 108, 64, 13);
 		frame.getContentPane().add(lblFechaFin);
 		
-		cbActividad = new JComboBox();
-		cbActividad.setEditable(true);
-		cbActividad.setBounds(66, 35, 160, 21);
-		frame.getContentPane().add(cbActividad);
+		//cbActividad = new JComboBox();
+		//cbActividad.setBounds(66, 35, 160, 21);
+		//frame.getContentPane().add(cbActividad);
 		
 		cbInstalacion = new JComboBox();
 		cbInstalacion.setEditable(true);
@@ -186,6 +193,7 @@ public class VistaCrearActividades {
 		tfNombre.setColumns(10);
 		
 		cbPeriodoInscripcion = new JComboBox();
+		
 		cbPeriodoInscripcion.setEditable(true);
 		cbPeriodoInscripcion.setBounds(10, 194, 155, 21);
 		frame.getContentPane().add(cbPeriodoInscripcion);

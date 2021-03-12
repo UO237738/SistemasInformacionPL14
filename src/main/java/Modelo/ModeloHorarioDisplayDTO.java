@@ -2,14 +2,13 @@ package Modelo;
 
 public class ModeloHorarioDisplayDTO {
 
-	private int id_horario;
 	private String dia;
 	private String horaInicio;
 	private String horaFin;
 	
-	public ModeloHorarioDisplayDTO(int id_Horario, String dia, String horaInicio, String horaFin) {
+	public ModeloHorarioDisplayDTO(String dia, String horaInicio, String horaFin) {
 		super();
-		this.id_horario=id_Horario;
+		
 		this.dia = dia;
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
@@ -43,17 +42,11 @@ public class ModeloHorarioDisplayDTO {
 
 	@Override
 	public String toString() {
-		return "Horario [id_horario=" + id_horario + ", dia=" + dia + ", horaInicio=" + horaInicio
+		return "Horario [dia=" + dia + ", horaInicio=" + horaInicio
 				+ ", horaFin=" + horaFin + "]";
 	}
 
-	public int getId_horario() {
-		return id_horario;
-	}
-
-	public void setId_horario(int id_horario) {
-		this.id_horario = id_horario;
-	}
+	
 	
 	
 	
