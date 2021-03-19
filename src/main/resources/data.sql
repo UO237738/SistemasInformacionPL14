@@ -12,6 +12,7 @@ INSERT INTO actividades (id_actividad, id_instalacion, nombre, aforo, cuota_soci
 
 delete from socios;
 INSERT INTO socios (dni, nombre, apellidos) VALUES ('12345678X','Ana', 'Perez Gomez');
+INSERT INTO socios (dni, nombre, apellidos) VALUES ('12345678Y','Pablo', 'Perez Lopez');
 
 delete from noSocios;
 INSERT INTO noSocios (dni, nombre, apellidos) VALUES ('87654321X','Juan', 'Gomez Perez');
