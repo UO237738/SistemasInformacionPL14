@@ -54,7 +54,7 @@ public class ControladorAdmin {
 			}
 		});
 		
-		VA.bResInstalacion.addActionListener(new ActionListener() {
+		VA.bListarActOfertadas.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -64,7 +64,7 @@ public class ControladorAdmin {
 			}		
 		});
 		
-		VA.bListarActOfertadas.addActionListener(new ActionListener() {
+		VA.bResInstalacion.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
