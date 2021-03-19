@@ -3,6 +3,8 @@ package Modelo;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import javax.swing.JComboBox;
+
 import giis.demo.util.Database;
 import giis.demo.util.Util;
 
@@ -19,44 +21,93 @@ public class ModeloReservaAdministracioninstalación {
 	private static Database basedatos = new Database();
 	
 	public static String getFechaActual() {
-		Date hoy = new Date();
-		SimpleDateFormat formatear = new SimpleDateFormat("yyyy-MM-dd");
-		return formatear.format(hoy);
+		Date ahora = new Date();
+		SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+		return formateador.format(ahora);
 	}
-	
-	public static int ObtenerIdInstalacion(String nombreInstalacion) {
-		String consulta= "SELECT id_instalacion FROM instalaciones WHERE nombre=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, nombreInstalacion);
-		return (int) filas.get(0)[0];
 
+	public static int ObtenerIdInstalacion(String nombreInstalacion) {
+		String sql= "SELECT id_instalacion FROM instalaciones WHERE nombre=?";
+		List<Object[]>rows=basedatos.executeQueryArray(sql, nombreInstalacion);
+		return (int) rows.get(0)[0];
+	}
+
+	public static int ObtenerHorasMaximasReserva(String nombreInstalacion) {
+		String sql="SELECT horas_maximas_reserva FROM instalaciones WHERE nombre=?";
+		List<Object[]>rows=basedatos.executeQueryArray(sql, nombreInstalacion);
+		return (int) rows.get(0)[0];
 	}
 	
-	public static int tiempoMaximoReserva(String instalacion) {
-		String consulta="SELECT tiempo_maximo FROM instlaciones WHERE nombre=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, instalacion);
-		return (int) filas.get(0)[0];
+	public static String ObtenerPrecioReserva(String nombreInstalacion) {
+		String sql="SELECT precio FROM instalaciones WHERE nombre=?";
+		List<Object[]>rows=basedatos.executeQueryArray(sql, nombreInstalacion);
+		return (String) rows.get(0)[0];
+	}
+
+	public static boolean plazoMaximoReserva(String nombreInstalacion,String fecha) {
+
+		String sql="SELECT plazo_maximo_reserva FROM instalaciones WHERE nombre=?";
+
+		List<Object[]>rows=basedatos.executeQueryArray(sql, nombreInstalacion);
+
+		int dias= (int) rows.get(0)[0];
+		Date fechaSelecion=Util.isoStringToDate(fecha);
+		Date fechaaActual=Util.isoStringToDate(getFechaActual());
+
+		Date nuevaFecha = new Date();
+
+		Calendar cal = Calendar.getInstance(); 
+		cal.setTime(fechaaActual); 
+		cal.add(Calendar.DATE, dias);
+		nuevaFecha = cal.getTime();
+
+		System.out.println(nuevaFecha);
+
+		if(fechaSelecion.after(nuevaFecha)) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	
+	
+	public static int existeSocio(String dniSocio) {
+		String sql="SELECT"
+				+" COUNT ( CASE WHEN ?=dni then 'existe' end)"
+				+" from socios";
+		List<Object[]>rows=basedatos.executeQueryArray(sql, dniSocio);
+		return (int) rows.get(0)[0];
+	}
+
+
+	public static int ObtenerIdSocio(String dniSocio) {
+		String sql= "SELECT id_socio FROM socios WHERE dni=?";
+		List<Object[]>rows=basedatos.executeQueryArray(sql, dniSocio);
+		return (int) rows.get(0)[0];
+	}
+
+	public static int ConflictoReserva(int idInstalacion, String fechaInicio, String fechafin, String horaInicio, String horaCierre) {
+		String sql="SELECT"
+				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fecha_inicioReserva AND ?=fecha_finReserva AND"
+				+" ((hora_inicioReserva<=? AND ?<hora_finReserva) OR (hora_inicioReserva<? AND ?<=hora_finReserva)) then 'ocupado' end)"
+				+" from reservas";
+		//String fi=Util.dateToIsoString(fechaInicio);
+		//String fc=Util.dateToIsoString(fechafin);
+		List<Object[]>rows=basedatos.executeQueryArray(sql, idInstalacion,fechaInicio,fechafin,horaInicio,horaInicio,horaCierre,horaCierre);
+		return (int) rows.get(0)[0];
+	}
+
 	public static String obtenerNombreSocio(String dniSocio) {
-		String consulta= "SELECT nombre FROM socios WHERE dni=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, dniSocio);
-		return (String) filas.get(0)[0];
+		String sql= "SELECT nombre FROM socios WHERE dni=?";
+		List<Object[]>rows=basedatos.executeQueryArray(sql, dniSocio);
+		return (String) rows.get(0)[0];
 	}
 
 	public static String obtenerApellidosSocio(String dniSocio) {
-		String consulta= "SELECT apellidos FROM socios WHERE dni=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, dniSocio);
-		return (String) filas.get(0)[0];
-	}
-	
-	public static int ConflictoReserva(int idinstalacion, String horaini, String horafin, String fechaini, String fechafin) {
-		String consulta="SELECT"
-				+"Count ( CASE when ?=id_instalcion AND ?=fecha_inicioReserva AND ?=fecha_finReserva"
-				+ "((?<=hora_inicioReserva AND hora_inicoReerva>?) OR (?>hora_finReserva AND hora_finReserva<=?)) then 'reservado' end"
-				+ "form RESERVAS";
-			
-		List<Object[]>filas=basedatos.executeQueryArray(consulta,idinstalacion,fechaini,fechafin,horaini,horafin);
-		return (int) filas.get(0)[0];
+		String sql= "SELECT apellidos FROM socios WHERE dni=?";
+		List<Object[]>rows=basedatos.executeQueryArray(sql, dniSocio);
+		return (String) rows.get(0)[0];
 	}
 	
 	
@@ -93,7 +144,7 @@ public class ModeloReservaAdministracioninstalación {
 	
 	public static void CrearResguardo(String instalacion, String dni, String Nombre, String Apellidos, String fecha, String horaini, String horafin){
 		try {
-			String archivo = "src/test/"+Nombre+".txt";
+			String archivo = "src/test/resource/"+Nombre+".txt";
 			File nuevoresguardo = new File(archivo);
 			
 			if(nuevoresguardo.exists()) {
@@ -119,34 +170,9 @@ public class ModeloReservaAdministracioninstalación {
 		}
 		
 	}
-	
-	
-	public static boolean plazoMaximoReserva(String nombreInstalacion,String fecha) {
-		String consulta = "SELECT plazo_maximo_reserva FROM instalaciones WHERE nombre=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, nombreInstalacion);
-		
-		int dias= (int) filas.get(0)[0];
-		Date fechaaActual=Util.isoStringToDate(getFechaActual());
-		Date fechaElegida=Util.isoStringToDate(fecha);
-		Date nuevaFecha = new Date();
 
-		Calendar cal = Calendar.getInstance(); 
-		cal.setTime(fechaaActual); 
-		cal.add(Calendar.DATE, dias);
-		nuevaFecha = cal.getTime();
+	
 
-		System.out.println(nuevaFecha);
-
-		if(fechaElegida.after(nuevaFecha)) {
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
-	
-	
-	
 	
 	
 	

@@ -1,7 +1,9 @@
 package Vista;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.util.Calendar;
+import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,30 +17,24 @@ import com.toedter.calendar.JDayChooser;
 
 import javax.swing.DefaultComboBoxModel;
 
-public class VistaReservaadministracionAplicacion {
+public class VistaReservaadministracionAplicacion<JDatePickerImpl> {
+
+	
 
 	public JFrame frame;
 	
-	public JComboBox<String> CBInstalaciones;
-	public JTextField TFNombre;
-	public JTextField TFDni;
-	public JTextField TFApellidos;
+	public JDateChooser JDFechaIni;
 	public JComboBox<String> CBDesde;
 	public JComboBox<String> CBHasta;
-	public JDateChooser JCFechaInico;
-	public JButton JBReservar;
-	public JButton JBResguardo;
-	
-	
+	public JButton JButtonReservar;
+	public JComboBox<String> CBInstalaciones;
+	public JLabel lblSolicitante;
+	public JLabel LDni;
+	public JTextField TFieldDni;
 	public JLabel JLDesde;
 	public JLabel JLHasta;
-	public JLabel JLFecha;
-	public JLabel JLHora;
-	public JLabel JLInstalacion;
-	public JLabel JLDatosSocio;
-	public JLabel JLNombre;
-	public JLabel JLApellidos;
-	public JLabel JLDni;
+	public JLabel LPrecio;
+	public JButton JButtonResguardo;
 
 	
 
@@ -70,173 +66,120 @@ public class VistaReservaadministracionAplicacion {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 496, 371);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setTitle("Nueva Reserva");
+		frame.setBounds(100, 100, 372, 380);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLInstalacion = new JLabel("¿Que instalacion quiere reservar?");
-		JLInstalacion.setBounds(23, 31, 188, 14);
-		frame.getContentPane().add(JLInstalacion);
+		JLabel lblInstalacion = new JLabel("Instalacion:");
+		lblInstalacion.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblInstalacion.setBounds(10, 11, 129, 20);
+		frame.getContentPane().add(lblInstalacion);
 		
-		CBInstalaciones = new JComboBox<String>();
-		CBInstalaciones.setEnabled(true);
-		CBInstalaciones.setModel(new DefaultComboBoxModel<String>(new String[] {"Pista de Tenis", "Pista de Tenis 1", "Pista de Tenis 2", "Pista de Futbol", "Pista de Futbol 1", "Pista de Baloncesto", "Pista de Baloncesto 1", "Pista de Baloncesto 2"}));
-		CBInstalaciones.setBounds(264, 28, 120, 20);
-		frame.getContentPane().add(CBInstalaciones);
-		
-		JLFecha = new JLabel("Fecha: ");
-		JLFecha.setBounds(23, 86, 46, 14);
-		frame.getContentPane().add(JLFecha);
-		
-		JLHora = new JLabel("Hora:");
-		JLHora.setBounds(293, 75, 46, 14);
-		frame.getContentPane().add(JLHora);
+		JDFechaIni = new JDateChooser();
+		JDFechaIni.setBounds(35, 106, 130, 20);
+		frame.getContentPane().add(JDFechaIni);
+			
+		JLabel lblPeriodoDeReserva = new JLabel("Fecha de Reserva:");
+		lblPeriodoDeReserva.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblPeriodoDeReserva.setBounds(10, 75, 181, 20);
+		frame.getContentPane().add(lblPeriodoDeReserva);
 		
 		JLDesde = new JLabel("Desde:");
-		JLDesde.setBounds(303, 107, 46, 14);
+		JLDesde.setEnabled(false);
+		JLDesde.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		JLDesde.setBounds(35, 142, 59, 14);
 		frame.getContentPane().add(JLDesde);
 		
 		CBDesde = new JComboBox<String>();
-		CBDesde.setEnabled(true);
-		CBDesde.setModel(new DefaultComboBoxModel<String>(new String[] {"8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"}));
-		CBDesde.setBounds(386, 104, 53, 20);
+		CBDesde.setEnabled(false);
+		
+		CBDesde.setModel(new DefaultComboBoxModel<String>(new String[] {"08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"}));
+		CBDesde.setBounds(106, 142, 59, 20);
 		frame.getContentPane().add(CBDesde);
 		
 		JLHasta = new JLabel("Hasta:");
-		JLHasta.setBounds(303, 176, 46, 14);
+		JLHasta.setEnabled(false);
+		JLHasta.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		JLHasta.setBounds(199, 142, 59, 20);
 		frame.getContentPane().add(JLHasta);
 		
-		CBHasta= new JComboBox<String>();
-		CBHasta.setModel(new DefaultComboBoxModel<String>(new String[] {"9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"}));
-		CBHasta.setBounds(386, 173, 53, 20);
+		CBHasta = new JComboBox<String>();
+		CBHasta.setEnabled(false);
+		
+		CBHasta.setModel(new DefaultComboBoxModel<String>(new String[] {"09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"}));
+		CBHasta.setBounds(268, 142, 59, 20);
 		frame.getContentPane().add(CBHasta);
 		
-		JBReservar = new JButton("Reservar");
-		JBReservar.setBounds(58, 273, 89, 23);
-		frame.getContentPane().add(JBReservar);
 		
-		JBResguardo = new JButton("Resguardo");
-		JBResguardo.setBounds(330, 273, 89, 23);
-		frame.getContentPane().add(JBResguardo);
 		
-		JCFechaInico = new JDateChooser();
-		JCFechaInico.setBounds(79, 86, 95, 20);
-		frame.getContentPane().add(JCFechaInico);
+		JButtonReservar = new JButton("Reservar");
+		JButtonReservar.setEnabled(false);
+		
+		JButtonReservar.setBounds(18, 308, 89, 32);
+		frame.getContentPane().add(JButtonReservar);
+		
+		JButtonResguardo = new JButton("Crear Resguardo");
+		JButtonResguardo.setBounds(217, 308, 128, 32);
+		frame.getContentPane().add(JButtonResguardo);
+		
+		CBInstalaciones = new JComboBox<String>();
+		CBInstalaciones.setModel(new DefaultComboBoxModel(new String[] {"Pista Tennis", "Pista Tennis 1", "Pista Baloncesto", "Pista Baloncesto 1"}));
+		
+		CBInstalaciones.setBounds(20, 42, 208, 20);
+		frame.getContentPane().add(CBInstalaciones);
+		
+		
+		
+		lblSolicitante = new JLabel("Solicitante:");
+		lblSolicitante.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblSolicitante.setBounds(10, 235, 97, 20);
+		frame.getContentPane().add(lblSolicitante);
+		
+		LDni = new JLabel("DNI:");
+		LDni.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		LDni.setBounds(48, 266, 46, 20);
+		frame.getContentPane().add(LDni);
+		
+		TFieldDni = new JTextField();
+		TFieldDni.setBounds(151, 269, 144, 20);
+		frame.getContentPane().add(TFieldDni);
+		TFieldDni.setColumns(10);
+		
+		JLabel lblPrecio = new JLabel("Precio:");
+		lblPrecio.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblPrecio.setBounds(35, 210, 59, 20);
+		frame.getContentPane().add(lblPrecio);
+		
+		LPrecio = new JLabel("");
+		LPrecio.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		LPrecio.setBounds(106, 210, 59, 20);
+		frame.getContentPane().add(LPrecio);
 	}
 
-	public JFrame getFrame() {
-		return frame;
-	}
 
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
+public JFrame getFrameR() { return this.frame;}
+	
+	public String getCBDesde() {return (String)this.CBDesde.getSelectedItem();}
+	public String getCBHasta() {return (String)this.CBHasta.getSelectedItem();}
 
-	public JComboBox<String> getCBInstalaciones() {
-		return CBInstalaciones;
-	}
+	
 
-	public void setCBInstalaciones(JComboBox<String> cBInstalaciones) {
-		CBInstalaciones = cBInstalaciones;
-	}
-
-	public JComboBox<String> getCBDesde() {
-		return CBDesde;
-	}
-
-	public void setCBDesde(JComboBox<String> cBDesde) {
-		CBDesde = cBDesde;
-	}
-
-	public JComboBox<String> getCBHasta() {
-		return CBHasta;
-	}
-
-	public void setCBHasta(JComboBox<String> cBHasta) {
-		CBHasta = cBHasta;
-	}
-
-	public String getJCFechaInico() {
-		int d = this.JCFechaInico.getCalendar().get(Calendar.DAY_OF_MONTH);
-		int m = this.JCFechaInico.getCalendar().get(Calendar.MONTH);
-		int a = this.JCFechaInico.getCalendar().get(Calendar.YEAR);
+	
+	
+	public String getDatePickerFechaIniS() {
+		int d = this.JDFechaIni.getCalendar().get(Calendar.DAY_OF_MONTH);
+		int m = this.JDFechaIni.getCalendar().get(Calendar.MONTH);
+		int a = this.JDFechaIni.getCalendar().get(Calendar.YEAR);
 		String FechaIni = d + "-" + m + "-" + d;
 		return FechaIni;
 	}
-
-	public void setJCFechaInico(JDateChooser jCFechaInico) {
-		JCFechaInico = jCFechaInico;
-	}
-
-	public JButton getJBReservar() {
-		return JBReservar;
-	}
-
-	public void setJBReservar(JButton jBReservar) {
-		JBReservar = jBReservar;
-	}
-
-	public JButton getJBResguardo() {
-		return JBResguardo;
-	}
-
-	public void setJBResguardo(JButton jBResguardo) {
-		JBResguardo = jBResguardo;
-	}
-
-	public JLabel getJLDesde() {
-		return JLDesde;
-	}
-
-	public void setJLDesde(JLabel jLDesde) {
-		JLDesde = jLDesde;
-	}
-
-	public JLabel getJLHasta() {
-		return JLHasta;
-	}
-
-	public void setJLHasta(JLabel jLHasta) {
-		JLHasta = jLHasta;
-	}
-
-	public JLabel getJLFecha() {
-		return JLFecha;
-	}
-
-	public void setJLFecha(JLabel jLFecha) {
-		JLFecha = jLFecha;
-	}
-
-	public JLabel getJLHora() {
-		return JLHora;
-	}
-
-	public void setJLHora(JLabel jLHora) {
-		JLHora = jLHora;
-	}
-
-	public JLabel getJLDatosSocio() {
-		return JLDatosSocio;
-	}
-
-	public void setJLDatosSocio(JLabel jLDatosSocio) {
-		JLDatosSocio = jLDatosSocio;
-	}
-
-	public JLabel getJLApellidos() {
-		return JLApellidos;
-	}
-
-	public void setJLApellidos(JLabel jLApellidos) {
-		JLApellidos = jLApellidos;
-	}
-
-	public JLabel getJLDni() {
-		return JLDni;
-	}
-
-	public void setJLDni(JLabel jLDni) {
-		JLDni = jLDni;
+	public void setDatePickerFechaInicio(String fecha) {
+		String[] f = fecha.split("-");
+		int a = Integer.parseInt(f[0]);
+		int m = Integer.parseInt(f[1])-1;
+		int d = Integer.parseInt(f[2]);
+		this.JDFechaIni.getCalendar().set(a, m, d);
 	}
 }
