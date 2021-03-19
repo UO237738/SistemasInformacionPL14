@@ -114,8 +114,8 @@ public class ModeloReservaAdministracioninstalación {
 				+" from reservas";*/
 
 		String sql="SELECT"
-				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fecha_inicioReserva AND ?=fecha_finReserva AND"
-				+" ((hora_inicioReserva<=? AND ?<hora_finReserva) OR (hora_inicioReserva<? AND ?<=hora_finReserva)) then 'ocupado' end)"
+				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fechaIni AND ?=fechaFin AND"
+				+" ((hora_ini<=? AND ?<hora_fin) OR (hora_ini<? AND ?<=hora_fin)) then 'ocupado' end)"
 				+" from reservas";
 
 
