@@ -23,7 +23,7 @@ public class ControladorCrearHorario {
 	private VistaCrearHorario VCH;
 	private ModeloCrearHorario MCH;
 	private VistaCrearActividades VCA;
-
+	private ArrayList <Integer> ids;
 	ControladorCrearActividades cca;
 	
 	
@@ -31,6 +31,7 @@ public class ControladorCrearHorario {
 		this.cca=cca;
 		MCH = new ModeloCrearHorario();
 		VCH = new VistaCrearHorario();
+		ids=new ArrayList<Integer>();
 		this.initView();
 		this.addListener();
 		
@@ -58,7 +59,8 @@ public class ControladorCrearHorario {
 					JOptionPane.showMessageDialog(null, "Horario creado con éxito!","Correcto",JOptionPane.INFORMATION_MESSAGE);
 					VCH.getFrame().setVisible(false);
 					
-					cca.setId_horario(crearHorario());
+					crearHorario();
+					//cca.setId_horario(crearHorario());
 					//VCA.getFrame().setVisible(true);
 			}
 		});
@@ -73,24 +75,24 @@ public class ControladorCrearHorario {
 					VCH.lLunes2.setEnabled(true);
 					VCH.spLunesHI.setEnabled(true);
 					VCH.spLunesHF.setEnabled(true);
-					VCH.chbMartes.setEnabled(false);
-					VCH.chbMiercoles.setEnabled(false);
-					VCH.chbJueves.setEnabled(false);
-					VCH.chbViernes.setEnabled(false);
-					VCH.chbSabado.setEnabled(false);
-					VCH.chbDomingo.setEnabled(false);
+//					VCH.chbMartes.setEnabled(false);
+//					VCH.chbMiercoles.setEnabled(false);
+//					VCH.chbJueves.setEnabled(false);
+//					VCH.chbViernes.setEnabled(false);
+//					VCH.chbSabado.setEnabled(false);
+//					VCH.chbDomingo.setEnabled(false);
 				}
 				else {
 					VCH.lLunes1.setEnabled(false);
 					VCH.lLunes2.setEnabled(false);
 					VCH.spLunesHI.setEnabled(false);
 					VCH.spLunesHF.setEnabled(false);
-					VCH.chbMartes.setEnabled(true);
-					VCH.chbMiercoles.setEnabled(true);
-					VCH.chbJueves.setEnabled(true);
-					VCH.chbViernes.setEnabled(true);
-					VCH.chbSabado.setEnabled(true);
-					VCH.chbDomingo.setEnabled(true);
+//					VCH.chbMartes.setEnabled(true);
+//					VCH.chbMiercoles.setEnabled(true);
+//					VCH.chbJueves.setEnabled(true);
+//					VCH.chbViernes.setEnabled(true);
+//					VCH.chbSabado.setEnabled(true);
+//					VCH.chbDomingo.setEnabled(true);
 				
 					
 				}
@@ -104,24 +106,24 @@ public class ControladorCrearHorario {
 					VCH.lMartes2.setEnabled(true);
 					VCH.spMartesHI.setEnabled(true);
 					VCH.spMartesHF.setEnabled(true);
-					VCH.chbLunes.setEnabled(false);
-					VCH.chbMiercoles.setEnabled(false);
-					VCH.chbJueves.setEnabled(false);
-					VCH.chbViernes.setEnabled(false);
-					VCH.chbSabado.setEnabled(false);
-					VCH.chbDomingo.setEnabled(false);
+//					VCH.chbLunes.setEnabled(false);
+//					VCH.chbMiercoles.setEnabled(false);
+//					VCH.chbJueves.setEnabled(false);
+//					VCH.chbViernes.setEnabled(false);
+//					VCH.chbSabado.setEnabled(false);
+//					VCH.chbDomingo.setEnabled(false);
 				}
 				else {
 					VCH.lMartes1.setEnabled(false);
 					VCH.lMartes2.setEnabled(false);
 					VCH.spMartesHI.setEnabled(false);
 					VCH.spMartesHF.setEnabled(false);
-					VCH.chbLunes.setEnabled(true);
-					VCH.chbMiercoles.setEnabled(true);
-					VCH.chbJueves.setEnabled(true);
-					VCH.chbViernes.setEnabled(true);
-					VCH.chbSabado.setEnabled(true);
-					VCH.chbDomingo.setEnabled(true);
+//					VCH.chbLunes.setEnabled(true);
+//					VCH.chbMiercoles.setEnabled(true);
+//					VCH.chbJueves.setEnabled(true);
+//					VCH.chbViernes.setEnabled(true);
+//					VCH.chbSabado.setEnabled(true);
+//					VCH.chbDomingo.setEnabled(true);
 				}
 			}
 		});
@@ -133,24 +135,24 @@ public class ControladorCrearHorario {
 					VCH.lMiercoles2.setEnabled(true);
 					VCH.spMiercolesHI.setEnabled(true);
 					VCH.spMiercolesHF.setEnabled(true);
-					VCH.chbMartes.setEnabled(false);
-					VCH.chbLunes.setEnabled(false);
-					VCH.chbJueves.setEnabled(false);
-					VCH.chbViernes.setEnabled(false);
-					VCH.chbSabado.setEnabled(false);
-					VCH.chbDomingo.setEnabled(false);
+//					VCH.chbMartes.setEnabled(false);
+//					VCH.chbLunes.setEnabled(false);
+//					VCH.chbJueves.setEnabled(false);
+//					VCH.chbViernes.setEnabled(false);
+//					VCH.chbSabado.setEnabled(false);
+//					VCH.chbDomingo.setEnabled(false);
 				}
 				else {
 					VCH.lMiercoles1.setEnabled(false);
 					VCH.lMiercoles2.setEnabled(false);
 					VCH.spMiercolesHI.setEnabled(false);
 					VCH.spMiercolesHF.setEnabled(false);
-					VCH.chbMartes.setEnabled(true);
-					VCH.chbLunes.setEnabled(true);
-					VCH.chbJueves.setEnabled(true);
-					VCH.chbViernes.setEnabled(true);
-					VCH.chbSabado.setEnabled(true);
-					VCH.chbDomingo.setEnabled(true);
+//					VCH.chbMartes.setEnabled(true);
+//					VCH.chbLunes.setEnabled(true);
+//					VCH.chbJueves.setEnabled(true);
+//					VCH.chbViernes.setEnabled(true);
+//					VCH.chbSabado.setEnabled(true);
+//					VCH.chbDomingo.setEnabled(true);
 				}
 			}
 		});
@@ -162,24 +164,24 @@ public class ControladorCrearHorario {
 					VCH.lJueves2.setEnabled(true);
 					VCH.spJuevesHI.setEnabled(true);
 					VCH.spJuevesHF.setEnabled(true);
-					VCH.chbMartes.setEnabled(false);
-					VCH.chbMiercoles.setEnabled(false);
-					VCH.chbLunes.setEnabled(false);
-					VCH.chbViernes.setEnabled(false);
-					VCH.chbSabado.setEnabled(false);
-					VCH.chbDomingo.setEnabled(false);
+//					VCH.chbMartes.setEnabled(false);
+//					VCH.chbMiercoles.setEnabled(false);
+//					VCH.chbLunes.setEnabled(false);
+//					VCH.chbViernes.setEnabled(false);
+//					VCH.chbSabado.setEnabled(false);
+//					VCH.chbDomingo.setEnabled(false);
 				}
 				else {
 					VCH.lJueves1.setEnabled(false);
 					VCH.lJueves2.setEnabled(false);
 					VCH.spJuevesHI.setEnabled(false);
 					VCH.spJuevesHF.setEnabled(false);
-					VCH.chbMartes.setEnabled(true);
-					VCH.chbMiercoles.setEnabled(true);
-					VCH.chbLunes.setEnabled(true);
-					VCH.chbViernes.setEnabled(true);
-					VCH.chbSabado.setEnabled(true);
-					VCH.chbDomingo.setEnabled(true);
+//					VCH.chbMartes.setEnabled(true);
+//					VCH.chbMiercoles.setEnabled(true);
+//					VCH.chbLunes.setEnabled(true);
+//					VCH.chbViernes.setEnabled(true);
+//					VCH.chbSabado.setEnabled(true);
+//					VCH.chbDomingo.setEnabled(true);
 				}
 			}
 		});
@@ -191,24 +193,24 @@ public class ControladorCrearHorario {
 					VCH.lViernes2.setEnabled(true);
 					VCH.spViernesHI.setEnabled(true);
 					VCH.spViernesHF.setEnabled(true);
-					VCH.chbMartes.setEnabled(false);
-					VCH.chbMiercoles.setEnabled(false);
-					VCH.chbJueves.setEnabled(false);
-					VCH.chbLunes.setEnabled(false);
-					VCH.chbSabado.setEnabled(false);
-					VCH.chbDomingo.setEnabled(false);
+//					VCH.chbMartes.setEnabled(false);
+//					VCH.chbMiercoles.setEnabled(false);
+//					VCH.chbJueves.setEnabled(false);
+//					VCH.chbLunes.setEnabled(false);
+//					VCH.chbSabado.setEnabled(false);
+//					VCH.chbDomingo.setEnabled(false);
 				}
 				else {
 					VCH.lViernes1.setEnabled(false);
 					VCH.lViernes2.setEnabled(false);
 					VCH.spViernesHI.setEnabled(false);
 					VCH.spViernesHF.setEnabled(false);
-					VCH.chbMartes.setEnabled(true);
-					VCH.chbMiercoles.setEnabled(true);
-					VCH.chbJueves.setEnabled(true);
-					VCH.chbLunes.setEnabled(true);
-					VCH.chbSabado.setEnabled(true);
-					VCH.chbDomingo.setEnabled(true);
+//					VCH.chbMartes.setEnabled(true);
+//					VCH.chbMiercoles.setEnabled(true);
+//					VCH.chbJueves.setEnabled(true);
+//					VCH.chbLunes.setEnabled(true);
+//					VCH.chbSabado.setEnabled(true);
+//					VCH.chbDomingo.setEnabled(true);
 				}
 			}
 		});
@@ -221,24 +223,24 @@ public class ControladorCrearHorario {
 					VCH.lSabado2.setEnabled(true);
 					VCH.spSabadoHI.setEnabled(true);
 					VCH.spSabadoHF.setEnabled(true);
-					VCH.chbMartes.setEnabled(false);
-					VCH.chbMiercoles.setEnabled(false);
-					VCH.chbJueves.setEnabled(false);
-					VCH.chbViernes.setEnabled(false);
-					VCH.chbLunes.setEnabled(false);
-					VCH.chbDomingo.setEnabled(false);
+//					VCH.chbMartes.setEnabled(false);
+//					VCH.chbMiercoles.setEnabled(false);
+//					VCH.chbJueves.setEnabled(false);
+//					VCH.chbViernes.setEnabled(false);
+//					VCH.chbLunes.setEnabled(false);
+//					VCH.chbDomingo.setEnabled(false);
 				}
 				else {
 					VCH.lSabado1.setEnabled(false);
 					VCH.lSabado2.setEnabled(false);
 					VCH.spSabadoHI.setEnabled(false);
 					VCH.spSabadoHF.setEnabled(false);
-					VCH.chbMartes.setEnabled(true);
-					VCH.chbMiercoles.setEnabled(true);
-					VCH.chbJueves.setEnabled(true);
-					VCH.chbViernes.setEnabled(true);
-					VCH.chbLunes.setEnabled(true);
-					VCH.chbDomingo.setEnabled(true);
+//					VCH.chbMartes.setEnabled(true);
+//					VCH.chbMiercoles.setEnabled(true);
+//					VCH.chbJueves.setEnabled(true);
+//					VCH.chbViernes.setEnabled(true);
+//					VCH.chbLunes.setEnabled(true);
+//					VCH.chbDomingo.setEnabled(true);
 				}
 			}
 		});
@@ -250,24 +252,24 @@ public class ControladorCrearHorario {
 					VCH.lDomingo2.setEnabled(true);
 					VCH.spDomingoHI.setEnabled(true);
 					VCH.spDomingoHF.setEnabled(true);
-					VCH.chbMartes.setEnabled(false);
-					VCH.chbMiercoles.setEnabled(false);
-					VCH.chbJueves.setEnabled(false);
-					VCH.chbViernes.setEnabled(false);
-					VCH.chbSabado.setEnabled(false);
-					VCH.chbLunes.setEnabled(false);
+//					VCH.chbMartes.setEnabled(false);
+//					VCH.chbMiercoles.setEnabled(false);
+//					VCH.chbJueves.setEnabled(false);
+//					VCH.chbViernes.setEnabled(false);
+//					VCH.chbSabado.setEnabled(false);
+//					VCH.chbLunes.setEnabled(false);
 				}
 				else {
 					VCH.lDomingo1.setEnabled(false);
 					VCH.lDomingo2.setEnabled(false);
 					VCH.spDomingoHI.setEnabled(false);
 					VCH.spDomingoHF.setEnabled(false);
-					VCH.chbMartes.setEnabled(true);
-					VCH.chbMiercoles.setEnabled(true);
-					VCH.chbJueves.setEnabled(true);
-					VCH.chbViernes.setEnabled(true);
-					VCH.chbSabado.setEnabled(true);
-					VCH.chbLunes.setEnabled(true);
+//					VCH.chbMartes.setEnabled(true);
+//					VCH.chbMiercoles.setEnabled(true);
+//					VCH.chbJueves.setEnabled(true);
+//					VCH.chbViernes.setEnabled(true);
+//					VCH.chbSabado.setEnabled(true);
+//					VCH.chbLunes.setEnabled(true);
 				}
 			}
 		});
@@ -446,7 +448,7 @@ public class ControladorCrearHorario {
 		
 	}
 		
-		private int crearHorario() {
+		private void crearHorario() {
 			ArrayList<ModeloHorarioDisplayDTO> horarios = new ArrayList<ModeloHorarioDisplayDTO>();
 			if(VCH.getChbLunes().isSelected()) {
 				String dia = "Lunes";
@@ -499,13 +501,29 @@ public class ControladorCrearHorario {
 				horarios.add(new ModeloHorarioDisplayDTO(dia, horaIni, horaFin));
 			}
 			
-//			for (ModeloHorarioDisplayDTO horario : horarios) {
-//				MCH.setHorarios(horario);
-//			}
-			return MCH.setHorarios(horarios.get(0));
+			//ArrayList<ModeloHorarioDisplayDTO> horarios = new ArrayList<ModeloHorarioDisplayDTO>();
 			
+			for (ModeloHorarioDisplayDTO horario : horarios) {
+				int id=MCH.setHorarios(horario);
+				ids.add(id);
+				System.out.println(id);
+			}
+			
+			 
 		
 	}
+
+
+
+		public ArrayList<Integer> getIds() {
+			return ids;
+		}
+
+
+
+		public void setIds(ArrayList<Integer> ids) {
+			this.ids = ids;
+		}
 	
 	
 	

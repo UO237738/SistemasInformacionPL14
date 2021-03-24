@@ -18,6 +18,7 @@ public class VistaCrearPeriodoInscripcion {
 	public JDateChooser dcFechaFinNoSocios;
 	public JButton bAceptar;
 	public JButton bCancelar;
+	public JTextField tfNombre;
 	/**
 	 * Launch the application.
 	 */
@@ -95,6 +96,15 @@ public class VistaCrearPeriodoInscripcion {
 		bAceptar.setEnabled(false);
 		bAceptar.setBounds(200, 208, 85, 21);
 		frame.getContentPane().add(bAceptar);
+		
+		JLabel lNombre = new JLabel("Nombre:");
+		lNombre.setBounds(10, 173, 46, 13);
+		frame.getContentPane().add(lNombre);
+		
+		tfNombre = new JTextField();
+		tfNombre.setBounds(149, 170, 96, 19);
+		frame.getContentPane().add(tfNombre);
+		tfNombre.setColumns(10);
 
 	}
 
@@ -153,6 +163,13 @@ public class VistaCrearPeriodoInscripcion {
 	public void setbCancelar(JButton bCancelar) {
 		this.bCancelar = bCancelar;
 	}
-	
 
+	public JTextField getTfNombre() {
+		return tfNombre;
+	}
+
+	public void setTfNombre(JTextField tfNombre) {
+		this.tfNombre = tfNombre;
+	}
+	
 }

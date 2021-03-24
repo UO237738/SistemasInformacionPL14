@@ -15,17 +15,17 @@ private static Database db=new Database();
 		PreparedStatement preparedStatement1= null;
 
 		String insertActividad = "INSERT INTO inscripciones" 
-				+"(fechaInicioSocios, fechaFinSocios, fechaFinNoSocios) VALUES "
-				+"(?,?,?)";
+				+"(nombre, fechaInicioSocios, fechaFinSocios, fechaFinNoSocios) VALUES "
+				+"(?,?,?,?)";
 
 		try {
 			dbConnection = db.getConnection();
 			preparedStatement1 = dbConnection.prepareStatement(insertActividad);
 				
-			
-			preparedStatement1.setString(1, PeriodoInscripcion.getIniSocios());
-			preparedStatement1.setString(2, PeriodoInscripcion.getFinSocios());
-			preparedStatement1.setString(3, PeriodoInscripcion.getFinNoSocios());
+			preparedStatement1.setString(1, PeriodoInscripcion.getNombre());
+			preparedStatement1.setString(2, PeriodoInscripcion.getIniSocios());
+			preparedStatement1.setString(3, PeriodoInscripcion.getFinSocios());
+			preparedStatement1.setString(4, PeriodoInscripcion.getFinNoSocios());
 			
 			preparedStatement1.executeUpdate();
 			

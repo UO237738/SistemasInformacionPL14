@@ -14,7 +14,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 
 import Modelo.ModeloCrearActividadDisplayDTO;
 import Modelo.ModeloCrearActividades;
+import Modelo.ModeloCrearPeriodoInscripcionDisplayDTO;
 
 public class ControladorCrearActividades {
 
@@ -34,6 +35,7 @@ private ControladorCrearHorario CCA;
 private ControladorAdmin CA;
 private ControladorCrearHorario CCH;
 private int id_horario;
+ArrayList<ModeloCrearPeriodoInscripcionDisplayDTO> periodos;
 	//Constructor
 	public ControladorCrearActividades(ControladorAdmin CA) {
 		this.CA=CA;
@@ -47,7 +49,12 @@ private int id_horario;
 		// TODO Auto-generated method stub
 		ModeloCrearActividades.cogerInstalaciones(VCA.cbInstalacion);
 		//ModeloCrearActividades.cogerActividades(VCA.cbActividad);
-		ModeloCrearActividades.cogerPeriodos(VCA.cbPeriodoInscripcion);
+		periodos = ModeloCrearActividades.cogerPeriodos();
+		VCA.cbPeriodoInscripcion.addItem("Selecciona un periodo de inscripción");
+		for (ModeloCrearPeriodoInscripcionDisplayDTO periodo : periodos) {
+			VCA.cbPeriodoInscripcion.addItem(periodo.getNombre());
+		}
+			
 		VCA.getFrame().setVisible(true);
 	}
 	
@@ -118,7 +125,7 @@ private int id_horario;
 				String text = (String) VCA.cbPeriodoInscripcion.getSelectedItem();
 				VCA.tfPeriodoInscrip.setText(text);
 				VCA.bAceptar.setEnabled(false);
-				if ((text.length()>0) && (text.length()<5)) {
+				if ((text.length()>0) && (text.length()<25)) {
 					VCA.bAceptar.setEnabled(true);
 				}
 				else { VCA.bAceptar.setEnabled(false); }
@@ -277,37 +284,27 @@ private int id_horario;
 		String FI= new SimpleDateFormat("dd/MM/yyyy").format(VCA.getDcFechaInicio().getDate());
 		String FF= new SimpleDateFormat("dd/MM/yyyy").format(VCA.getDcFechaFin().getDate());
 		
-		int idInsc= Integer.parseInt((String) VCA.cbPeriodoInscripcion.getSelectedItem());
+		int idInsc= periodos.get(VCA.cbPeriodoInscripcion.getSelectedIndex()-1).getId();
 		
 		
 		
 		
 		ModeloCrearActividadDisplayDTO actividad = new ModeloCrearActividadDisplayDTO(idInst,nombre, aforo, cuotaSocio,
-				cuotaNoSocio,FI,FF,idInsc,id_horario);
-		MCA.setNuevaActividad(actividad);
-		/*int idInsc=
-				
-		int idHor=		
+				cuotaNoSocio,FI,FF,idInsc);
+		int idActividad=MCA.setNuevaActividad(actividad);
 		
 		
+		ArrayList<Integer> ids = CCH.getIds();
+		for (Integer idHorario : ids) {
+			MCA.setHorarioActividad(idHorario,idActividad);
+		}
 		
 		
-		, VCA.TFieldCierreInscripcionS.getText(), VCA.TFieldCierreInscripcionNS.getText(), VCA.TFieldFechaInicio.getText(),VCA.TFieldFechaCierre.getText(), VCA.TFieldHoraInicio.getText(),VCA.TFieldHoraFin.getText());
-		
-		String text = (String) VCA.cbPeriodoInscripcion.getSelectedItem();
-		VCA.tfPeriodoInscrip.setText(text);
 	
-	*/
 	
 	}
 
-	public int getId_horario() {
-		return id_horario;
-	}
-
-	public void setId_horario(int id_horario) {
-		this.id_horario = id_horario;
-	}
+	
 	
 	
 }

@@ -112,12 +112,12 @@ public class ControladorCrearPeriodoInscripcion {
 	}
 	
 	public void crearInscripcion() {
-		
+		String nombre= VCPI.tfNombre.getText();
 		
 		String FI= new SimpleDateFormat("dd/MM/yyyy").format(VCPI.getDcFechaInicioSocios().getDate());
 		String FF=new SimpleDateFormat("dd/MM/yyyy").format(VCPI.getDcFechaFinSocios().getDate());
 		String FFN=new SimpleDateFormat("dd/MM/yyyy").format(VCPI.getDcFechaFinNoSocios().getDate());
-		ModeloCrearPeriodoInscripcionDisplayDTO periodo = new ModeloCrearPeriodoInscripcionDisplayDTO(FI,FF,FFN);
+		ModeloCrearPeriodoInscripcionDisplayDTO periodo = new ModeloCrearPeriodoInscripcionDisplayDTO(nombre,FI,FF,FFN);
 		
 		System.out.println(FI);
 		System.out.println(FF);
