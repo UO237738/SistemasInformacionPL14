@@ -33,7 +33,6 @@ public class ControladorReservasAdministracionInstalacion {
 		return formateador.format(ahora);
 	}
 
-
 	public void addListenerCRA() {
 
 		
@@ -51,7 +50,17 @@ public class ControladorReservasAdministracionInstalacion {
 
 		
 
+		
 
+		VRA.TFieldDni.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char charecter = e.getKeyChar();
+				if (Character.isLowerCase(charecter)) {
+					e.setKeyChar(Character.toUpperCase(charecter));
+				}
+			}
+		});
 
 		VRA.TFieldDni.addKeyListener(new KeyAdapter() {
 			@Override
@@ -99,9 +108,13 @@ public class ControladorReservasAdministracionInstalacion {
 						JOptionPane.showMessageDialog(null, "Por favor, selecione una fecha posterior a la actual","Error",JOptionPane.ERROR_MESSAGE);
 					}
 				}
+				
 			}
-	});
 
+		});
+
+		
+	}
 
 	public void CreaReserva() {
 		int idInstalacion=ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRA.CBInstalaciones.getSelectedItem());
@@ -120,9 +133,10 @@ public class ControladorReservasAdministracionInstalacion {
 
 		VRA.getFrameR().setVisible(true);
 	}
-
 	
 	
-		
+	
+	
 	
 }
+

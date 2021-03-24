@@ -21,15 +21,11 @@ public class ModeloReservaAdministracioninstalación {
 	
 	private static Database basedatos = new Database();
 	
-	public static String getFechaActual() {
-		Date hoy = new Date();
-		SimpleDateFormat formatear = new SimpleDateFormat("yyyy-MM-dd");
-		return formatear.format(hoy);
-	}
-	
 	public static String obtenerNombreSocio(String dniSocio) {
 		String sql= "SELECT nombre FROM socios WHERE dni=?";
+
 		List<Object[]>rows=basedatos.executeQueryArray(sql, dniSocio);
+
 		return (String) rows.get(0)[0];
 	}
 
@@ -41,19 +37,20 @@ public class ModeloReservaAdministracioninstalación {
 		return (String) rows.get(0)[0];
 	}
 	
-	public static int ObtenerIdInstalacion(String nombreInstalacion) {
-		String consulta= "SELECT id_instalacion FROM instalaciones WHERE nombre=?";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta, nombreInstalacion);
-		return (int) filas.get(0)[0];
+	public static String getFechaActual() {
+		Date ahora = new Date();
+		SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+		return formateador.format(ahora);
 	}
-	
-	public static int ConflictoReserva(int idinstalacion, String horaini, String horafin, String fechaini) {
-		String consulta="SELECT"
-				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fechaIni AND ?=fechaFin AND"
-				+" ((?<=hora_ini AND hora_ini<?) OR (?<hora_fin AND hora_fin<=?)) then 'reservado' end)"
-				+" from reservas";
-		List<Object[]>filas=basedatos.executeQueryArray(consulta,idinstalacion,fechaini,horaini,horafin,horaini,horafin);
-		return (int) filas.get(0)[0];
+
+	public static int ObtenerIdInstalacion(String nombreInstalacion) {
+
+		String sql= "SELECT id_instalacion FROM instalaciones WHERE nombre=?";
+
+		List<Object[]>rows=basedatos.executeQueryArray(sql, nombreInstalacion);
+
+		return (int) rows.get(0)[0];
+
 	}
 	
 	
@@ -111,11 +108,19 @@ public class ModeloReservaAdministracioninstalación {
 	
 	public static int comprobarConflictoReservas(int idInstalacion,String fechaInicio, String fechafin, String horaInicio, String horaCierre) {
 
+		/*String sql="SELECT"
+				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fecha_inicioReserva AND ?=fecha_finReserva AND"
+				+" ((hora_inicioReserva BETWEEN ? AND ?) OR (hora_finReserva BETWEEN ? and ?)) then 'ocupado' end)"
+				+" from reservas";*/
 
 		String sql="SELECT"
 				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fechaIni AND ?=fechaFin AND"
 				+" ((hora_ini<=? AND ?<hora_fin) OR (hora_ini<? AND ?<=hora_fin)) then 'ocupado' end)"
 				+" from reservas";
+
+
+		//String fi=Util.dateToIsoString(fechaInicio);
+		//String fc=Util.dateToIsoString(fechafin);
 
 
 		List<Object[]>rows=basedatos.executeQueryArray(sql, idInstalacion,fechaInicio,fechafin,horaInicio,horaInicio,horaCierre,horaCierre);
@@ -135,7 +140,6 @@ public class ModeloReservaAdministracioninstalación {
 				+"id_reserva, fechaIni, fechaFin, id_actividad, id_instalacion, hora_ini, hora_fin"
 				+"VALUES"
 				+"null,?,?,null,?,?,?";
-
 		try {
 			connection = basedatos.getConnection();
 			preparedStatement = connection.prepareStatement(nuevaReserva);
@@ -160,9 +164,7 @@ public class ModeloReservaAdministracioninstalación {
 	
 	public static void CrearResguardo(String dni,String instalacion, String fecha, String horaini, String horafin, String Nombre, String apellidos){
 		try {
-			
 			String archivo = "src/test/resources/"+dni+".txt";
-
 			File nuevoresguardo = new File(archivo);
 			
 			if(nuevoresguardo.exists()) {
@@ -190,4 +192,9 @@ public class ModeloReservaAdministracioninstalación {
 	}
 
 	
+
+	
+	
+	
 }
+
