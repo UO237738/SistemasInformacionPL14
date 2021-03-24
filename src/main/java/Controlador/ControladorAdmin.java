@@ -60,7 +60,7 @@ public class ControladorAdmin {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				VA.getFrame().setVisible(false);
-				CRAI = new ControladorReservasAdministracionInstalacion();
+				CLAA = new ControladorListarActividadesAdministracion();
 			}		
 		});
 		
@@ -69,7 +69,7 @@ public class ControladorAdmin {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				VA.getFrame().setVisible(false);
-				CLAA = new ControladorListarActividadesAdministracion();
+				CRAI = new ControladorReservasAdministracionInstalacion();
 			}	
 				
 		});
