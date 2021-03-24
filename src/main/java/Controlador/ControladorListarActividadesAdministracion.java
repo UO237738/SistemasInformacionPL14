@@ -43,24 +43,30 @@ public class ControladorListarActividadesAdministracion {
 				}
 				
 		});
+	
+	}
+	
+	private void getListaActividades() {
+		List<Object[]> actividades = ModeloListarActividadesAdministracion.getListaActividades(vista.getJDFechaIni(), vista.getJDFechaFin());
+		TableModel tmodel = SwingUtil.getTableModelFromPojos(actividades, new String[] {"id_actividad", "nombre", "fechaInicioActividad", "fechaFinActividad", "aforo", "cuota socio", "cuota no socio"});
+		vista.getJTActividades().setModel(tmodel);
+		
+		vista.getJTActividades().getColumnModel().getColumn(0).setHeaderValue("ID actividad");
+		vista.getJTActividades().getColumnModel().getColumn(1).setHeaderValue("Nombre");
+		vista.getJTActividades().getColumnModel().getColumn(2).setHeaderValue("FechaInicio");
+		vista.getJTActividades().getColumnModel().getColumn(3).setHeaderValue("FechaFin");
+		vista.getJTActividades().getColumnModel().getColumn(4).setHeaderValue("Aforo");
+		vista.getJTActividades().getColumnModel().getColumn(5).setHeaderValue("Cuota Socio");
+		vista.getJTActividades().getColumnModel().getColumn(6).setHeaderValue("cuota No Socio");
+		vista.getJTActividades().setEnabled(true);
+		vista.getJTActividades().setVisible(true);
 		
 	}
 	
 
 	
 	
-	private void getListaActividades(){
-		List<Object[]> actividades = listar.getListaActividades(Util.isoStringToDate(vista.getJDFechaIni()), Util.isoStringToDate(vista.getJDFechaFin()));
-		TableModel tmodel = SwingUtil.getTableModelFromPojos(actividades, new String[] {"id_actividad", "nombre", "fechaIniActividad", "aforo", "cuota socio", "cuota no socio"});
-		vista.getJTActividades().setModel(tmodel);
-		
-		vista.getJTActividades().getColumnModel().getColumn(0).setHeaderValue("ID actividad");
-		vista.getJTActividades().getColumnModel().getColumn(1).setHeaderValue("Nombre");
-		vista.getJTActividades().getColumnModel().getColumn(2).setHeaderValue("Fecha");
-		vista.getJTActividades().getColumnModel().getColumn(3).setHeaderValue("Aforo");
-		vista.getJTActividades().getColumnModel().getColumn(4).setHeaderValue("Cuota Socio");
-		vista.getJTActividades().getColumnModel().getColumn(5).setHeaderValue("cuota No Socio");
-	}
+	
 	
 	
 	

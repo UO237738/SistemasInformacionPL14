@@ -7,6 +7,14 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
+
+import java.beans.PropertyChangeListener;
+import java.util.Calendar;
+import java.util.Date;
+import java.beans.PropertyChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class VistaCrearHorario {
 
@@ -401,6 +409,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpLunesHI() {
+		if (spLunesHI == null) {
+			spLunesHI = new JSpinner();
+			spLunesHI.setEnabled(false);
+			spLunesHI.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spLunesHI, "HH");
+			spLunesHI.setEditor(de_spHLunes);
+		}
 		return spLunesHI;
 	}
 
@@ -409,6 +424,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpMartesHI() {
+		if (spMartesHI == null) {
+			spMartesHI = new JSpinner();
+			spMartesHI.setEnabled(false);
+			spMartesHI.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spMartesHI, "HH");
+			spMartesHI.setEditor(de_spHLunes);
+		}
 		return spMartesHI;
 	}
 
@@ -417,6 +439,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpMiercolesHI() {
+		if (spMiercolesHI == null) {
+			spMiercolesHI = new JSpinner();
+			spMiercolesHI.setEnabled(false);
+			spMiercolesHI.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spMiercolesHI, "HH");
+			spMiercolesHI.setEditor(de_spHLunes);
+		}
 		return spMiercolesHI;
 	}
 
@@ -425,6 +454,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpJuevesHI() {
+		if (spJuevesHI == null) {
+			spJuevesHI = new JSpinner();
+			spJuevesHI.setEnabled(false);
+			spJuevesHI.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spJuevesHI, "HH");
+			spJuevesHI.setEditor(de_spHLunes);
+		}
 		return spJuevesHI;
 	}
 
@@ -433,6 +469,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpViernesHI() {
+		if (spViernesHI == null) {
+			spViernesHI = new JSpinner();
+			spViernesHI.setEnabled(false);
+			spViernesHI.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spViernesHI, "HH");
+			spViernesHI.setEditor(de_spHLunes);
+		}
 		return spViernesHI;
 	}
 
@@ -441,6 +484,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpSabadoHI() {
+		if (spSabadoHI == null) {
+			spSabadoHI = new JSpinner();
+			spSabadoHI.setEnabled(false);
+			spSabadoHI.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spSabadoHI, "HH");
+			spSabadoHI.setEditor(de_spHLunes);
+		}
 		return spSabadoHI;
 	}
 
@@ -449,6 +499,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpDomingoHI() {
+		if (spDomingoHI == null) {
+			spDomingoHI = new JSpinner();
+			spDomingoHI.setEnabled(false);
+			spDomingoHI.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spDomingoHI, "HH");
+			spDomingoHI.setEditor(de_spHLunes);
+		}
 		return spDomingoHI;
 	}
 
@@ -457,6 +514,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpLunesHF() {
+		if (spLunesHF == null) {
+			spLunesHF = new JSpinner();
+			spLunesHF.setEnabled(false);
+			spLunesHF.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spLunesHF, "HH");
+			spLunesHF.setEditor(de_spHLunes);
+		}
 		return spLunesHF;
 	}
 
@@ -465,6 +529,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpMartesHF() {
+		if (spMartesHF == null) {
+			spMartesHF = new JSpinner();
+			spMartesHF.setEnabled(false);
+			spMartesHF.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spMartesHF, "HH");
+			spMartesHF.setEditor(de_spHLunes);
+		}
 		return spMartesHF;
 	}
 
@@ -473,6 +544,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpMiercolesHF() {
+		if (spMiercolesHF == null) {
+			spMiercolesHF = new JSpinner();
+			spMiercolesHF.setEnabled(false);
+			spMiercolesHF.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spMiercolesHF, "HH");
+			spMiercolesHF.setEditor(de_spHLunes);
+		}
 		return spMiercolesHF;
 	}
 
@@ -481,6 +559,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpJuevesHF() {
+		if (spJuevesHF == null) {
+			spJuevesHF = new JSpinner();
+			spJuevesHF.setEnabled(false);
+			spJuevesHF.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spJuevesHF, "HH");
+			spJuevesHF.setEditor(de_spHLunes);
+		}
 		return spJuevesHF;
 	}
 
@@ -489,6 +574,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpViernesHF() {
+		if (spViernesHF == null) {
+			spViernesHF = new JSpinner();
+			spViernesHF.setEnabled(false);
+			spViernesHF.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spViernesHF, "HH");
+			spViernesHF.setEditor(de_spHLunes);
+		}
 		return spViernesHF;
 	}
 
@@ -497,6 +589,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpSabadoHF() {
+		if (spSabadoHF == null) {
+			spSabadoHF = new JSpinner();
+			spSabadoHF.setEnabled(false);
+			spSabadoHF.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spSabadoHF, "HH");
+			spSabadoHF.setEditor(de_spHLunes);
+		}
 		return spSabadoHF;
 	}
 
@@ -505,6 +604,13 @@ public class VistaCrearHorario {
 	}
 
 	public JSpinner getSpDomingoHF() {
+		if (spDomingoHF == null) {
+			spDomingoHF = new JSpinner();
+			spDomingoHF.setEnabled(false);
+			spDomingoHF.setModel(new SpinnerDateModel(new Date(1582671600000L), null, null, Calendar.HOUR));
+			JSpinner.DateEditor de_spHLunes = new JSpinner.DateEditor(spDomingoHF, "HH");
+			spDomingoHF.setEditor(de_spHLunes);
+		}
 		return spDomingoHF;
 	}
 

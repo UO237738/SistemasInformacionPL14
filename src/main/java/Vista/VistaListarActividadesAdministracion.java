@@ -7,8 +7,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import com.toedter.calendar.JDateChooser;
+import java.awt.ScrollPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.Panel;
+import javax.swing.ListSelectionModel;
 
 public class VistaListarActividadesAdministracion {
 
@@ -16,13 +22,12 @@ public class VistaListarActividadesAdministracion {
 	public JPanel contentPane;
 	public JDateChooser JDFechaIni;
 	public JDateChooser JDFechaFin;
-	public JTable JTActividades;
 	public JButton JBBuscar;
 	
 	public JLabel JLHasta;
 	public JLabel JLDesde;
 	public JLabel JLPeriodo;
-	private JTable table;
+	private JTable JTActividades;
 	
 	
 
@@ -80,13 +85,25 @@ public class VistaListarActividadesAdministracion {
 		frame.getContentPane().add(JDFechaIni);
 		
 		JBBuscar = new JButton("Buscar");
+		JBBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JTActividades.setVisible(true);
+			}
+		});
 		JBBuscar.setBounds(172, 82, 89, 23);
 		frame.getContentPane().add(JBBuscar);
 		
+		Panel panel = new Panel();
+		panel.setBounds(57, 126, 326, 110);
+		frame.getContentPane().add(panel);
+		
 		JTActividades = new JTable();
-		JTActividades.setBounds(101, 146, 1, 1);
-		frame.getContentPane().add(JTActividades);
+		JTActividades.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		JTActividades.setDefaultEditor(Object.class, null);
+		panel.add(JTActividades);
 	}
+	
+	
 
 	public JFrame getFrame() {
 		return frame;
@@ -168,13 +185,5 @@ public class VistaListarActividadesAdministracion {
 		JLPeriodo = jLPeriodo;
 	}
 
-	public JTable getTable() {
-		return table;
-	}
-
-	public void setTable(JTable table) {
-		this.table = table;
-	}
-	
 	
 }
