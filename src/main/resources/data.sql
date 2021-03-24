@@ -33,9 +33,3 @@ delete from contabilidad;
 INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (1,1,10, 'reserva piscina', 'pagado', '2019-04-22');
 
 
-
-
-
-
-
-

@@ -15,35 +15,41 @@ public class ModeloCrearHorario {
 
 private static Database db=new Database();
 	
-	public static void  setNuevoHorario(ModeloHorarioDisplayDTO horario ) {
+	public int  setHorarios(ModeloHorarioDisplayDTO horario ) {
 		Connection dbConnection=null;
 		PreparedStatement preparedStatement1= null;
-
+		System.out.println(horario.getHoraInicio());
 		String insertHorario = "INSERT INTO horario" 
-				+"(id_horario, dia, horaini, horafin)"
+				+"(dia, hora_ini, hora_fin)"
 				+ "VALUES "
-				+"(?,?,?,?)";
-
+				+"(?,?,?)";
+		int id_horario=0;
 		try {
 			dbConnection = db.getConnection();
 			preparedStatement1 = dbConnection.prepareStatement(insertHorario);
-				
-			preparedStatement1.setInt(1, horario.getId_horario());
-			preparedStatement1.setString(2, horario.getDia());
-			preparedStatement1.setString(3, horario.getHoraInicio());
-			preparedStatement1.setString(4, horario.getHoraFin());
+			
+						
+			
+			preparedStatement1.setString(1, horario.getDia());
+			preparedStatement1.setString(2, horario.getHoraInicio());
+			preparedStatement1.setString(3, horario.getHoraFin());
 
-			preparedStatement1.executeUpdate();
-			
-			dbConnection.close();
-			
+			int rows = preparedStatement1.executeUpdate();
+
+			if (rows > 0) {
+				try (ResultSet rs = preparedStatement1.getGeneratedKeys()) {
+					if (rs.next()) {
+						id_horario = rs.getInt(1);
+					}
+				} catch (SQLException ex) {
+					System.out.println(ex.getMessage());
+				}
 			}
-		catch(SQLException e){
-			System.out.print(e.getMessage());
-
-
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return id_horario;
 		}
 
-
-	}
 }

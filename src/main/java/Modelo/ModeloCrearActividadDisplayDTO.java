@@ -2,7 +2,7 @@ package Modelo;
 
 public class ModeloCrearActividadDisplayDTO {
 	
-	private int id_actividad;
+	
 	private int id_instalacion;
 	private String nombre;
 	private int aforo;
@@ -11,14 +11,8 @@ public class ModeloCrearActividadDisplayDTO {
 	private String fechaInicioActividad;
 	private String fechaFinActividad;
 	private int id_inscripcion;
-	private int id_horario;
+
 	
-	public int getId_actividad() {
-		return id_actividad;
-	}
-	public void setId_actividad(int id_actividad) {
-		this.id_actividad = id_actividad;
-	}
 	public int getId_instalacion() {
 		return id_instalacion;
 	}
@@ -67,20 +61,15 @@ public class ModeloCrearActividadDisplayDTO {
 	public void setId_inscripcion(int id_inscripcion) {
 		this.id_inscripcion = id_inscripcion;
 	}
-	public int getId_horario() {
-		return id_horario;
-	}
-	public void setId_horario(int id_horario) {
-		this.id_horario = id_horario;
-	}
+
 	
 	public ModeloCrearActividadDisplayDTO() {}
 	
 	
-	public ModeloCrearActividadDisplayDTO(int idAct, int idInst, String nombre, int aforo,
+	public ModeloCrearActividadDisplayDTO(int idInst, String nombre, int aforo,
 			int cuotaS, int cuotaNS, String fechaInicioActividad, String fechaFinActividad,
-			int idInsc, int idHorario) {
-		this.id_actividad = idAct;
+			int idInsc) {
+	
 		this.id_instalacion = idInst;
 		this.nombre = nombre;
 		this.aforo = aforo;
@@ -89,6 +78,5 @@ public class ModeloCrearActividadDisplayDTO {
 		this.fechaInicioActividad = fechaInicioActividad;
 		this.fechaFinActividad = fechaFinActividad;
 		this.id_inscripcion = idInsc;
-		this.id_horario = idHorario;
 	}
 }
