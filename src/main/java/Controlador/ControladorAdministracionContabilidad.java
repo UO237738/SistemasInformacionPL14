@@ -115,6 +115,7 @@ public class ControladorAdministracionContabilidad {
 	
 
 	private void initView() {
+		VAC.getFrame().setVisible(true);
 		mostrarContabilidad();
 		mostrarPagado();
 		mostrarPendiente();

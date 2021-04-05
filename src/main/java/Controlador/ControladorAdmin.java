@@ -14,6 +14,7 @@ public class ControladorAdmin {
 	ControladorCrearActividades CCA;
 	ControladorListarActividadesAdministracion CLAA;
 	ControladorReservasAdministracionInstalacion CRAI;
+	ControladorAdministracionContabilidad CAC;
 	
 	
 	public ControladorAdmin() {
@@ -72,6 +73,16 @@ public class ControladorAdmin {
 				CRAI = new ControladorReservasAdministracionInstalacion();
 			}	
 				
+		});
+		
+		VA.bContabilidad.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VA.getFrame().setVisible(false);
+				CAC = new ControladorAdministracionContabilidad();
+			}
+			
 		});
 		
 		VA.bCancelar.addActionListener(new ActionListener() {

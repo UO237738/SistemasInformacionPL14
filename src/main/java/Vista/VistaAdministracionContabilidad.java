@@ -91,4 +91,9 @@ public class VistaAdministracionContabilidad {
 		JBCobrarPendiente.setBounds(255, 338, 131, 23);
 		frame.getContentPane().add(JBCobrarPendiente);
 	}
+	
+
+	public JFrame getFrame() {
+		return frame;
+	}
 }
