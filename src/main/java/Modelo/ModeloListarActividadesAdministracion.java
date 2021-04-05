@@ -15,10 +15,9 @@ public class ModeloListarActividadesAdministracion {
 	
 
 	public static List<Object[]> getListaActividades(java.util.Date date, java.util.Date date2){
-		String sql = "SELECT id_actividad, id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad, id_inscripcion, id_horario " 
-				+ "FROM actividades WHERE ((fechaInicioActividad>=?) AND (fechaFinActividad<=?)) order by nombre";
+		String sql = "SELECT id_actividad, id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad, id_inscripcion" 
+				+ " FROM actividades WHERE ((fechaInicioActividad>=?) AND (fechaFinActividad<=?)) order by id_actividad";
 		return basedatos.executeQueryArray(sql, date, date2);
-		
 	}
 	
 	

@@ -20,7 +20,7 @@ public class ModeloAdministracionContabilidad {
 
 		ArrayList<ModeloContabilidadDisplayDTO> listaContabilidad = new ArrayList<>();
 
-		String consulta = "SELECT id_contabilidad, id_socio, fecha, descripcion, importe, pendiente FROM contabilidad WHERE fecha>=? AND fecha<=?";
+		String consulta = "SELECT id_contabilidad, id_socio, fecha, descripcion, importe, pendiente FROM contabilidad WHERE fecha>=? AND fecha<=? AND pendiente ='pendiente'";
 
 		try {
 			ConectarBaseDatos = basedatos.getConnection();
