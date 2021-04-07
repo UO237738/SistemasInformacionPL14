@@ -52,6 +52,7 @@ public class ControladorAdministracionContabilidad {
 		VAC.JLPagado.setText("Pagado: "+Pagado+" €");
 	}
 	
+	
 	public void mostrarPendiente() {
 		String fechaInicio = getFechaActual();
 		Date fi = Util.isoStringToDate(fechaInicio);

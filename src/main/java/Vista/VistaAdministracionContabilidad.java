@@ -72,6 +72,7 @@ public class VistaAdministracionContabilidad {
 		JLPagado.setBounds(10, 306, 168, 21);
 		frame.getContentPane().add(JLPagado);
 		
+		
 		JLPendiente = new JLabel("Pendiente:");
 		JLPendiente.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		JLPendiente.setBounds(10, 338, 168, 21);
@@ -82,6 +83,7 @@ public class VistaAdministracionContabilidad {
 		JLTotal.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		JLTotal.setBounds(10, 370, 168, 21);
 		frame.getContentPane().add(JLTotal);
+		
 		
 		JBSalir = new JButton("SALIR");
 		JBSalir.setFont(new Font("Tahoma", Font.PLAIN, 13));
