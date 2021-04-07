@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import java.util.Properties;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaListarActividadesAdministracion {
 
@@ -25,7 +26,8 @@ public class VistaListarActividadesAdministracion {
 	public JLabel JLHasta;
 	public JLabel JLDesde;
 	public JLabel JLPeriodo;
-	public JTable tableactividades;
+	private JScrollPane scrollPane;
+	public JTable JTActividades;
 	
 	
 	
@@ -60,7 +62,7 @@ public class VistaListarActividadesAdministracion {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 668, 369);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -77,7 +79,7 @@ public class VistaListarActividadesAdministracion {
 		frame.getContentPane().add(JLHasta);
 		
 		JBBuscar = new JButton("Buscar");
-		JBBuscar.setBounds(320, 62, 89, 23);
+		JBBuscar.setBounds(483, 63, 89, 23);
 		frame.getContentPane().add(JBBuscar);
 		
 		// ++Calendario desplegable 1 
@@ -107,20 +109,19 @@ public class VistaListarActividadesAdministracion {
 		JDFechafin.setBounds(95, 86, 193, 23);
 		frame.getContentPane().add(JDFechafin);
 		
+		scrollPane = new JScrollPane(JTActividades);
+		scrollPane.setBounds(10, 147, 632, 153);
+		frame.getContentPane().add(scrollPane);
 		
-		//panel para la lista de actividades
-		JPanel panel = new JPanel(new CardLayout(5, 0));
-		panel.setBounds(35, 158, 374, 79);
-		frame.getContentPane().add(panel);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		panel.add(scrollPane, "Panel");
-		
-		tableactividades = new JTable();
-		tableactividades.setName("tablaActividades");
-		tableactividades.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		tableactividades.setDefaultEditor(Object.class, null);
-		scrollPane.setViewportView(tableactividades);
+		JTActividades = new JTable();
+		JTActividades.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Id Instalacion", "Nombre", "Aforo", "Cuota Socio", "Cuota No Socio", "Fecha Inicio", "Fecha Fin "
+			}
+		));
+		scrollPane.setViewportView(JTActividades);
 	
 			
 		
@@ -160,8 +161,8 @@ public class VistaListarActividadesAdministracion {
 		this.JDFechafin.getModel().setDate(a, m, d);
 	}
 	
-	public JTable gettableactividades() {
-		return tableactividades;
+	public JTable getJTActiviades() {
+		return JTActividades;
 	}
 
 	

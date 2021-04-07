@@ -1,32 +1,28 @@
 package Controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-
-import javax.swing.table.TableModel;
-
+import javax.swing.table.DefaultTableModel;
+import Modelo.ModeloCrearActividadDisplayDTO;
 import Modelo.ModeloListarActividadesAdministracion;
 import Vista.VistaListarActividadesAdministracion;
-import giis.demo.util.SwingUtil;
 import giis.demo.util.Util;
 
 public class ControladorListarActividadesAdministracion {
-	
-	private ModeloListarActividadesAdministracion listar;
-	private VistaListarActividadesAdministracion vista;
+	private VistaListarActividadesAdministracion VLAA;
 
 	
 	public ControladorListarActividadesAdministracion() {
-		vista = new VistaListarActividadesAdministracion();
+		VLAA = new VistaListarActividadesAdministracion();
 		this.initview();
-		this.addListernerCRA();
+		//this.addListernerCRA();
 	}
 	
 	public void initview() {
-		vista.getFrame().setVisible(true);
+		VLAA.getFrame().setVisible(true);
+		mostrarTodasActividades();
 	}
 	
 	public static String getFechaActual() {
@@ -35,35 +31,46 @@ public class ControladorListarActividadesAdministracion {
 		return formateador.format(ahora);
 	}
 	
-	
-	private void addListernerCRA() {
-		vista.JBBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getListaActividades();
-				}
-				
-		});
-		
+	public  void reiniciarTabla(){
+		DefaultTableModel modelo = (DefaultTableModel) VLAA.JTActividades.getModel();
+		while(modelo.getRowCount()>0)modelo.removeRow(0);
+
 	}
 	
 
 	
-	
-	private void getListaActividades(){
-		List<Object[]> actividades = ModeloListarActividadesAdministracion.getListaActividades(Util.isoStringToDate(vista.getJDFechaini()), Util.isoStringToDate(vista.getJDFechafin()));
-		TableModel tmodel = SwingUtil.getTableModelFromPojos(actividades, new String[] {"id_actividad", "nombre", "fechaIniActividad", "aforo", "cuota socio", "cuota no socio"});
-		vista.gettableactividades().setModel(tmodel);
+	public void mostrarTodasActividades() {
+		String fa= getFechaActual();
+		Date fechaactual=Util.isoStringToDate(fa);
 		
-		vista.gettableactividades().getColumnModel().getColumn(0).setHeaderValue("ID actividad");
-		vista.gettableactividades().getColumnModel().getColumn(1).setHeaderValue("Nombre");
-		vista.gettableactividades().getColumnModel().getColumn(2).setHeaderValue("Fecha");
-		vista.gettableactividades().getColumnModel().getColumn(3).setHeaderValue("Aforo");
-		vista.gettableactividades().getColumnModel().getColumn(4).setHeaderValue("Cuota Socio");
-		vista.gettableactividades().getColumnModel().getColumn(5).setHeaderValue("cuota No Socio");
+		Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaactual); // Configuramos la fecha que se recibe
+        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE)); 
+        Date fechaFin = calendar.getTime(); // Devuelve el objeto Date con los nuevos días añadidos
+        calendar.setTime(fechaactual); // Configuramos la fecha que se recibe
+        calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE)); 
+        Date fechaInicio=calendar.getTime();
+		
+		ArrayList<ModeloCrearActividadDisplayDTO> list= ModeloListarActividadesAdministracion.listarActividades(fechaInicio, fechaFin);
+		DefaultTableModel model= (DefaultTableModel)VLAA.JTActividades.getModel();
+
+		Object [] row = new Object[7];
+		for (int i=0;i<list.size();i++) {
+
+			row[0]=list.get(i).getId_instalacion();
+			row[1]=list.get(i).getNombre();
+			row[2]=list.get(i).getAforo();
+			row[3]=list.get(i).getCuota_socio();
+			row[4]=list.get(i).getCuota_no_socio();
+			row[5]=list.get(i).getFechaInicioActividad();
+			row[6]=list.get(i).getFechaFinActividad();
+		
+			model.addRow(row);
+		}
 	}
 	
 	
-	
+		
 }
 
 
