@@ -80,7 +80,6 @@ public class ModeloCrearActividadDisplayDTO {
 		this.id_inscripcion = idInsc;
 	}
 	
-	
 	public ModeloCrearActividadDisplayDTO(int idInst, String nombre, int aforo,
 			int cuotaS, int cuotaNS, String fechaInicioActividad, String fechaFinActividad) {
 	

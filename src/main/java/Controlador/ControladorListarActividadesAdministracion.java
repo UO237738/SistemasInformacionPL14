@@ -1,62 +1,53 @@
 package Controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import Modelo.ModeloAdministracionContabilidad;
+import Modelo.ModeloContabilidadDisplayDTO;
 import Modelo.ModeloCrearActividadDisplayDTO;
 import Modelo.ModeloListarActividadesAdministracion;
 import Vista.VistaListarActividadesAdministracion;
+import giis.demo.util.SwingUtil;
 import giis.demo.util.Util;
 
 public class ControladorListarActividadesAdministracion {
-	private VistaListarActividadesAdministracion VLAA;
+	private VistaListarActividadesAdministracion vista;
 
 	
 	public ControladorListarActividadesAdministracion() {
-		VLAA = new VistaListarActividadesAdministracion();
+		vista = new VistaListarActividadesAdministracion();
 		this.initview();
-		//this.addListernerCRA();
+		this.addListernerCAA();
 	}
 	
-	public void initview() {
-		VLAA.getFrame().setVisible(true);
-		mostrarTodasActividades();
-	}
-	
+
 	public static String getFechaActual() {
 		Date ahora = new Date();
 		SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
 		return formateador.format(ahora);
 	}
 	
-	public  void reiniciarTabla(){
-		DefaultTableModel modelo = (DefaultTableModel) VLAA.JTActividades.getModel();
+	public  void reiniciarTabla (){
+		DefaultTableModel modelo = (DefaultTableModel) vista.JTActividades.getModel();
 		while(modelo.getRowCount()>0)modelo.removeRow(0);
-
 	}
 	
-
-	
-	public void mostrarTodasActividades() {
-		String fa= getFechaActual();
-		Date fechaactual=Util.isoStringToDate(fa);
-		
-		Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fechaactual); // Configuramos la fecha que se recibe
-        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE)); 
-        Date fechaFin = calendar.getTime(); // Devuelve el objeto Date con los nuevos días añadidos
-        calendar.setTime(fechaactual); // Configuramos la fecha que se recibe
-        calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE)); 
-        Date fechaInicio=calendar.getTime();
-		
-		ArrayList<ModeloCrearActividadDisplayDTO> list= ModeloListarActividadesAdministracion.listarActividades(fechaInicio, fechaFin);
-		DefaultTableModel model= (DefaultTableModel)VLAA.JTActividades.getModel();
+	public void mostrarActividades() {
+		ArrayList<ModeloCrearActividadDisplayDTO> list= ModeloListarActividadesAdministracion.listarActividades();
+		DefaultTableModel model= (DefaultTableModel)vista.JTActividades.getModel();
 
 		Object [] row = new Object[7];
 		for (int i=0;i<list.size();i++) {
-
 			row[0]=list.get(i).getId_instalacion();
 			row[1]=list.get(i).getNombre();
 			row[2]=list.get(i).getAforo();
@@ -64,13 +55,54 @@ public class ControladorListarActividadesAdministracion {
 			row[4]=list.get(i).getCuota_no_socio();
 			row[5]=list.get(i).getFechaInicioActividad();
 			row[6]=list.get(i).getFechaFinActividad();
+
+			model.addRow(row);
+		}
+	}
+	
+	public void mostrarActividadesFecha() {
+		Date fechaini = Util.isoStringToDate(vista.getJDFechaini());
+		Date fechafin = Util.isoStringToDate(vista.getJDFechafin());
 		
+		ArrayList<ModeloCrearActividadDisplayDTO> list= ModeloListarActividadesAdministracion.listarActividadesFecha(fechaini, fechafin);
+		DefaultTableModel model= (DefaultTableModel)vista.JTActividades.getModel();
+
+		Object [] row = new Object[7];
+		for (int i=0;i<list.size();i++) {
+			row[0]=list.get(i).getId_instalacion();
+			row[1]=list.get(i).getNombre();
+			row[2]=list.get(i).getAforo();
+			row[3]=list.get(i).getCuota_socio();
+			row[4]=list.get(i).getCuota_no_socio();
+			row[5]=list.get(i).getFechaInicioActividad();
+			row[6]=list.get(i).getFechaFinActividad();
+
 			model.addRow(row);
 		}
 	}
 	
 	
+	public void initview() {
+		vista.getFrame().setVisible(true);
+		mostrarActividades();
+	}
+	
+	
+	private void addListernerCAA() {
+		vista.JBBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reiniciarTabla();
+				mostrarActividadesFecha();
+			}
+		});
 		
+	}
+	
+	
+
+
+	
+	
 }
 
 

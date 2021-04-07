@@ -32,6 +32,7 @@ public class VistaListarActividadesAdministracion {
 	
 	
 	
+	
 
 	/**
 	 * Launch the application.
@@ -62,9 +63,24 @@ public class VistaListarActividadesAdministracion {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 668, 369);
+		frame.setBounds(100, 100, 732, 369);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 154, 696, 152);
+		frame.getContentPane().add(scrollPane);
+		
+		JTActividades = new JTable();
+		JTActividades.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Id_Instalacion", "Nombre", "Aforo", "Cuota Socio", "Cuota No Socio", "Fecha Inicio", "Fehca Fin"
+			}
+		));
+		scrollPane.setViewportView(JTActividades);
+		
 		
 		JLPeriodo = new JLabel("Periodo:");
 		JLPeriodo.setBounds(10, 11, 46, 14);
@@ -79,7 +95,7 @@ public class VistaListarActividadesAdministracion {
 		frame.getContentPane().add(JLHasta);
 		
 		JBBuscar = new JButton("Buscar");
-		JBBuscar.setBounds(483, 63, 89, 23);
+		JBBuscar.setBounds(454, 59, 89, 23);
 		frame.getContentPane().add(JBBuscar);
 		
 		// ++Calendario desplegable 1 
@@ -109,20 +125,8 @@ public class VistaListarActividadesAdministracion {
 		JDFechafin.setBounds(95, 86, 193, 23);
 		frame.getContentPane().add(JDFechafin);
 		
-		scrollPane = new JScrollPane(JTActividades);
-		scrollPane.setBounds(10, 147, 632, 153);
-		frame.getContentPane().add(scrollPane);
 		
-		JTActividades = new JTable();
-		JTActividades.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Id Instalacion", "Nombre", "Aforo", "Cuota Socio", "Cuota No Socio", "Fecha Inicio", "Fecha Fin "
-			}
-		));
-		scrollPane.setViewportView(JTActividades);
-	
+		
 			
 		
 	}
@@ -164,7 +168,5 @@ public class VistaListarActividadesAdministracion {
 	public JTable getJTActiviades() {
 		return JTActividades;
 	}
-
-	
 }
 

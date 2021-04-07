@@ -3,6 +3,7 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,37 +14,63 @@ public class ModeloListarActividadesAdministracion {
 	
 	private static Database basedatos = new Database();
 	
-	public static ArrayList<ModeloCrearActividadDisplayDTO> listarActividades(Date fechaInicio, Date fechaFin){
-		Connection dbConnection=null;
-		PreparedStatement preparedStatement=null;
+	
+	public static ArrayList<ModeloCrearActividadDisplayDTO> listarActividades(){
+		Connection ConectarBaseDatos = null;
+		PreparedStatement preparedStatement = null;
 
-		ArrayList<ModeloCrearActividadDisplayDTO> listaActividades= new ArrayList<>();
+		ArrayList<ModeloCrearActividadDisplayDTO> listaActividad = new ArrayList<>();
 
-		String sql= "SELECT id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad FROM actividades WHERE fechaInicioActividad>=? AND fechaFinActividad<=?";
+		String consulta = "SELECT id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad FROM actividades";
 
 		try {
-			dbConnection=basedatos.getConnection();
-			preparedStatement=dbConnection.prepareStatement(sql);
-
-			String fi= Util.dateToIsoString(fechaInicio);
-			String ff= Util.dateToIsoString(fechaFin);
-
-			preparedStatement.setString(1, fi);
-			preparedStatement.setString(2, ff);
+			ConectarBaseDatos = basedatos.getConnection();
+			preparedStatement = ConectarBaseDatos.prepareStatement(consulta);
 
 			ResultSet rs= preparedStatement.executeQuery();
 
-			ModeloCrearActividadDisplayDTO CDdto;
+			ModeloCrearActividadDisplayDTO MCDdto;
 			while (rs.next()) {
-				CDdto = new ModeloCrearActividadDisplayDTO(rs.getInt("id_instalacion"), rs.getString("nombre"), rs.getInt("aforo"), rs.getInt("cuota_socio"), rs.getInt("cuota_no_socio"),rs.getString("fechaInicioActividad"),rs.getString("fechaFinActividad"));
-				listaActividades.add(CDdto);
+				MCDdto = new ModeloCrearActividadDisplayDTO(rs.getInt("id_instalacion"), rs.getString("nombre"), rs.getInt("aforo"), rs.getInt("cuota_socio"),rs.getInt("cuota_no_socio"),rs.getString("fechaInicioActividad"),rs.getString("fechaFinActividad"));
+				listaActividad.add(MCDdto);
 			}
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return listaActividades;
+		return listaActividad;
+	}
+	
+	public static ArrayList<ModeloCrearActividadDisplayDTO> listarActividadesFecha(Date ini, Date fin){
+		Connection ConectarBaseDatos = null;
+		PreparedStatement preparedStatement = null;
 
+		ArrayList<ModeloCrearActividadDisplayDTO> listaActividad = new ArrayList<>();
+
+		String consulta = "SELECT id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad FROM actividades WHERE fechaInicioActividad<=? AND fechaFinActividad>=?";
+
+		try {
+			ConectarBaseDatos = basedatos.getConnection();
+			preparedStatement = ConectarBaseDatos.prepareStatement(consulta);
+
+			String fi = Util.dateToIsoString(ini);
+			String ff = Util.dateToIsoString(fin);
+			
+			preparedStatement.setString(1, fi);
+			preparedStatement.setString(2, ff);
+			
+			ResultSet rs= preparedStatement.executeQuery();
+
+			ModeloCrearActividadDisplayDTO MCDdto;
+			while (rs.next()) {
+				MCDdto = new ModeloCrearActividadDisplayDTO(rs.getInt("id_instalacion"), rs.getString("nombre"), rs.getInt("aforo"), rs.getInt("cuota_socio"),rs.getInt("cuota_no_socio"),rs.getString("fechaInicioActividad"),rs.getString("fechaFinActividad"));
+				listaActividad.add(MCDdto);
+			}
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return listaActividad;
 	}
 	
 }
