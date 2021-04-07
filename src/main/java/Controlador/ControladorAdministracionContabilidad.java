@@ -151,7 +151,7 @@ public class ControladorAdministracionContabilidad {
 				mostrarPagado();
 				mostrarTotal();
 				*/
-				JOptionPane.showMessageDialog(null, "Se han realizado todos los pagos pendientes", "Correcto", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Se han pasado al recibo los pagos pendientes correspondientes", "Correcto", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		

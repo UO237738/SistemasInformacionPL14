@@ -90,7 +90,7 @@ public class VistaAdministracionContabilidad {
 		JBSalir.setBounds(396, 337, 106, 23);
 		frame.getContentPane().add(JBSalir);
 		
-		JBCobrarPendiente = new JButton("Cobrar Pendiente");
+		JBCobrarPendiente = new JButton("Pasar a recibo");
 		JBCobrarPendiente.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		JBCobrarPendiente.setBounds(255, 338, 131, 23);
 		frame.getContentPane().add(JBCobrarPendiente);
