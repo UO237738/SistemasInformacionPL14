@@ -38,7 +38,7 @@ public class ControladorAdministracionContabilidad {
 		while(modelo.getRowCount()>0)modelo.removeRow(0);
 	}
 	
-	/*
+	
 	public void mostrarPagado() {
 		String fechaInicio = getFechaActual();
 		Date fi = Util.isoStringToDate(fechaInicio);
@@ -51,7 +51,6 @@ public class ControladorAdministracionContabilidad {
 		int Pagado = ModeloAdministracionContabilidad.CalcularPagado(fi, ff);
 		VAC.JLPagado.setText("Pagado: "+Pagado+" €");
 	}
-	*/
 	
 	public void mostrarPendiente() {
 		String fechaInicio = getFechaActual();
@@ -66,7 +65,7 @@ public class ControladorAdministracionContabilidad {
 		VAC.JLPendiente.setText("Pendiente: "+Pendiente+" €");
 	}	
 	
-	/*
+
 	public void mostrarTotal() {
 		String fechaInicio = getFechaActual();
 		Date fi = Util.isoStringToDate(fechaInicio);
@@ -79,7 +78,7 @@ public class ControladorAdministracionContabilidad {
 		int Total = ModeloAdministracionContabilidad.CalcularTotal(fi, ff);
 		VAC.JLTotal.setText("Ingresos Totales: "+Total+" €");
 	}	
-	*/
+
 	
 	
 	public void mostrarContabilidad() {
@@ -120,10 +119,8 @@ public class ControladorAdministracionContabilidad {
 		VAC.getFrame().setVisible(true);
 		mostrarContabilidad();
 		mostrarPendiente();
-		/*
 		mostrarPagado();
 		mostrarTotal();
-		*/
 	}
 
 	private void addListenerCAC() {
@@ -147,10 +144,8 @@ public class ControladorAdministracionContabilidad {
 				reiniciarTabla();
 				mostrarContabilidad();
 				mostrarPendiente();
-				/*
 				mostrarPagado();
 				mostrarTotal();
-				*/
 				JOptionPane.showMessageDialog(null, "Se han realizado todos los pagos pendientes", "Correcto", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
