@@ -11,8 +11,7 @@ INSERT INTO horarioActividad(id_horario, id_actividad)
 VALUES (1,1);
 
 delete from actividades; 
-INSERT INTO actividades (id_actividad, id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad, id_inscripcion) VALUES (1,1,'Baloncesto', 50, 20, 25,'2019/03/14', '2021/03/23', 1);
-INSERT INTO actividades (id_actividad, id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad, id_inscripcion) VALUES (2,1,'Baloncesto', 50, 20, 25,'2020/05/28', '2021/08/3', 2);  
+INSERT INTO actividades (id_actividad, id_instalacion, nombre, aforo, cuota_socio, cuota_no_socio, fechaInicioActividad, fechaFinActividad, id_inscripcion) VALUES (1,1,'Baloncesto', 50, 20, 25,'2019/03/14', '2021/03/23', 1); 
 
 
 delete from socios;
