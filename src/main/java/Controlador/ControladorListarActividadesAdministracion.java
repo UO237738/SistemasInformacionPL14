@@ -21,7 +21,6 @@ import giis.demo.util.Util;
 
 public class ControladorListarActividadesAdministracion {
 	
-	private ModeloListarActividadesAdministracion listar;
 	private VistaListarActividadesAdministracion vista;
 
 	
@@ -61,17 +60,6 @@ public class ControladorListarActividadesAdministracion {
 	
 	
 	public void mostrarActividades() {
-		String fechaActual = getFechaActual();
-		Date fa = Util.isoStringToDate(fechaActual);
-		
-		Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fa); 
-        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE)); 
-        Date ff = calendar.getTime(); 
-        calendar.setTime(fa); 
-        calendar.set(Calendar.DATE, calendar.getActualMinimum(Calendar.DATE)); 
-        Date fi = calendar.getTime();
-
 		ArrayList<ModeloCrearActividadDisplayDTO> list= ModeloListarActividadesAdministracion.listarActividades();
 		DefaultTableModel model= (DefaultTableModel)vista.JTActividades.getModel();
 
@@ -88,6 +76,7 @@ public class ControladorListarActividadesAdministracion {
 			model.addRow(row);
 		}
 	}
+	
 	
 	public void mostrarActividadesFecha() {
 		Date fi = Util.isoStringToDate(vista.getJDFechaini());
