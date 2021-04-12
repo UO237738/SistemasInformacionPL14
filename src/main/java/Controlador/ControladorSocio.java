@@ -4,10 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Vista.VistaAdmin;
+import Vista.VistaInicio;
 import Vista.VistaSocio;
 
 public class ControladorSocio {
 
+	private VistaInicio VI;
 	VistaSocio VS;
 	ControladorInicio CI;
 	ControladorSocioVerReservas CSVR;
@@ -33,8 +35,9 @@ public class ControladorSocio {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				
 				VS.getFrame().setVisible(false);
-				CI = new ControladorInicio();
+				VI.contentPane.setVisible(true);
 			}
 		});
 		
@@ -44,7 +47,7 @@ public class ControladorSocio {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				VS.getFrame().setVisible(false);
-				CI = new ControladorInicio();
+				CSVR = new ControladorSocioVerReservas();
 			}
 		});
 		

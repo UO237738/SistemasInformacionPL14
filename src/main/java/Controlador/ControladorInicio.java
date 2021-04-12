@@ -11,6 +11,7 @@ public class ControladorInicio {
 	
 	private VistaInicio VI;
 	ControladorAdmin CA;
+	ControladorSocio CS;
 
 	public ControladorInicio() {
 		
@@ -52,17 +53,17 @@ public class ControladorInicio {
 				VI.contentPane.setVisible(false);
 				VnS.contentPane.setVisible(true);
 			}
-		});
+		});*/
 		VI.bSocios.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
-				VI.contentPane.setVisible(false);
-				VS.contentPane.setVisible(true);
+				VI.setVisible(false);
+				CS = new ControladorSocio();
 			}
-		});*/
+		});
 		
 		VI.bCancelar.addActionListener(new ActionListener() {
 
