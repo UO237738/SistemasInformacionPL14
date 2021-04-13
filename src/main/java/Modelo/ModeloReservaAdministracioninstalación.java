@@ -53,6 +53,14 @@ public class ModeloReservaAdministracioninstalación {
 
 	}
 	
+	public static int ObtenerHorasMaximasReserva(String nombreInstalacion) {
+		String sql="SELECT hora_maxima_reserva FROM instalaciones WHERE nombre=?";
+
+		List<Object[]>rows=basedatos.executeQueryArray(sql, nombreInstalacion);
+
+		return (int) rows.get(0)[0];
+
+	}
 	
 	public static boolean comprobarPlazoMaximo(String nombreInstalacion,String fecha) {
 
