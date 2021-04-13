@@ -47,23 +47,23 @@ public class VistaSocio {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		bVerPagosPendientes = new JButton("Ver pagos pendientes");
+		JButton bVerPagosPendientes = new JButton("Ver pagos pendientes");
 		bVerPagosPendientes.setBounds(10, 31, 185, 21);
 		frame.getContentPane().add(bVerPagosPendientes);
 		
-		bReservarInstalacion = new JButton("Reservar instalación");
-		bReservarInstalacion.setBounds(10, 79, 185, 21);
-		frame.getContentPane().add(bReservarInstalacion);
+		JButton bReservarInstalacin = new JButton("Reservar instalación");
+		bReservarInstalacin.setBounds(10, 79, 185, 21);
+		frame.getContentPane().add(bReservarInstalacin);
 		
-		bVerReservas = new JButton("Ver reservas");
+		JButton bVerReservas = new JButton("Ver reservas");
 		bVerReservas.setBounds(10, 126, 185, 21);
 		frame.getContentPane().add(bVerReservas);
 		
-		bInscripcionEnActividades = new JButton("Inscripción en actividades");
+		JButton bInscripcionEnActividades = new JButton("Inscripción en actividades");
 		bInscripcionEnActividades.setBounds(10, 175, 185, 21);
 		frame.getContentPane().add(bInscripcionEnActividades);
 		
-		bCancelar = new JButton("Cancelar");
+		JButton bCancelar = new JButton("Cancelar");
 		bCancelar.setBounds(10, 232, 85, 21);
 		frame.getContentPane().add(bCancelar);
 	}

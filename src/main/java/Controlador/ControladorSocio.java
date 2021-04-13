@@ -4,16 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Vista.VistaAdmin;
-import Vista.VistaInicio;
 import Vista.VistaSocio;
 
 public class ControladorSocio {
 
-	private VistaInicio VI;
 	VistaSocio VS;
 	ControladorInicio CI;
 	ControladorSocioVerReservas CSVR;
-	ControladorGestionarInscripcionesSocio CGIS;
 	
 	public ControladorSocio() {
 		VS = new VistaSocio();
@@ -36,9 +33,8 @@ public class ControladorSocio {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
 				VS.getFrame().setVisible(false);
-				VI.contentPane.setVisible(true);
+				CI = new ControladorInicio();
 			}
 		});
 		
@@ -48,19 +44,11 @@ public class ControladorSocio {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				VS.getFrame().setVisible(false);
-				CSVR = new ControladorSocioVerReservas();
+				CI = new ControladorInicio();
 			}
 		});
 		
-		VS.bInscripcionEnActividades.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				VS.getFrame().setVisible(false);
-				CGIS = new ControladorGestionarInscripcionesSocio();
-			}
-		});
+		
 		
 	}
 }

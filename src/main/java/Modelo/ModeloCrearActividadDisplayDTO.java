@@ -79,16 +79,4 @@ public class ModeloCrearActividadDisplayDTO {
 		this.fechaFinActividad = fechaFinActividad;
 		this.id_inscripcion = idInsc;
 	}
-	
-	public ModeloCrearActividadDisplayDTO(int idInst, String nombre, int aforo,
-			int cuotaS, int cuotaNS, String fechaInicioActividad, String fechaFinActividad) {
-	
-		this.id_instalacion = idInst;
-		this.nombre = nombre;
-		this.aforo = aforo;
-		this.cuota_socio = cuotaS;
-		this.cuota_no_socio = cuotaNS;
-		this.fechaInicioActividad = fechaInicioActividad;
-		this.fechaFinActividad = fechaFinActividad;
-	}
 }
