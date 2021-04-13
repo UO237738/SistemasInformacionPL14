@@ -101,7 +101,7 @@ public class ControladorReservasAdministracionInstalacion {
 							}
 						}
 						else {
-							JOptionPane.showMessageDialog(null,"No se puede reservar con tanta antelacion (30 dias maximo)","Error",JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null,"No se puede reservar con tanta antelacion (Maximo 30 dias)","Error",JOptionPane.ERROR_MESSAGE);
 						}
 					}
 					else {
