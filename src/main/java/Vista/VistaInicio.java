@@ -49,7 +49,7 @@ public class VistaInicio extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JFrame();
-		contentPane.setTitle("Vista Inicio");
+		contentPane.setTitle("Vista inicio");
 		contentPane.setBounds(5, 5, 600, 600);
 		contentPane.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane.getContentPane().setLayout(null);

@@ -14,7 +14,8 @@ public class ControladorAdmin {
 	ControladorCrearActividades CCA;
 	ControladorListarActividadesAdministracion CLAA;
 	ControladorReservasAdministracionInstalacion CRAI;
-	
+	ControladorReservarTodaUnaActividad CRTUA;
+	ControladorAdministracionContabilidad CAC;
 	
 	public ControladorAdmin() {
 		VA = new VistaAdmin();
@@ -70,6 +71,16 @@ public class ControladorAdmin {
 				// TODO Auto-generated method stub
 				VA.getFrame().setVisible(false);
 				CRAI = new ControladorReservasAdministracionInstalacion();
+			}	
+				
+		});
+		
+		VA.bReservarTodaUnaActividad.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VA.getFrame().setVisible(false);
+				CRTUA = new ControladorReservarTodaUnaActividad();
 			}	
 				
 		});
