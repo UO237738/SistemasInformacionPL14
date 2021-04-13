@@ -1,33 +1,36 @@
 package Vista;
 
-import java.awt.EventQueue;
-import java.util.Calendar;
-
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import com.toedter.calendar.JDateChooser;
-import java.awt.ScrollPane;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.Panel;
+
+import java.awt.CardLayout;
+import java.awt.EventQueue;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+import javax.swing.JButton;
+import java.util.Properties;
+import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaListarActividadesAdministracion {
 
 	public JFrame frame;
 	public JPanel contentPane;
-	public JDateChooser JDFechaIni;
-	public JDateChooser JDFechaFin;
 	public JButton JBBuscar;
-	
+	public JDatePickerImpl JDFechaini;
+	public JDatePickerImpl JDFechafin;
 	public JLabel JLHasta;
 	public JLabel JLDesde;
 	public JLabel JLPeriodo;
-	private JTable JTActividades;
+	private JScrollPane scrollPane;
+	public JTable JTActividades;
+	
+	
+	
 	
 	
 
@@ -60,130 +63,110 @@ public class VistaListarActividadesAdministracion {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 732, 369);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 154, 696, 152);
+		frame.getContentPane().add(scrollPane);
+		
+		JTActividades = new JTable();
+		JTActividades.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Id_Instalacion", "Nombre", "Aforo", "Cuota Socio", "Cuota No Socio", "Fecha Inicio", "Fehca Fin"
+			}
+		));
+		scrollPane.setViewportView(JTActividades);
+		
+		
 		JLPeriodo = new JLabel("Periodo:");
-		JLPeriodo.setBounds(35, 26, 46, 14);
+		JLPeriodo.setBounds(10, 11, 46, 14);
 		frame.getContentPane().add(JLPeriodo);
 		
 		JLDesde = new JLabel("Desde:");
-		JLDesde.setBounds(45, 51, 46, 14);
+		JLDesde.setBounds(45, 36, 46, 14);
 		frame.getContentPane().add(JLDesde);
 		
 		JLHasta = new JLabel("Hasta:");
-		JLHasta.setBounds(234, 51, 46, 14);
+		JLHasta.setBounds(45, 86, 46, 14);
 		frame.getContentPane().add(JLHasta);
 		
-		JDFechaFin = new JDateChooser();
-		JDFechaFin.setBounds(101, 51, 95, 20);
-		frame.getContentPane().add(JDFechaFin);
-		
-		JDFechaIni = new JDateChooser();
-		JDFechaIni.setBounds(288, 51, 95, 20);
-		frame.getContentPane().add(JDFechaIni);
-		
 		JBBuscar = new JButton("Buscar");
-		JBBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JTActividades.setVisible(true);
-			}
-		});
-		JBBuscar.setBounds(172, 82, 89, 23);
+		JBBuscar.setBounds(454, 59, 89, 23);
 		frame.getContentPane().add(JBBuscar);
 		
-		Panel panel = new Panel();
-		panel.setBounds(57, 126, 326, 110);
-		frame.getContentPane().add(panel);
+		// ++Calendario desplegable 1 
+		UtilDateModel modelFechaInicioS = new UtilDateModel();
+		modelFechaInicioS.setSelected(true);
+		Properties modelProperties = new Properties();
+		modelProperties.put("text.today", "Today");
+		modelProperties.put("text.month", "Month");
+		modelProperties.put("text.year", "Year");
 		
-		JTActividades = new JTable();
-		JTActividades.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		JTActividades.setDefaultEditor(Object.class, null);
-		panel.add(JTActividades);
+		
+		JDatePanelImpl datePanelImpl = new JDatePanelImpl(modelFechaInicioS, modelProperties);
+		JDFechaini = new JDatePickerImpl(datePanelImpl, new DateLabelFormatter());
+		JDFechaini.setBounds(95, 36, 193, 23);
+		frame.getContentPane().add(JDFechaini);
+		
+		// ++Calendario desplegable 2 
+		UtilDateModel modelFechaFinS = new UtilDateModel();
+		modelFechaInicioS.setSelected(true);
+		Properties modelProperties1 = new Properties();
+		modelProperties.put("text.today", "Today");
+		modelProperties.put("text.month", "Month");
+		modelProperties.put("text.year", "Year");
+		
+		JDatePanelImpl datePanelImpl_1 = new JDatePanelImpl(modelFechaFinS, modelProperties1);
+		JDFechafin = new JDatePickerImpl(datePanelImpl_1, new DateLabelFormatter());
+		JDFechafin.setBounds(95, 86, 193, 23);
+		frame.getContentPane().add(JDFechafin);
+		
+		
+		
+			
+		
 	}
-	
-	
 
 	public JFrame getFrame() {
 		return frame;
 	}
-
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
+	
+	public String getJDFechaini() {
+		int d = this.JDFechaini.getModel().getDay();
+		int m = this.JDFechaini.getModel().getMonth()+1;
+		int y = this.JDFechaini.getModel().getYear();
+		String fechaIni = y + "-" + m + "-" + d;
+		return fechaIni;
 	}
-
-	public JPanel getContentPane() {
-		return contentPane;
+	public void setJDFechaini(String fechaIni) {
+		String[] f = fechaIni.split("-");
+		int a = Integer.parseInt(f[0]);
+		int m = Integer.parseInt(f[1])-1;
+		int d = Integer.parseInt(f[2]);
+		this.JDFechaini.getModel().setDate(a, m, d);
 	}
-
-	public void setContentPane(JPanel contentPane) {
-		this.contentPane = contentPane;
+	
+	public String getJDFechafin() {
+		int d = this.JDFechafin.getModel().getDay();
+		int m = this.JDFechafin.getModel().getMonth()+1;
+		int y = this.JDFechafin.getModel().getYear();
+		String fechaFin = y + "-" + m + "-" + d;
+		return fechaFin;
 	}
-
-	public String getJDFechaIni() {
-		int d = this.JDFechaIni.getCalendar().get(Calendar.DAY_OF_MONTH);
-		int m = this.JDFechaIni.getCalendar().get(Calendar.MONTH);
-		int a = this.JDFechaIni.getCalendar().get(Calendar.YEAR);
-		String FechaIni = d + "-" + m + "-" + d;
-		return FechaIni;
+	public void setJDFechafin(String fechaFin) {
+		String[] f = fechaFin.split("-");
+		int a = Integer.parseInt(f[0]);
+		int m = Integer.parseInt(f[1])-1;
+		int d = Integer.parseInt(f[2]);
+		this.JDFechafin.getModel().setDate(a, m, d);
 	}
-
-	public void setJDFechaIni(JDateChooser jDFechaIni) {
-		JDFechaIni = jDFechaIni;
-	}
-
-	public String getJDFechaFin() {
-		int d = this.JDFechaFin.getCalendar().get(Calendar.DAY_OF_MONTH);
-		int m = this.JDFechaFin.getCalendar().get(Calendar.MONTH);
-		int a = this.JDFechaFin.getCalendar().get(Calendar.YEAR);
-		String FechaFin = d + "-" + m + "-" + d;
-		return FechaFin;
-	}
-
-	public void setJDFechaFin(JDateChooser jDFechaFin) {
-		JDFechaFin = jDFechaFin;
-	}
-
-	public JTable getJTActividades() {
+	
+	public JTable getJTActiviades() {
 		return JTActividades;
 	}
-
-	public void setJTActividades(JTable jTActividades) {
-		JTActividades = jTActividades;
-	}
-
-	public JButton getJBBuscar() {
-		return JBBuscar;
-	}
-
-	public void setJBBuscar(JButton jBBuscar) {
-		JBBuscar = jBBuscar;
-	}
-
-	public JLabel getJLHasta() {
-		return JLHasta;
-	}
-
-	public void setJLHasta(JLabel jLHasta) {
-		JLHasta = jLHasta;
-	}
-
-	public JLabel getJLDesde() {
-		return JLDesde;
-	}
-
-	public void setJLDesde(JLabel jLDesde) {
-		JLDesde = jLDesde;
-	}
-
-	public JLabel getJLPeriodo() {
-		return JLPeriodo;
-	}
-
-	public void setJLPeriodo(JLabel jLPeriodo) {
-		JLPeriodo = jLPeriodo;
-	}
-
-	
 }
+
