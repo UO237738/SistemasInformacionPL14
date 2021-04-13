@@ -15,9 +15,9 @@ public class VistaAdmin {
 	public JButton bCrearPeriodoInscripcion;
 	public JButton bResInstalacion;
 	public JButton bListarActOfertadas;
-	public JButton bContabilidad;
 	public JButton bCancelar;
 	public JButton bReservarTodaUnaActividad;
+	public JButton JBContabilidad;
 	
 	
 
@@ -90,6 +90,10 @@ public class VistaAdmin {
 		bReservarTodaUnaActividad = new JButton("Reservar toda una actividad");
 		bReservarTodaUnaActividad.setBounds(10, 228, 194, 21);
 		frame.getContentPane().add(bReservarTodaUnaActividad);
+		
+		JBContabilidad = new JButton("Ver Contabilidad");
+		JBContabilidad.setBounds(261, 40, 194, 21);
+		frame.getContentPane().add(JBContabilidad);
 	}
 
 	public JFrame getFrame() {

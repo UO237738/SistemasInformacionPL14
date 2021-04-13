@@ -85,6 +85,14 @@ public class ControladorAdmin {
 				
 		});
 		
+		VA.JBContabilidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VA.getFrame().setVisible(false);
+				CAC = new ControladorAdministracionContabilidad();
+			}
+		});
+		
+		
 		VA.bCancelar.addActionListener(new ActionListener() {
 
 			@Override
