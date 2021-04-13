@@ -26,10 +26,6 @@ public class VistaListarActividadesAdministracion {
 	public JLabel JLDesde;
 	public JLabel JLPeriodo;
 	public JTable tableactividades;
-	
-	
-	
-	
 
 	/**
 	 * Launch the application.

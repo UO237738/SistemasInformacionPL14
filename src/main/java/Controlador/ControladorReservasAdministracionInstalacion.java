@@ -26,7 +26,6 @@ public class ControladorReservasAdministracionInstalacion {
 		this.initView();
 	}
 
-
 	public static String getFechaActual() {
 		Date ahora = new Date();
 		SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
@@ -34,8 +33,6 @@ public class ControladorReservasAdministracionInstalacion {
 	}
 
 	public void addListenerCRA() {
-
-		
 
 		VRA.JDFechaIni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
