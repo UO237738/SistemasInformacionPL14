@@ -116,6 +116,7 @@ public class ModeloCrearActividades {
 		
 	}
 
+
 	public static void cogerActividades(JComboBox<String> cbActividad) {
 		// TODO Auto-generated method stub
 			Connection dbConnection= null;
@@ -140,6 +141,7 @@ public class ModeloCrearActividades {
 				System.out.print(e.getMessage());
 			}
 	}
+
 
 	public static ArrayList<ModeloCrearPeriodoInscripcionDisplayDTO> cogerPeriodos() {
 		// TODO Auto-generated method stub

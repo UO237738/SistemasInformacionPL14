@@ -47,6 +47,7 @@ public class VistaSocio {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+
 		bVerPagosPendientes = new JButton("Ver pagos pendientes");
 		bVerPagosPendientes.setBounds(10, 31, 185, 21);
 		frame.getContentPane().add(bVerPagosPendientes);

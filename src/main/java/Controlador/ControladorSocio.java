@@ -13,6 +13,7 @@ public class ControladorSocio {
 	VistaSocio VS;
 	ControladorInicio CI;
 	ControladorSocioVerReservas CSVR;
+	ControladorGestionarInscripcionesSocio CGIS;
 	
 	public ControladorSocio() {
 		VS = new VistaSocio();
@@ -51,7 +52,15 @@ public class ControladorSocio {
 			}
 		});
 		
-		
+		VS.bInscripcionEnActividades.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VS.getFrame().setVisible(false);
+				CGIS = new ControladorGestionarInscripcionesSocio();
+			}
+		});
 		
 	}
 }
