@@ -48,6 +48,9 @@ public class ControladorReservasAdministracionInstalacion {
 			}
 		});
 
+		
+
+		
 
 		VRA.TFieldDni.addKeyListener(new KeyAdapter() {
 			@Override
@@ -73,18 +76,7 @@ public class ControladorReservasAdministracionInstalacion {
 			}
 		});
 
-		VRA.CBHasta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int HorasMaximas=ModeloReservaAdministracioninstalación.ObtenerHorasMaximasReserva((String)VRA.CBInstalaciones.getSelectedItem());
-			
-				if ((VRA.CBHasta.getSelectedIndex()+1)-VRA.CBDesde.getSelectedIndex()>HorasMaximas) {
-					JOptionPane.showMessageDialog(null, "No se puede reservar mas de "+ModeloReservaAdministracioninstalación.ObtenerHorasMaximasReserva((String)VRA.CBInstalaciones.getSelectedItem())+"h esta instalacion","Error",JOptionPane.ERROR_MESSAGE);
-					VRA.CBHasta.setSelectedIndex(VRA.CBDesde.getSelectedIndex());
-				}
-				
-			}
-		});
-		
+
 
 		VRA.JButtonReservar.addActionListener(new ActionListener() {
 			@Override
@@ -109,7 +101,7 @@ public class ControladorReservasAdministracionInstalacion {
 							}
 						}
 						else {
-							JOptionPane.showMessageDialog(null,"No se puede reservar con tanta antelacion (Maximo 30 dias)","Error",JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null,"No se puede reservar con tanta antelacion (30 dias maximo)","Error",JOptionPane.ERROR_MESSAGE);
 						}
 					}
 					else {
