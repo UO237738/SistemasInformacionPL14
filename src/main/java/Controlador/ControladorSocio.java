@@ -14,6 +14,7 @@ public class ControladorSocio {
 	ControladorInicio CI;
 	ControladorSocioVerReservas CSVR;
 	ControladorGestionarInscripcionesSocio CGIS;
+	ControladorVerPendientes CVP;
 	
 	public ControladorSocio() {
 		VS = new VistaSocio();

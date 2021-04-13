@@ -122,8 +122,6 @@ public class VistaSocioVerReservas {
 		this.tfDNI = tfDNI;
 	}
 
-	
-
 	public JButton getbCancelar() {
 		return bCancelar;
 	}
