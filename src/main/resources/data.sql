@@ -28,6 +28,7 @@ INSERT INTO horario (id_horario,dia,hora_ini,hora_fin) VALUES (1, "Lunes", "13:0
 
 delete from reservas;
 INSERT INTO reservas (id_reserva, fechaIni, fechaFin, id_actividad, id_instalacion, hora_ini, hora_fin,id_socio) VALUES (1, "01/04/2021", "01/04/2021", 1, 1, "9:00", "10:00",1);
+INSERT INTO reservas (id_reserva, fechaIni, fechaFin, id_actividad, id_instalacion, hora_ini, hora_fin,id_socio) VALUES (2, "01/03/2021", "01/04/2021", 1, 1, "9:00", "10:00",2);
 
 delete from contabilidad;
 INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (1,1,10, 'reserva piscina', 'pagado', '2019-04-22');

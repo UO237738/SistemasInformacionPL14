@@ -69,7 +69,7 @@ public class VistaSocioVerReservas {
 			new Object[][] {
 			},
 			new String[] {
-				"Id_reserva", "FechaIni", "FechaFin", "Id_actividad", "Id_instalacion", "Hora_ini", "Hora_fin", "Id_socio"
+				"ID reserva", "Fecha inicio", "Fecha fin", "ID actividad", "ID instalacion", "Hora inicio", "Hora fin", "ID socio"
 			}
 		));
 //		table.setModel(new DefaultTableModel(
