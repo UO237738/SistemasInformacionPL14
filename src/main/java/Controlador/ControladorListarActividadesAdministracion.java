@@ -32,7 +32,7 @@ public class ControladorListarActividadesAdministracion {
 	
 	public void initview() {
 		vista.getFrame().setVisible(true);
-		mostrarActividades();
+		//mostrarActividades();
 	}
 	
 	public static String getFechaActual() {
@@ -79,8 +79,8 @@ public class ControladorListarActividadesAdministracion {
 	
 	
 	public void mostrarActividadesFecha() {
-		Date fi = Util.isoStringToDate(vista.getJDFechaini());
-		Date ff = Util.isoStringToDate(vista.getJDFechafin());
+		Date fi = Util.isoStringToDate(vista.JDFechaini.getJFormattedTextField().getText());
+		Date ff = Util.isoStringToDate(vista.JDFechafin.getJFormattedTextField().getText());
 
 		ArrayList<ModeloCrearActividadDisplayDTO> list= ModeloListarActividadesAdministracion.listarActividadesFecha(fi, ff);
 		DefaultTableModel model= (DefaultTableModel)vista.JTActividades.getModel();
