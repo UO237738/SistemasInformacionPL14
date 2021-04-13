@@ -38,6 +38,7 @@ public class ControladorAdministracionContabilidad {
 		while(modelo.getRowCount()>0)modelo.removeRow(0);
 	}
 	
+
 	/*
 	public void mostrarPagado() {
 		String fechaInicio = getFechaActual();
@@ -156,9 +157,6 @@ public class ControladorAdministracionContabilidad {
 		});
 		
 	}
-	
-	
-	
 	
 	
 	
