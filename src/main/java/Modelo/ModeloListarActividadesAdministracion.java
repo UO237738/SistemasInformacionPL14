@@ -13,6 +13,7 @@ public class ModeloListarActividadesAdministracion {
 	private static Database basedatos = new Database();
 	
 
+
 	
 
 	public static ArrayList<ModeloCrearActividadDisplayDTO> listarActividades(){
@@ -77,6 +78,4 @@ public class ModeloListarActividadesAdministracion {
 	}
 		
 }
-
-
 
