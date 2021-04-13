@@ -16,8 +16,6 @@ import java.util.Properties;
 
 public class VistaReservaadministracionAplicacion {
 
-	
-
 	public JFrame frame;
 	
 	public JDatePickerImpl JDFechaIni;
@@ -29,9 +27,7 @@ public class VistaReservaadministracionAplicacion {
 	public JLabel LDni;
 	public JTextField TFieldDni;
 	public JLabel JLDesde;
-	public JLabel JLHasta;
-
-	
+	public JLabel JLHasta;	
 
 	/**
 	 * Launch the application.
