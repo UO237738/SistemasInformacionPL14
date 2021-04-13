@@ -16,9 +16,10 @@ public class VistaGestionarInscripcionesSocio {
 	private JFrame frame;
 	public JComboBox<String> CBActividades;
 	public JButton JBInscribirse;
-	public JButton JBCInscripcion;
+	public JButton JBCancelar;
 	public JTable JTInscripcion;
 	public JTextField TFDNI;
+	public JButton JBMostrar;
 
 	/**
 	 * Launch the application.
@@ -53,12 +54,12 @@ public class VistaGestionarInscripcionesSocio {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Selecione una actividad:");
-		lblNewLabel.setBounds(34, 61, 146, 14);
+		lblNewLabel.setBounds(34, 61, 128, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
 		CBActividades = new JComboBox<String>();
 		CBActividades.setEnabled(false);
-		CBActividades.setBounds(287, 58, 154, 20);
+		CBActividades.setBounds(172, 58, 154, 20);
 		frame.getContentPane().add(CBActividades);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -77,20 +78,25 @@ public class VistaGestionarInscripcionesSocio {
 		scrollPane.setViewportView(JTInscripcion);
 		
 		JBInscribirse = new JButton("Incribirse");
+		JBInscribirse.setEnabled(false);
 		JBInscribirse.setBounds(327, 184, 139, 23);
 		frame.getContentPane().add(JBInscribirse);
 		
 		JLabel lblNewLabel_1 = new JLabel("Inroduce tu DNI:");
-		lblNewLabel_1.setBounds(34, 24, 146, 14);
+		lblNewLabel_1.setBounds(34, 24, 113, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		TFDNI = new JTextField();
-		TFDNI.setBounds(287, 21, 154, 20);
+		TFDNI.setBounds(171, 21, 154, 20);
 		frame.getContentPane().add(TFDNI);
 		TFDNI.setColumns(10);
 		
-		JBCInscripcion = new JButton("Cancelar Inscripcion");
-		JBCInscripcion.setBounds(41, 184, 139, 23);
-		frame.getContentPane().add(JBCInscripcion);
+		JBCancelar = new JButton("Cancelar");
+		JBCancelar.setBounds(41, 184, 139, 23);
+		frame.getContentPane().add(JBCancelar);
+		
+		JBMostrar = new JButton("Mostrar");
+		JBMostrar.setBounds(377, 57, 89, 23);
+		frame.getContentPane().add(JBMostrar);
 	}
 }
