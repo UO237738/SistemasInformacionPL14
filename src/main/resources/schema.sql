@@ -60,7 +60,6 @@ apellidos TEXT NOT NULL);
 CREATE TABLE inscripciones (
 id_inscripcion INTEGER PRIMARY KEY AUTOINCREMENT,
 nombre TEXT NOT NULL,
-numero_plazas_disp INTEGER,
 fechaInicioSocios TEXT NOT NULL, 
 fechaFinSocios TEXT NOT NULL, 
 fechaFinNoSocios TEXT NOT NULL);
