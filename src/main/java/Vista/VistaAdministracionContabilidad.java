@@ -15,9 +15,9 @@ public class VistaAdministracionContabilidad {
 	public JFrame frame;
 	public JTable JTContabilidad;
 	private JScrollPane scrollPane;
-	/*public JLabel JLPagado;*/
+	public JLabel JLPagado;
 	public JLabel JLPendiente;
-	/*public JLabel JLTotal;*/
+	public JLabel JLTotal;
 	public JButton JBSalir;
 	public JButton JBCobrarPendiente;
 
@@ -66,31 +66,31 @@ public class VistaAdministracionContabilidad {
 		scrollPane.setBounds(10, 11, 518, 266);
 		frame.getContentPane().add(scrollPane);
 		
-		/*
+		
 		JLPagado = new JLabel("Pagado:");
 		JLPagado.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		JLPagado.setBounds(10, 306, 168, 21);
 		frame.getContentPane().add(JLPagado);
-		*/
+		
 		
 		JLPendiente = new JLabel("Pendiente:");
 		JLPendiente.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		JLPendiente.setBounds(10, 338, 168, 21);
 		frame.getContentPane().add(JLPendiente);
 		
-		/*
+		
 		JLTotal = new JLabel("Total:");
 		JLTotal.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		JLTotal.setBounds(10, 370, 168, 21);
 		frame.getContentPane().add(JLTotal);
-		*/
+		
 		
 		JBSalir = new JButton("SALIR");
 		JBSalir.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		JBSalir.setBounds(396, 337, 106, 23);
 		frame.getContentPane().add(JBSalir);
 		
-		JBCobrarPendiente = new JButton("Pasar a recibo");
+		JBCobrarPendiente = new JButton("Cobrar Pendiente");
 		JBCobrarPendiente.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		JBCobrarPendiente.setBounds(255, 338, 131, 23);
 		frame.getContentPane().add(JBCobrarPendiente);
