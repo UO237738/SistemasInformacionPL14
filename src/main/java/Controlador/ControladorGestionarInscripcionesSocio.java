@@ -14,6 +14,7 @@ public class ControladorGestionarInscripcionesSocio {
 	private VistaGestionarInscripcionesSocio VGIS;
 	
 	public ControladorGestionarInscripcionesSocio() {
+		VGIS = new VistaGestionarInscripcionesSocio();
 		this.addListenerCGIS();
 		this.initView();
 	}
@@ -42,6 +43,7 @@ public class ControladorGestionarInscripcionesSocio {
 				ModeloGestionarInscripcionesSocio.setNuevaReserva(2, ModeloGestionarInscripcionesSocio.ObtenerFechaini(VGIS.CBActividades.getToolTipText()), ModeloGestionarInscripcionesSocio.ObtenerFechafin(VGIS.CBActividades.getToolTipText()), ModeloGestionarInscripcionesSocio.ObteneridActividad(VGIS.CBActividades.getToolTipText()), ModeloGestionarInscripcionesSocio.ObtenerIdInstalacion(VGIS.CBActividades.getToolTipText()), ModeloGestionarInscripcionesSocio.ObtenerIdSocio(VGIS.TFDNI.getText()));
 			}
 		});
+		
 	}
 	
 	
