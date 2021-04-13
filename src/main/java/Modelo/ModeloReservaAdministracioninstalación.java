@@ -53,14 +53,6 @@ public class ModeloReservaAdministracioninstalación {
 
 	}
 	
-	public static int ObtenerHorasMaximasReserva(String nombreInstalacion) {
-		String sql="SELECT hora_maxima_reserva FROM instalaciones WHERE nombre=?";
-
-		List<Object[]>rows=basedatos.executeQueryArray(sql, nombreInstalacion);
-
-		return (int) rows.get(0)[0];
-
-	}
 	
 	public static boolean comprobarPlazoMaximo(String nombreInstalacion,String fecha) {
 
@@ -115,10 +107,21 @@ public class ModeloReservaAdministracioninstalación {
 	}
 	
 	public static int comprobarConflictoReservas(int idInstalacion,String fechaInicio, String fechafin, String horaInicio, String horaCierre) {
+
+		/*String sql="SELECT"
+				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fecha_inicioReserva AND ?=fecha_finReserva AND"
+				+" ((hora_inicioReserva BETWEEN ? AND ?) OR (hora_finReserva BETWEEN ? and ?)) then 'ocupado' end)"
+				+" from reservas";*/
+
 		String sql="SELECT"
 				+" COUNT ( CASE WHEN ?=id_instalacion AND ?=fechaIni AND ?=fechaFin AND"
 				+" ((hora_ini<=? AND ?<hora_fin) OR (hora_ini<? AND ?<=hora_fin)) then 'ocupado' end)"
 				+" from reservas";
+
+
+		//String fi=Util.dateToIsoString(fechaInicio);
+		//String fc=Util.dateToIsoString(fechafin);
+
 
 		List<Object[]>rows=basedatos.executeQueryArray(sql, idInstalacion,fechaInicio,fechafin,horaInicio,horaInicio,horaCierre,horaCierre);
 
