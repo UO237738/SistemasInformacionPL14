@@ -15,7 +15,7 @@ public class ControladorAdmin {
 	ControladorListarActividadesAdministracion CLAA;
 	ControladorReservasAdministracionInstalacion CRAI;
 	ControladorReservarTodaUnaActividad CRTUA;
-	
+	ControladorAdministracionContabilidad CAC;
 	
 	public ControladorAdmin() {
 		VA = new VistaAdmin();
