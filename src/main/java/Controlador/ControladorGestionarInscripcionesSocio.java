@@ -20,6 +20,7 @@ public class ControladorGestionarInscripcionesSocio {
 	}
 
 	private void initView() {
+		VGIS.getFrame().setVisible(true);
 		ModeloGestionarInscripcionesSocio.ObtenerActividades(VGIS.CBActividades);
 		
 	}

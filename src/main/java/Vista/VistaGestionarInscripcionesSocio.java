@@ -99,4 +99,8 @@ public class VistaGestionarInscripcionesSocio {
 		JBMostrar.setBounds(377, 57, 89, 23);
 		frame.getContentPane().add(JBMostrar);
 	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
 }
