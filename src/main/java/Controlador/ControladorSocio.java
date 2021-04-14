@@ -14,13 +14,14 @@ public class ControladorSocio {
 	ControladorInicio CI;
 	ControladorSocioVerReservas CSVR;
 	ControladorGestionarInscripcionesSocio CGIS;
-	ControladorVerPendientes CVP;
 	
 	public ControladorSocio() {
 		VS = new VistaSocio();
 		this.initView();
 		this.addListener();
+	
 	}
+	
 
 	private void initView() {
 		// TODO Auto-generated method stub
@@ -59,17 +60,6 @@ public class ControladorSocio {
 				VS.getFrame().setVisible(false);
 				CGIS = new ControladorGestionarInscripcionesSocio();
 			}
-		});
-		
-		VS.bVerPagosPendientes.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				VS.getFrame().setVisible(false);
-				CVP = new ControladorVerPendientes();
-			}
-			
 		});
 		
 	}

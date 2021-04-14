@@ -30,6 +30,7 @@ public class ControladorSocioVerReservas {
 	
 	}
 
+
 	public static String getFechaActual() {
 		Date ahora = new Date();
 		SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
