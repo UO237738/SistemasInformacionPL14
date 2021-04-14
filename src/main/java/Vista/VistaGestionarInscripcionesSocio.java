@@ -58,7 +58,7 @@ public class VistaGestionarInscripcionesSocio {
 		frame.getContentPane().add(lblNewLabel);
 		
 		CBActividades = new JComboBox<String>();
-		CBActividades.setEnabled(false);
+		CBActividades.setEnabled(true);
 		CBActividades.setBounds(172, 58, 154, 20);
 		frame.getContentPane().add(CBActividades);
 		

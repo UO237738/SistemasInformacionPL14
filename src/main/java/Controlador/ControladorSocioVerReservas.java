@@ -43,8 +43,8 @@ public class ControladorSocioVerReservas {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VSVR.getFrame().setVisible(false);
-				VS.getFrame().setVisible(true);
+				VSVR.getFrame().dispose();
+				//VS.getFrame().setVisible(true);
 				
 			}
 		});

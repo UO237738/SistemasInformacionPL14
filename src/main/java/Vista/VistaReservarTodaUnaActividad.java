@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class VistaReservarTodaUnaActividad {
 
@@ -12,6 +14,7 @@ public class VistaReservarTodaUnaActividad {
 	public JComboBox<String> cbActividad;
 	public JButton bCancelar;
 	public JButton bRealizarReserva;
+	public JTextField tfDNI;
 	
 
 	/**
@@ -47,7 +50,7 @@ public class VistaReservarTodaUnaActividad {
 		frame.getContentPane().setLayout(null);
 		
 		cbActividad = new JComboBox();
-		cbActividad.setBounds(23, 31, 142, 21);
+		cbActividad.setBounds(10, 48, 142, 21);
 		frame.getContentPane().add(cbActividad);
 		
 		bCancelar = new JButton("Cancelar");
@@ -58,6 +61,15 @@ public class VistaReservarTodaUnaActividad {
 		bRealizarReserva.setEnabled(false);
 		bRealizarReserva.setBounds(127, 92, 135, 21);
 		frame.getContentPane().add(bRealizarReserva);
+		
+		JLabel lblEscribeTuDni = new JLabel("Escribe DNI:");
+		lblEscribeTuDni.setBounds(10, 10, 70, 13);
+		frame.getContentPane().add(lblEscribeTuDni);
+		
+		tfDNI = new JTextField();
+		tfDNI.setBounds(83, 7, 114, 19);
+		frame.getContentPane().add(tfDNI);
+		tfDNI.setColumns(10);
 	}
 
 	public JFrame getFrame() {
@@ -90,6 +102,14 @@ public class VistaReservarTodaUnaActividad {
 
 	public void setbRealizarReserva(JButton bRealizarReserva) {
 		this.bRealizarReserva = bRealizarReserva;
+	}
+
+	public JTextField getTfDNI() {
+		return tfDNI;
+	}
+
+	public void setTfDNI(JTextField tfDNI) {
+		this.tfDNI = tfDNI;
 	}
 	
 }
