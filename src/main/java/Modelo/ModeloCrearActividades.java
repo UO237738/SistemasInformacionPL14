@@ -117,37 +117,40 @@ public class ModeloCrearActividades {
 	}
 
 
-	public static void cogerActividades(JComboBox<String> cbActividad) {
-		// TODO Auto-generated method stub
-			Connection dbConnection= null;
-			PreparedStatement preparedStatement= null;
-			ResultSet result= null;
-
-			String sql= "SELECT nombre FROM actividades ORDER BY nombre ASC";
-
-			try {
-				dbConnection= db.getConnection();
-				preparedStatement= dbConnection.prepareStatement(sql);
-				result=preparedStatement.executeQuery();
-
-				cbActividad.addItem("Selecione una actividad");
-				while(result.next()) {
-					cbActividad.addItem(result.getString("nombre"));
-				}
-						
-					dbConnection.close();
-			}
-			catch (SQLException e) {
-				System.out.print(e.getMessage());
-			}
-	}
+//	public static ArrayList<ModeloCrearActividadHorarioDisplayDTO> cogerActividades() {
+//		// TODO Auto-generated method stub
+//			Connection dbConnection= null;
+//			PreparedStatement preparedStatement= null;
+//			ResultSet result= null;
+//
+//			String sql= "SELECT * FROM actividades";
+//
+//			try {
+//				dbConnection=db.getConnection();
+//				preparedStatement=dbConnection.prepareStatement(sql);
+//
+//				ResultSet rs= preparedStatement.executeQuery();
+//
+//				ModeloCrearPeriodoInscripcionDisplayDTO periodo;
+//				while (rs.next()) {
+//					periodo = new ModeloCrearPeriodoInscripcionDisplayDTO (rs.getInt("id_inscripcion"),
+//							rs.getString("Nombre"),rs.getString("fechaInicioSocios"),
+//							rs.getString("fechaFinSocios"),rs.getString("fechaFinNoSocios"));
+//					periodos.add(periodo);
+//				}
+//			}
+//			catch (SQLException e) {
+//				System.out.print(e.getMessage());
+//			}
+//		return periodos;
+//	}
 
 
 	public static ArrayList<ModeloCrearPeriodoInscripcionDisplayDTO> cogerPeriodos() {
 		// TODO Auto-generated method stub
 		Connection dbConnection= null;
 		PreparedStatement preparedStatement= null;
-		ResultSet result= null;
+
 		ArrayList<ModeloCrearPeriodoInscripcionDisplayDTO> periodos = new ArrayList<ModeloCrearPeriodoInscripcionDisplayDTO>(); 
 		String sql= "SELECT * FROM inscripciones";
 		

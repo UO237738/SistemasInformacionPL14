@@ -100,7 +100,7 @@ public class ControladorAdmin {
 				// TODO Auto-generated method stub
 				
 				VA.getFrame().setVisible(false);
-				VI.contentPane.setVisible(true);
+				//VI.contentPane.setVisible(true);
 			}
 		});
 		

@@ -103,7 +103,7 @@ public class ControladorReservasAdministracionInstalacion {
 								int idInstalacion=ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRA.CBInstalaciones.getSelectedItem());
 								String nombreSocio=ModeloReservaAdministracioninstalación.obtenerNombreSocio(VRA.TFieldDni.getText());
 								String apellidosSocio=ModeloReservaAdministracioninstalación.obtenerApellidosSocio(VRA.TFieldDni.getText());
-								ModeloReservaAdministracioninstalación.CrearReservaM(idInstalacion,VRA.JDFechaIni.getJFormattedTextField().getText(),(String)VRA.CBDesde.getSelectedItem(),(String)VRA.CBHasta.getSelectedItem());
+								ModeloReservaAdministracioninstalación.CrearReservaM(VRA.JDFechaIni.getJFormattedTextField().getText(),idInstalacion,(String)VRA.CBDesde.getSelectedItem(),(String)VRA.CBHasta.getSelectedItem());
 								ModeloReservaAdministracioninstalación.CrearResguardo(VRA.TFieldDni.getText(),(String)VRA.CBInstalaciones.getSelectedItem(),VRA.JDFechaIni.getJFormattedTextField().getText(),(String)VRA.CBDesde.getSelectedItem(), (String)VRA.CBHasta.getSelectedItem(), nombreSocio, apellidosSocio);
 								JOptionPane.showMessageDialog(null, "Reserva creada con exito","Correcto",JOptionPane.INFORMATION_MESSAGE);
 							}
@@ -128,7 +128,7 @@ public class ControladorReservasAdministracionInstalacion {
 		int idInstalacion=ModeloReservaAdministracioninstalación.ObtenerIdInstalacion((String)VRA.CBInstalaciones.getSelectedItem());
 		String nombreSocio=ModeloReservaAdministracioninstalación.obtenerNombreSocio(VRA.TFieldDni.getText());
 		String apellidosSocio=ModeloReservaAdministracioninstalación.obtenerApellidosSocio(VRA.TFieldDni.getText());
-		ModeloReservaAdministracioninstalación.CrearReservaM(idInstalacion,VRA.JDFechaIni.getJFormattedTextField().getText(),(String)VRA.CBDesde.getSelectedItem(),(String)VRA.CBHasta.getSelectedItem());
+		ModeloReservaAdministracioninstalación.CrearReservaM(VRA.JDFechaIni.getJFormattedTextField().getText(),idInstalacion, (String)VRA.CBDesde.getSelectedItem(),(String)VRA.CBHasta.getSelectedItem());
 		ModeloReservaAdministracioninstalación.CrearResguardo(VRA.TFieldDni.getText(),(String)VRA.CBInstalaciones.getSelectedItem(),VRA.JDFechaIni.getJFormattedTextField().getText(),(String)VRA.CBDesde.getSelectedItem(), (String)VRA.CBHasta.getSelectedItem(), nombreSocio, apellidosSocio);
 		JOptionPane.showMessageDialog(null, "Reserva creada con exito","Correcto",JOptionPane.INFORMATION_MESSAGE);
 	}

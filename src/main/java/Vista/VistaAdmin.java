@@ -88,7 +88,7 @@ public class VistaAdmin {
 		frame.getContentPane().add(bResInstalacion);
 		
 		bReservarTodaUnaActividad = new JButton("Reservar toda una actividad");
-		bReservarTodaUnaActividad.setBounds(10, 228, 194, 21);
+		bReservarTodaUnaActividad.setBounds(10, 133, 194, 21);
 		frame.getContentPane().add(bReservarTodaUnaActividad);
 		
 		JBContabilidad = new JButton("Ver Contabilidad");
