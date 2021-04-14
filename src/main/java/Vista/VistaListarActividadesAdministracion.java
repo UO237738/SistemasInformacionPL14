@@ -147,14 +147,14 @@ public class VistaListarActividadesAdministracion {
 		int a = Integer.parseInt(f[0]);
 		int m = Integer.parseInt(f[1])-1;
 		int d = Integer.parseInt(f[2]);
-		this.JDFechaini.getModel().setDate(a, m, d);
+		this.JDFechaini.getModel().setDate(d, m, a);
 	}
 	
 	public String getJDFechafin() {
 		int d = this.JDFechafin.getModel().getDay();
 		int m = this.JDFechafin.getModel().getMonth()+1;
 		int y = this.JDFechafin.getModel().getYear();
-		String fechaFin = y + "-" + m + "-" + d;
+		String fechaFin = d + "-" + m + "-" + y;
 		return fechaFin;
 	}
 	public void setJDFechafin(String fechaFin) {
@@ -162,7 +162,7 @@ public class VistaListarActividadesAdministracion {
 		int a = Integer.parseInt(f[0]);
 		int m = Integer.parseInt(f[1])-1;
 		int d = Integer.parseInt(f[2]);
-		this.JDFechafin.getModel().setDate(a, m, d);
+		this.JDFechafin.getModel().setDate(d, m, a);
 	}
 	
 	public JTable getJTActiviades() {

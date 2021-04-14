@@ -31,10 +31,10 @@ INSERT INTO reservas (id_reserva, fechaIni, fechaFin, id_actividad, id_instalaci
 INSERT INTO reservas (id_reserva, fechaIni, fechaFin, id_actividad, id_instalacion, hora_ini, hora_fin,id_socio) VALUES (2, "01/03/2021", "01/04/2021", 1, 1, "9:00", "10:00",2);
 
 delete from contabilidad;
-INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (1,1,10, 'reserva piscina', 'pagado', '22/04/2021');
-INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (2,1,25, 'reserva campo de futbol', 'pendiente', '15/04/2021');
-INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (3,2,20, 'reserva pista de baloncesto', 'pendiente', '30/04/2021');
-INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (4,3,15, 'reserva pista de tennis', 'pagado', '18/04/2021');
+INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (1,1,10, 'reserva piscina', 'pagado', '2021-04-22');
+INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (2,1,25, 'reserva campo de futbol', 'pendiente', '2021-04-15');
+INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (3,2,20, 'reserva pista de baloncesto', 'pendiente', '2021-04-30');
+INSERT INTO contabilidad (id_contabilidad, id_socio, importe, descripcion, pendiente, fecha) VALUES (4,3,15, 'reserva pista de tennis', 'pagado', '2021-04-18');
 
 
 

@@ -37,7 +37,7 @@ public class ControladorListarActividadesAdministracion {
 	
 	public static String getFechaActual() {
 		Date ahora = new Date();
-		SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yyyy");
 		return formateador.format(ahora);
 	}
 	

@@ -39,20 +39,7 @@ public class ControladorAdministracionContabilidad {
 	}
 	
 
-	/*
-	public void mostrarPagado() {
-		String fechaInicio = getFechaActual();
-		Date fi = Util.isoStringToDate(fechaInicio);
-		
-		Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fi); // Configuramos la fecha que se recibe
-        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE)); 
-        Date ff = calendar.getTime(); // Devuelve el objeto Date con los nuevos días añadidos
-		
-		int Pagado = ModeloAdministracionContabilidad.CalcularPagado(fi, ff);
-		VAC.JLPagado.setText("Pagado: "+Pagado+" €");
-	}
-	*/
+
 	
 	public void mostrarPendiente() {
 		String fechaInicio = getFechaActual();
@@ -67,20 +54,6 @@ public class ControladorAdministracionContabilidad {
 		VAC.JLPendiente.setText("Pendiente: "+Pendiente+" €");
 	}	
 	
-	/*
-	public void mostrarTotal() {
-		String fechaInicio = getFechaActual();
-		Date fi = Util.isoStringToDate(fechaInicio);
-		
-		Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fi); // Configuramos la fecha que se recibe
-        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE)); 
-        Date ff = calendar.getTime(); // Devuelve el objeto Date con los nuevos días añadidos
-		
-		int Total = ModeloAdministracionContabilidad.CalcularTotal(fi, ff);
-		VAC.JLTotal.setText("Ingresos Totales: "+Total+" €");
-	}	
-	*/
 	
 	
 	public void mostrarContabilidad() {
@@ -160,4 +133,34 @@ public class ControladorAdministracionContabilidad {
 	
 	
 	
+	/*
+	public void mostrarPagado() {
+		String fechaInicio = getFechaActual();
+		Date fi = Util.isoStringToDate(fechaInicio);
+		
+		Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fi); // Configuramos la fecha que se recibe
+        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE)); 
+        Date ff = calendar.getTime(); // Devuelve el objeto Date con los nuevos días añadidos
+		
+		int Pagado = ModeloAdministracionContabilidad.CalcularPagado(fi, ff);
+		VAC.JLPagado.setText("Pagado: "+Pagado+" €");
+	}
+	*/
+	
+	
+	/*
+	public void mostrarTotal() {
+		String fechaInicio = getFechaActual();
+		Date fi = Util.isoStringToDate(fechaInicio);
+		
+		Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fi); // Configuramos la fecha que se recibe
+        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE)); 
+        Date ff = calendar.getTime(); // Devuelve el objeto Date con los nuevos días añadidos
+		
+		int Total = ModeloAdministracionContabilidad.CalcularTotal(fi, ff);
+		VAC.JLTotal.setText("Ingresos Totales: "+Total+" €");
+	}	
+	*/
 }
